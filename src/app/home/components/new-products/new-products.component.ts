@@ -1,0 +1,85 @@
+import { AfterViewInit, ChangeDetectorRef, Component, inject } from '@angular/core';
+import { IProduct } from '../../../shared/interfaces/product.interface';
+import { ProductService } from '../../../shared/services/product.service';
+import { UtilsService } from '../../../shared/services/utils.service';
+import brands_data from '../../../shared/data/brand-data';
+import { IBrand } from '../../../shared/interfaces/brand.interface';
+import { Autoplay, Navigation } from 'swiper/modules';
+import Swiper from 'swiper';
+
+@Component({
+  selector: 'app-new-products',
+  templateUrl: './new-products.component.html',
+  styleUrl: './new-products.component.scss'
+})
+export class NewProductsComponent implements AfterViewInit {
+  public brands: IBrand[] = brands_data;
+  public electronic_prd: IProduct[] = [];
+  private cdr: ChangeDetectorRef = inject(ChangeDetectorRef)
+  public productService: ProductService = inject(ProductService)
+  public utilsService: UtilsService = inject(UtilsService)
+  public activeTab = 'Todo';
+  public tabs = ['Todo', 'Dispositivos Móviles', 'Audio', 'Laptops', 'Gaming', 'Conectividad'];
+
+  constructor() {
+    this.productService.products.subscribe((products) => {
+      this.electronic_prd = products.filter((p) => p.productType === 'electronics');
+      this.filteredProducts = this.getFilteredProducts();
+    });
+  }
+
+  handleActiveTab(tab: string): void {
+    this.activeTab = tab;
+    this.filteredProducts = this.getFilteredProducts();
+    this.cdr.detectChanges();
+  }
+  filteredProducts = this.getFilteredProducts();
+  
+  getFilteredProducts(): IProduct[] {
+    if (this.activeTab === 'Todo') {
+      return this.electronic_prd.slice(0, 8);
+    } else if (this.activeTab === 'Dispositivos Móviles') {
+      return this.electronic_prd.filter((product) => product.featured);
+    } else if (this.activeTab === 'Audio') {
+      return this.electronic_prd
+        .slice()
+        .sort((a, b) => (b.sellCount ?? 0) - (a.sellCount ?? 0))
+        .slice(0, 8);
+    } else {
+      return [];
+    }
+  }
+  
+  ngAfterViewInit() {
+    
+    new Swiper('.tp-brand-1-slider-active', {
+      modules: [Navigation, Autoplay],
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: true,
+      },
+      loop: true,
+      spaceBetween: 0,
+      breakpoints: {
+        '1200': {
+          slidesPerView: 8,
+        },
+        '992': {
+          slidesPerView: 8,
+        },
+        '768': {
+          slidesPerView: 6,
+        },
+        '576': {
+          slidesPerView: 5,
+        },
+        '0': {
+          slidesPerView: 3,
+        },
+      },
+    });
+
+
+  }
+}
+

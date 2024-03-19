@@ -1,0 +1,54 @@
+<section class="mt-40 tp-collection-area">
+    <div class="container p-0">
+        <h3 class="ms-3 mb-20 th-subtitle">Productos destacados</h3>
+        <div class="row mx-0 p-0 mb-5 w-100">
+
+            <div class="col-12 col-lg-6 pt-25" style="min-height: 40rem;">
+                <div class="card p-relative z-index-1 fix rounded tp-collection-item" style="min-height: 40rem;">
+                    <div class="tp-collection-thumb include-bg include-bg transition-3 ms-0 ps-0 rounded-2 h-100 pb-30" style="background-image: url(../../../../assets/img/support_assets/Banner_Ofertas.webp); 
+                    min-height: 40rem;
+                    background-position: center;
+                    background-size: cover;">
+                    </div>
+
+                    <div class="tp-collection-content-4">
+                        <h1>
+                            <a [routerLink]="['/']">
+                                <span class="roboto-light-title-4">Conoce las <br></span>
+                                <span class="roboto-bold-title-4">mejores ofertas</span>
+                            </a>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+
+            @for (product of products; track $index) {
+
+            <div class="col-12 col-lg-6 pt-25">
+                <div class="card p-relative z-index-1 fix rounded tp-collection-item" style="min-height: 40rem;">
+                    <div class="tp-collection-thumb include-bg include-bg transition-3 ms-0 ps-0 rounded-2 h-100 pb-30" [style.background-color]="product.bgColor"
+                        [style.background-image]="'url(' + product.img + ')'"
+                        style="min-height: 40rem; background-position: center; background-size: cover;">
+
+                    </div>
+                    
+                    <div class="badge-new p-1">
+                        @if (product.discount > 0) {
+                        <span class="product-featured roboto-regular fw-light ">Destacado</span>
+                        }
+                    </div>
+
+                    <div class="product-info" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 30px;">
+                        <span class="fs-6 roboto-medium">
+                            {{product.title}} 
+                        </span> 
+                        <br>
+                        {{product.slug}}
+                    </div>
+                </div>
+            </div>
+            }
+
+        </div>
+    </div>
+</section>

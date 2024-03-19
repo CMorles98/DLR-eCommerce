@@ -1,0 +1,110 @@
+<section class="tp-product-area pb-55 mt-40">
+  <div class="container">
+    <div class="row align-items-end">
+      <div class="col-12">
+        <div class="tp-section-title-wrapper mb-40">
+          <h3 class="ms-3 th-subtitle">
+            Lo más nuevo en DLR
+          </h3>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="tp-product-tab mb-10 tp-tab d-flex justify-content-md-start ps-0 ms-0 ">
+          <ul class="nav nav-tabs justify-content-sm-start ps-0">
+            <li *ngFor="let tab of tabs; let i = index" class="nav-item">
+              <button class="nav-link roboto-regular" style="font-size: medium;"
+                [ngClass]="{ active: activeTab === tab }" (click)="handleActiveTab(tab)">
+                {{ tab }}
+              </button>
+            </li>
+          </ul>
+        </div>
+        <hr class="th-color-silver rounded w-100 mb-40 p-0" style="border-width: 5px;">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="tp-product-tab-content">
+          <div class="row">
+            @for (item of filteredProducts; track $index) {
+            <div class="col-xl-3 col-lg-3 col-sm-6">
+              <app-product-item-one [product]="item"></app-product-item-one>
+            </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="btn-botton-container w-100 text-center ">
+      <button class="btn btn-primary p-2 px-5 roboto-regular ">Ver más</button>
+    </div>
+  </div>
+</section>
+
+<section class="tp-collection-area pt-20 pb-30">
+  <div class="container px-0">
+    <div class="row gx-2 gy-2 gy-md-0">
+      <div class="col">
+        <div class="grey-bg p-relative z-index-1 fix rounded tp-collection-item" style="min-height: 450px !important;">
+          <div class="tp-collection-thumb responsive-thumb include-bg include-bg transition-3 me-3 ms-0" 
+          style="background-image: url(assets/img/support_assets/Banner_Tecnology.webp);">
+              </div>
+          <div class="tp-collection-content-3">
+            <h1>
+              <a [routerLink]="['/']">
+                <span class="roboto-light-title-2">
+                  En DLR®Tech, <br>
+                </span>
+                <span class="roboto-bold-title-2">
+                  encuentra tu 
+                  <br>
+                  tecnología ideal
+                </span>
+              </a>
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="brands mb-20">
+  <div class="container px-0">
+    <div class="card th-bg-dark-blue p-4 m-1">
+      <h3 class="text-light">
+        Ofertas en las mejores marcas
+      </h3>
+      <div class="card-sub-title roboto-thin text-light ">
+        Disfruta de hasta un 
+        <strong class="fw-light">
+          15% de descuento 
+        </strong> 
+        en marcas
+      </div>
+      
+    <section class="tp-brand-area pt-25">
+      <div class="row">
+          <div class="col-xl-12">
+              <div class="tp-brand-slider p-relative">
+                  <div class="tp-brand-1-slider-active swiper-container">
+                      <div class="swiper-wrapper" style="max-height: 100px !important;">
+
+                          <div *ngFor="let item of brands" class="swiper-slide text-center me-4">
+
+                              <div class="tp-ideal-item-2 w-img">
+                                  <div class="card p-0" style=" height: 80px;">
+                                      <img class="px-2 py-2 object-fit-contain w-100 bg-transparent" style="width: 80px; height:80px;"  [src]="item.logo" />
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+    </div>
+  </div>
+</section>

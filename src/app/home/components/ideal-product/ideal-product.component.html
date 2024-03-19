@@ -1,0 +1,101 @@
+<div class="container mt-40">
+    <h3 class="ms-3 th-subtitle">
+        Consigue tu producto ideal
+    </h3>
+
+    <section class="tp-brand-area pt-25">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="tp-brand-slider p-relative">
+                    <div class="tp-brand-slider-active swiper-container">
+                        <div class="swiper-wrapper" style="max-height: 100px !important;">
+
+                            <div *ngFor="let item of instagram_data" class="swiper-slide text-center me-4">
+
+                                <div class="tp-ideal-item-2 w-img">
+                                    <div class="card flex-row py-5 px-4" style="background-color: #EFEFEF; max-height: 100px;">
+                                        <img class="card-img-left img-fluid align-self-center" style="width: 40px; object-fit: contain; height: 40px;" [src]="item.img" />
+
+                                        <div class="card-body h-100 align-self-center ">
+                                            <h6 class="roboto-regular" style="line-height: 1;">{{item.title}}</h6>
+                                            <p class="card-text" style="line-height: 1;">{{item.subTitle}}</p>
+                                        </div>
+
+                                        <div class="tp-ideal-icon-2">
+                                            <a [href]="item.link" target="_blank" class="popup-image"><i class="fa-solid fa-link"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tp-brand-slider-arrow">
+                        <button class="tp-brand-slider-button-prev rounded-5">
+                            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button class="tp-brand-slider-button-next rounded-5">
+                            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+<section class="tp-collection-area pt-50">
+    <div class="container px-0">
+       <div class="row gx-2 gy-2 gy-md-0">
+          <div class="col-xl-6 col-md-6">
+             <div class="grey-bg p-relative z-index-1 fix rounded tp-collection-item" style="min-height: 350px !important;">
+                <div class="tp-collection-thumb include-bg include-bg transition-3 ms-0 ps-0" 
+                style="background-image: url(../../../../assets/img/support_assets/Banner_Dispositivos.webp);
+                max-height: 350px !important;"></div>
+                <div class="tp-collection-content">
+                   <h1>
+                      <a [routerLink]="['/']">
+                        <span class="roboto-light-title">
+                            Variedad en <br> 
+                        </span>
+                      <span class="roboto-bold-title">
+                          dispositivos <br> móviles
+                      </span> 
+                    </a>
+                   </h1>
+                      <a [routerLink]="['/']" class="btn btn-primary" role="button">
+                            Encuentra el tuyo
+                      </a>
+                </div>
+             </div>
+          </div>
+          <div class="col-xl-6 col-md-6">
+             <div class="grey-bg p-relative z-index-1 fix rounded tp-collection-item" style="min-height: 350px !important;">
+                <div class="tp-collection-thumb has-overlay include-bg transition-3 ms-0 ps-0" 
+                style="background-image: url(../../../../assets/img/support_assets/Banner_Airpods.webp);
+                max-height: 350px !important;">
+                </div>
+                <div class="tp-collection-content-1">
+                   <h1>
+                      <a [routerLink]="['/']">
+                        <span class="roboto-light-title">
+                            Enamórate <br> 
+                        </span>
+                        <span class="roboto-bold-title">
+                            del Sonido <br> envolvente
+                        </span>
+                    </a>
+                   </h1>
+                      <a [routerLink]="['/']" class="btn btn-primary float-end "  role="button">
+                         Encuentra el tuyo
+                      </a>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+  </section>
+</div>

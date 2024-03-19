@@ -1,0 +1,16 @@
+<ng-template #productModal id="productModal" class="modal fade tp-product-modal" let-modal>
+  <div class="modal-body modal-content modal-dialog py-0 my-0 border-0 ">
+    <div class="tp-product-modal-content d-lg-flex align-items-start">
+
+      <button
+      type="button"
+      class="close-btn"
+      aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <i class="fa-regular fa-xmark"></i>
+    </button>
+
+      <app-product-details-thumb [product]="utilsService.product" class="modal-thumb"></app-product-details-thumb>
+      <app-product-details-wrapper [product]="utilsService.product" [isShowBottom]="false" class="modal-wrapper" />
+
+    </div>
+  </div>
