@@ -81,23 +81,23 @@ export class IdealProductComponent {
         nextEl: '.tp-brand-slider-button-next',
         prevEl: '.tp-brand-slider-button-prev',
       },
-      // breakpoints: {
-      //   '1200': {
-      //     slidesPerView: 5,
-      //   },
-      //   '992': {
-      //     slidesPerView: 5,
-      //   },
-      //   '768': {
-      //     slidesPerView: 4,
-      //   },
-      //   '576': {
-      //     slidesPerView: 1,
-      //   },
-      //   '0': {
-      //     slidesPerView: 1,
-      //   },
-      // },
+      breakpoints: {
+        '1200': {
+          slidesPerView: 4,
+        },
+        '992': {
+          slidesPerView: 4,
+        },
+        '768': {
+          slidesPerView: 3,
+        },
+        '576': {
+          slidesPerView: 2,
+        },
+        '0': {
+          slidesPerView: 1,
+        },
+      },
     });
 
 
