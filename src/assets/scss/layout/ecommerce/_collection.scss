@@ -5,6 +5,7 @@
 /*----------------------------------------*/
 .responsive-thumb {
     @media #{$xs} {
+        background-color: #EFEFEF;
         background-position-x: 20%;
         min-height: 450px !important;
         background-position-x: -8% !important;
