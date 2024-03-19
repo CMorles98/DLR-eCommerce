@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { IProduct } from '../../../shared/interfaces/product.interface';
+import { UtilsService } from '../../../shared/services/utils.service';
 
 @Component({
   selector: 'app-featured-products',
@@ -7,6 +8,8 @@ import { IProduct } from '../../../shared/interfaces/product.interface';
   styleUrl: './featured-products.component.scss'
 })
 export class FeaturedProductsComponent {
+  public utilsService: UtilsService = inject(UtilsService)
+
   products: IProduct[] = [
     {
       id: "641e887d05f9ee1717e1348a",
