@@ -11,15 +11,14 @@
       <div class="col-12">
         <div class="tp-product-tab mb-10 tp-tab d-flex justify-content-md-start ps-0 ms-0 ">
           <ul class="nav nav-tabs justify-content-sm-start ps-0" style="place-content: center;">
-            <li *ngFor="let tab of tabs; let i = index" class="nav-item">
-              <button class="nav-link roboto-regular" style="font-size: medium;"
+            <li *ngFor="let tab of tabs; let i = index" class="nav-item border_animated" [ngClass]="{ 'item_selected': activeTab === tab }">
+              <a class="nav-link roboto-light mb-3 py-3" style="font-size: medium;" role="button"
                 [ngClass]="{ active: activeTab === tab }" (click)="handleActiveTab(tab)">
                 {{ tab }}
-              </button>
+              </a>
             </li>
           </ul>
         </div>
-        <hr class="th-color-silver rounded w-100 mb-40 p-0" style="border-width: 5px;">
       </div>
     </div>
     <div class="row">

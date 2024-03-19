@@ -1,5 +1,5 @@
 <ul>
-    <li *ngFor="let item of menu_data; let i = index" 
+    <li class="border_animated" *ngFor="let item of menu_data; let i = index" 
     [ngClass]="{'has-dropdown': item.drop_down, 'has-dropdown has-mega-menu': item.mega_menu}">
       <a [routerLink]="['/']">{{ item.title }}</a>
         

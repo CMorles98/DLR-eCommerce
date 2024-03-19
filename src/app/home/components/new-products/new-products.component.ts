@@ -55,7 +55,7 @@ export class NewProductsComponent implements AfterViewInit {
     new Swiper('.tp-brand-1-slider-active', {
       modules: [Navigation, Autoplay],
       autoplay: {
-        delay: 3000,
+        delay: 1500,
         disableOnInteraction: true,
       },
       loop: true,
