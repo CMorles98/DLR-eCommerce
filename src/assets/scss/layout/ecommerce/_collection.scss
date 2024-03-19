@@ -6,9 +6,9 @@
 .responsive-thumb {
     @media #{$xs} {
         background-color: #EFEFEF;
-        background-position-x: 20%;
         min-height: 450px !important;
-        background-position-x: -8% !important;
+        background-position-y: 8rem !important;
+        background-position-x: 2% !important;
     }
 }
 

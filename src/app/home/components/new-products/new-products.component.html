@@ -3,14 +3,14 @@
     <div class="row align-items-end">
       <div class="col-12">
         <div class="tp-section-title-wrapper mb-40">
-          <h3 class="ms-3 th-subtitle">
+          <h3 class="ms-sm-3 th-subtitle">
             Lo más nuevo en DLR
           </h3>
         </div>
       </div>
       <div class="col-12">
         <div class="tp-product-tab mb-10 tp-tab d-flex justify-content-md-start ps-0 ms-0 ">
-          <ul class="nav nav-tabs justify-content-sm-start ps-0">
+          <ul class="nav nav-tabs justify-content-sm-start ps-0" style="place-content: center;">
             <li *ngFor="let tab of tabs; let i = index" class="nav-item">
               <button class="nav-link roboto-regular" style="font-size: medium;"
                 [ngClass]="{ active: activeTab === tab }" (click)="handleActiveTab(tab)">

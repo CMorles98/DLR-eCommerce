@@ -7,6 +7,16 @@
 		display: none !important;
 	}
 }
+.text-xs-center{
+	@media #{$xs}{
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 0 !important;    
+		padding-right: 0;    
+		text-align: center !important;
+	}
+}
+
 .hero-img{
 	min-height: 40rem;
 	background-size: cover !important;
@@ -392,6 +402,11 @@
   }
 .th-subtitle {
 	color: #151749;
+	@media(#{$xs}){
+		padding: 0 !important;
+		margin: 0 !important;
+		text-align: center;
+	}
 }
 .text-theme-primary {
 	color: var(--tp-theme-primary);
