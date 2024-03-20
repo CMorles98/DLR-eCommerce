@@ -8,7 +8,7 @@ import { NiceSelectOption } from '../../../shared/interfaces/option.interface';
   styleUrl: './profile-tab.component.scss'
 })
 export class ProfileTabComponent {
-
+  pendingPurchases: number = 3
   profileImg: string | ArrayBuffer | null = null
 
   form: FormGroup = inject(FormBuilder).group({

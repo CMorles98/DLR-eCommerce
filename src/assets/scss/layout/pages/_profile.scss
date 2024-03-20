@@ -419,6 +419,10 @@
                     display: none;
                 }
                 & label{
+                    @media #{$xs} {
+                        right: inherit;
+                    }
+
                     justify-content: center;
                     text-align: center;
                     position: absolute;

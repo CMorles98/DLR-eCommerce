@@ -48,7 +48,7 @@
       <div *ngIf="cartService.getCartProducts().length === 0" class="cartmini__empty text-center">
         <img src="/assets/img/product/cartmini/empty-cart.png" alt="empty-cart-img" />
         <p>Tu carrito está vacio</p>
-        <a routerLink="/shop" class="tp-btn">Comprar</a>
+        <a routerLink="/" (click)="cartService.handleOpenCartSidebar()" class="roboto-light py-2 px-4 th-bg-primary text-light ">Comprar</a>
       </div>
     </div>
     <div *ngIf="cartService.getCartProducts().length > 0" class="cartmini__checkout">

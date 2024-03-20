@@ -1,33 +1,39 @@
 <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
     <div class="profile__main">
-        <div class="profile__main-top pb-40">
+        <div class="profile__main-top pb-20">
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="profile__main-inner d-flex flex-wrap align-items-center">
-                        <div class="profile__main-thumb">
+                        <div class="profile__main-thumb text-xs-center-original">
                             <img [src]="profileImg || '/assets/img/users/user-5.jpg'" alt="profile-img">
                             <div class="profile__main-thumb-edit">
                                 <input (change)="readImg($event)" id="profile-thumb-input" class="profile-img-popup" type="file" accept="image/png, image/gif, image/jpeg">
                                 <label for="profile-thumb-input"><i class="fa-light fa-camera"></i></label>
                             </div>
                         </div>
-                        <div class="profile__main-content">
-                            <h4 class="profile__main-title roboto-regular-title">Bienvenido
+                        <div class="profile__main-content text-xs-center-original">
+                            <h4 class="profile__main-title roboto-regular-title text-xs-center-original">
+                                Bienvenido
                                 Admin!
                             </h4>
-                            <p class="roboto-regular">
+                            <p class="roboto-regular text-xs-center-original">
                                 Tienes
                                 <span>
-                                    0
+                                    {{pendingPurchases}}
                                 </span>
-                                notificaciones
+                                @if (pendingPurchases != 1) {
+                                    Compras en progreso
+                                } 
+                                @else {
+                                    Compra en progreso
+                                }
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="profile__main-logout text-sm-end roboto-regular">
-                        <button class="roboto-regular tp-logout-btn rounded-3">
+                        <button class="roboto-regular tp-logout-btn rounded-3 text-xs-center-original">
                             Cerrar sesión
                         </button>
                     </div>
@@ -36,7 +42,7 @@
         </div>
         <div class="profile__main-info">
             <div class="row gx-3">
-                <h3 class="profile__info-title roboto-regular-title th-color-dark-blue">
+                <h3 class="profile__info-title roboto-regular-title th-color-dark-blue text-xs-center-original">
                     Información Personal</h3>
 
                 <div class="profile__info-content">
@@ -139,7 +145,7 @@
 
                             <div class="col-xl-12">
                                 <div class="btn-container text-end ">
-                                    <button type="submit" class="roboto-regular tp-save-btn rounded-3">Guardar Cambios</button>
+                                    <button type="submit" class="roboto-regular tp-save-btn rounded-3 text-xs-center-original ">Guardar Cambios</button>
                                 </div>
                             </div>
                         </div>

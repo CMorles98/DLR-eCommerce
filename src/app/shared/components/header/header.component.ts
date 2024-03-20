@@ -10,14 +10,13 @@ import { UtilsService } from '../../services/utils.service';
 })
 export class HeaderComponent {
   @Input() showSecondNavbar = false
-  public searchText: string = '';
-  public productType: string = '';
-  
   
   private router: Router = inject(Router)
   public cartService: CartService = inject(CartService)
   public utilsService: UtilsService = inject(UtilsService)
-
+  
+  public searchText: string = '';
+  public productType: string = '';
 
   constructor() { }
 

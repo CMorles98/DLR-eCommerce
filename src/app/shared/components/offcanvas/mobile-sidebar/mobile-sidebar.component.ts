@@ -1,7 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { IMobileType } from "../../../interfaces/menu.interface";
 import { UtilsService } from "../../../services/utils.service";
-import category_data from "../../../data/category-data";
+import { ICategory } from "../../../interfaces/category.interface";
 
 
 @Component({
@@ -13,17 +13,109 @@ export class MobileSidebarComponent {
 
   @Input () product_type!:string;
 
-  public mobile_menu: IMobileType[] = [];
+  public mobile_menu: IMobileType[] = [
+    
+    {
+      id:1,
+      link:'/',
+      title:'Ofertas Especiales',
+    },
+    {
+      id:2,
+      link:'/',
+      title:'Sobre DLR',
+    },
+    {
+      id:3,
+      link:'/',
+      title:'FAQ',
+    },
+    {
+      id:4,
+      link:'/',
+      title:'Contacto',
+    },
+  ];
+  
+ public categoryItems: ICategory[] = [
+
+  {
+    id: "641d424bdbfab7b02ab28b15",
+    parent: "Smartphones",
+    products: [
+      "641e887d05f9ee1717e1348a",
+      "641e887d05f9ee1717e1348f",
+      "641e887d05f9ee1717e13496"
+    ],
+  },
+  {
+    id: "6419723bd7dc5155c04330d4",
+    parent: "SmartWatches",
+    products: [
+      "641e887d05f9ee1717e1349a",
+      "641e887d05f9ee1717e1349f",
+      "641d4106dbfab7b02ab28b22"
+    ],
+  },
+  {
+    id: "6419723bd7dc5155c44350d5",
+    parent: "Audífonos",
+    products: [
+      "641e887d05f9ee1717e134ad",
+      "641e887d05f9ee1717e134b2"
+    ],
+  },
+  {
+    id: "641d424bdbfab7502ab28b95",
+    parent: "Laptops",
+    products: [
+      "641e887d05f9ee1717e1348a",
+      "641e887d05f9ee1717e1348f",
+      "641e887d05f9ee1717e13496"
+    ],
+  },
+  {
+    id: "6419723bd7dc6155c04350d4",
+    parent: "Cornetas",
+    products: [
+      "641e887d05f9ee1717e1349a",
+      "641e887d05f9ee1717e1349f",
+      "641d4106dbfab7b02ab28b22"
+    ],
+  },
+  {
+    id: "6419723bd7dc6155c14350d4",
+    parent: "Gaming",
+    products: [
+      "641e887d05f9ee1717e1349a",
+      "641e887d05f9ee1717e1349f",
+      "641d4106dbfab7b02ab28b22"
+    ],
+  },
+  {
+    id: "2419723bd7dc6155c14350d4",
+    parent: "Tablets",
+    products: [
+      "641e887d05f9ee1717e1349a",
+      "641e887d05f9ee1717e1349f",
+      "641d4106dbfab7b02ab28b22"
+    ],
+  },
+  {
+    id: "2419723bd7dc6155c14330d4",
+    parent: "Conectividad",
+    products: [
+      "641e887d05f9ee1717e1349a",
+      "641e887d05f9ee1717e1349f",
+      "641d4106dbfab7b02ab28b22"
+    ],
+  },
+ ]
+
   public isCategoryActive:boolean = false;
   public openCategory:string = '';
   public isActiveMenu:string = '';
   public isToggleActive:string = '';
-
-  filterCategories () {
-    return category_data.filter(
-      (c) => c.productType.toLowerCase() === this.product_type.toLowerCase()
-    );
-  }
 
   constructor(public utilsService:UtilsService) {}
 

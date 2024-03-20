@@ -8,7 +8,7 @@ import { Navigation, Pagination } from 'swiper/modules';
   styleUrl: './ideal-product.component.scss'
 })
 export class IdealProductComponent {
-  public instagram_data = [
+  public data = [
     {
       id: 1,
       link: '#',
