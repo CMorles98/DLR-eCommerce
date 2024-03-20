@@ -21,12 +21,13 @@
         </div>
       </div>
     </div>
+    
     <div class="row">
-      <div class="col-xl-12">
+      <div class="col-12">
         <div class="tp-product-tab-content">
           <div class="row">
-            @for (item of filteredProducts; track $index) {
-            <div class="col-xl-3 col-lg-3 col-sm-6">
+            @for (item of filteredProducts.slice(0, itemsToShow); track $index) {
+            <div class="col-xl-3 col-lg-3 col-sm-6 col-xs-6">
               <app-product-item-one [product]="item"></app-product-item-one>
             </div>
             }
@@ -35,7 +36,9 @@
       </div>
     </div>
     <div class="btn-botton-container w-100 text-center ">
-      <button class="btn btn-primary p-2 px-5 roboto-regular ">Ver más</button>
+      @if (itemsToShow < filteredProducts.length) {
+        <button (click)="showMoreItems()" class="btn btn-primary p-2 px-5 roboto-regular">Ver más</button>
+      }
     </div>
   </div>
 </section>

@@ -7,8 +7,7 @@
     @media #{$xs} {
         background-color: #EFEFEF;
         min-height: 450px !important;
-        background-position-y: 8rem !important;
-        background-position-x: 2% !important;
+        background-position-x: 43% !important;
     }
 }
 
@@ -226,8 +225,8 @@
             }
 
             @media #{$xs} {
-                top: 14%;
-                right: 15%;
+                top: 25%;
+                right: 5%;
             }
 
         }

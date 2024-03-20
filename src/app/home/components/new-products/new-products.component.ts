@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, inject } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, HostListener, OnInit, inject } from '@angular/core';
 import { IProduct } from '../../../shared/interfaces/product.interface';
 import { ProductService } from '../../../shared/services/product.service';
 import { UtilsService } from '../../../shared/services/utils.service';
@@ -12,7 +12,7 @@ import Swiper from 'swiper';
   templateUrl: './new-products.component.html',
   styleUrl: './new-products.component.scss'
 })
-export class NewProductsComponent implements AfterViewInit {
+export class NewProductsComponent implements AfterViewInit, OnInit {
   public brands: IBrand[] = brands_data;
   public electronic_prd: IProduct[] = [];
   private cdr: ChangeDetectorRef = inject(ChangeDetectorRef)
@@ -20,6 +20,9 @@ export class NewProductsComponent implements AfterViewInit {
   public utilsService: UtilsService = inject(UtilsService)
   public activeTab = 'Todo';
   public tabs = ['Todo', 'Dispositivos Móviles', 'Audio', 'Laptops', 'Gaming', 'Conectividad'];
+  public itemsToShow: number =  8;
+  public additionalItemsToShow: number = 4;
+  public innerWidth: any;
 
   constructor() {
     this.productService.products.subscribe((products) => {
@@ -27,17 +30,23 @@ export class NewProductsComponent implements AfterViewInit {
       this.filteredProducts = this.getFilteredProducts();
     });
   }
+  ngOnInit(): void {
+    if(window.innerWidth <= 768){
+      this.itemsToShow = 4;
+    };
+  }
 
   handleActiveTab(tab: string): void {
     this.activeTab = tab;
     this.filteredProducts = this.getFilteredProducts();
     this.cdr.detectChanges();
   }
+
   filteredProducts = this.getFilteredProducts();
-  
+
   getFilteredProducts(): IProduct[] {
     if (this.activeTab === 'Todo') {
-      return this.electronic_prd.slice(0, 8);
+      return this.electronic_prd.slice(0, 10);
     } else if (this.activeTab === 'Dispositivos Móviles') {
       return this.electronic_prd.filter((product) => product.featured);
     } else if (this.activeTab === 'Audio') {
@@ -49,9 +58,9 @@ export class NewProductsComponent implements AfterViewInit {
       return [];
     }
   }
-  
+
   ngAfterViewInit() {
-    
+
     new Swiper('.tp-brand-1-slider-active', {
       modules: [Navigation, Autoplay],
       autoplay: {
@@ -80,6 +89,9 @@ export class NewProductsComponent implements AfterViewInit {
     });
 
 
+  }
+  showMoreItems() {
+    this.itemsToShow += this.additionalItemsToShow;
   }
 }
 

@@ -70,7 +70,9 @@ li.border_animated a:hover:before
 	}
 	@media #{$xs}{    
 		background-size: cover;
-		background-position-x: 65%;
+		background-repeat: no-repeat;
+		background-position-x: 80%;
+		background-position-y: 12rem !important;
 	}
 }
 
@@ -90,7 +92,8 @@ li.border_animated a:hover:before
 		font-size: 2.5rem !important;
 	}
 	@media #{$xs}{
-		font-size: 3rem !important;
+		text-align: center;
+		font-size: 2rem !important;
 	}
 }
   
@@ -109,7 +112,8 @@ li.border_animated a:hover:before
 		font-size: 1rem !important;
 	}
 	@media #{$xs}{
-		font-size: 1.2rem !important;
+		text-align: center;
+		font-size: 1rem !important;
 	}
 }
 
@@ -147,7 +151,10 @@ li.border_animated a:hover:before
 		max-width: 50%; 
 	}
 	@media #{$xs}{
-		left: 40%;
+		left: 50%;
+		top: 20%;
+		margin-left: 0 auto;
+		width: 100%;
 		max-width: 100%; 
 	}
   }

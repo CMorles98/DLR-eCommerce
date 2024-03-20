@@ -15,6 +15,7 @@ import { ProductModalComponent } from './components/modals/product-modal/product
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { TopMenuSecondaryComponent } from './components/top-menu-secondary/top-menu-secondary.component';
 import { VideoPopapComponent } from './components/modals/video-popap/video-popap.component';
+import { BackToTopComponent } from './components/back-to-top/back-to-top.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { VideoPopapComponent } from './components/modals/video-popap/video-popap
     VideoPopapComponent,
     ProductDetailsThumbComponent,
     ProductDetailsWrapperComponent,
-    FooterOneComponent
+    FooterOneComponent,
+    BackToTopComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import { VideoPopapComponent } from './components/modals/video-popap/video-popap
     ProductItemOneComponent,
     ProductModalComponent,
     VideoPopapComponent,
-    FooterOneComponent
+    FooterOneComponent,
+    BackToTopComponent
   ]
 })
 export class SharedModule { }
