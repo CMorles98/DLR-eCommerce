@@ -1,4 +1,4 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, HostListener, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { UtilsService } from '../../services/utils.service';
@@ -12,11 +12,14 @@ export class HeaderComponent {
   @Input() showSecondNavbar = false
   public searchText: string = '';
   public productType: string = '';
+  
+  
+  private router: Router = inject(Router)
+  public cartService: CartService = inject(CartService)
+  public utilsService: UtilsService = inject(UtilsService)
 
-  constructor(
-    private router: Router,
-    public cartService: CartService,
-    public utilsService: UtilsService) { }
+
+  constructor() { }
 
   changeHandler(selectedOption: { value: string; text: string }) {
     this.productType = selectedOption.value;
