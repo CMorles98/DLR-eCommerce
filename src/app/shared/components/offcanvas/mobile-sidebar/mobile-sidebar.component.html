@@ -25,32 +25,12 @@
         Todas las categorias
       </button>
       <div class="tp-category-mobile-menu">
-        <!-- <nav [ngClass]="['tp-category-menu-content', isCategoryActive ? 'active' : '']">
-          <ul [ngClass]="isCategoryActive ? 'active' : ''">
-            <li *ngFor="let item of filterCategories()" class="has-dropdown">
-              <a class="cursor-pointer">
-                <span *ngIf="item.img">
-                  <img [src]="item.img" alt="cate img" style="width: 50px; height: 50px; object-fit: contain"/>
-                </span>
-                <span>{{ item.parent }}</span>
-                <button *ngIf="item.children" (click)="handleOpenSubCategory(item.parent)" class="dropdown-toggle-btn">
-                  <i class="fa-regular fa-angle-right"></i>
-                </button>
-              </a>
+        
 
-              <ul *ngIf="item.children" [ngClass]="['tp-submenu', openCategory === item.parent ? 'active' : '']">
-                <li *ngFor="let child of item.children">
-                  <a class="cursor-pointer">{{ child }}</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav> -->
+
       </div>
     </div>
-    <!-- mobile category end -->
     <div class="tp-main-menu-mobile fix d-lg-none mb-40">
-      <!-- mobile menus start -->
 
     <nav class="tp-main-menu-content">
       <ul *ngFor="let menu of mobile_menu">
@@ -110,8 +90,6 @@
         </li>
       </ul>
     </nav>
-
-      <!-- mobile menus end -->
     </div>
 
     <div class="offcanvas__contact align-items-center d-none">
@@ -128,41 +106,6 @@
     </div>
     <div class="offcanvas__btn">
       <a href="/contact" class="tp-btn-2 tp-btn-border-2">Contact Us</a>
-    </div>
-  </div>
-  <div class="offcanvas__bottom">
-    <div class="offcanvas__footer d-flex align-items-center justify-content-between">
-      <div class="offcanvas__currency-wrapper currency">
-        <span (click)="handleToggleActive('currency')" class="offcanvas__currency-selected-currency tp-currency-toggle"    id="tp-offcanvas-currency-toggle">
-          Currency : USD
-        </span>
-        <ul [ngClass]="['offcanvas__currency-list tp-currency-list',isToggleActive === 'currency' ? 'tp-currency-list-open' : '']"
-        >
-          <li>USD</li>
-          <li>ERU</li>
-          <li>BDT</li>
-          <li>INR</li>
-        </ul>
-      </div>
-      <div class="offcanvas__select language">
-        <div class="offcanvas__lang d-flex align-items-center justify-content-md-end">
-          <div class="offcanvas__lang-img mr-15">
-            <img src="/assets/img/icon/language-flag.png" alt="language-flag" />
-          </div>
-          <div class="offcanvas__lang-wrapper">
-            <span (click)="handleToggleActive('lang')" class="offcanvas__lang-selected-lang tp-lang-toggle" id="tp-offcanvas-lang-toggle">
-              English
-            </span>
-            <ul [ngClass]="['offcanvas__lang-list tp-lang-list',isToggleActive === 'lang' ? 'tp-lang-list-open' : '']"
-            >
-              <li>Spanish</li>
-              <li>Portugese</li>
-              <li>American</li>
-              <li>Canada</li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>
