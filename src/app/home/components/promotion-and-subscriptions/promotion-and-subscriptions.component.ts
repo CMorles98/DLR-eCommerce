@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NiceSelectOption } from '../../../shared/interfaces/option.interface';
 
 @Component({
   selector: 'app-promotion-and-subscriptions',
@@ -6,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './promotion-and-subscriptions.component.scss'
 })
 export class PromotionAndSubscriptionsComponent {
-
 }

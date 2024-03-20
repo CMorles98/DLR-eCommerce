@@ -8,7 +8,8 @@
                 <div class="pe-xl-1 col-xl-1 col-lg-2 col-md-2 col-6">
                     <div class="logo justify-content-start">
                         <a [routerLink]="['/']">
-                            <img src="assets/img/Logo_SVG/DLR Tech-Imagotipo Principal-Espacios Claros-RGB.svg" alt="logo" style="max-width: 9rem; height: 6rem">
+                            <img src="assets/img/Logo_SVG/DLR Tech-Imagotipo Principal-Espacios Claros-RGB.svg"
+                                alt="logo" style="max-width: 9rem; height: 6rem">
                         </a>
                     </div>
                 </div>
@@ -98,6 +99,8 @@
             </div>
         </div>
 
+        @if (showSecondNavbar) {
+
         <div class="tp-header-bottom tp-header-bottom-border d-none d-lg-block mx-4 my-0 p-0 ps-2">
             <div class="tp-mega-menu-wrapper p-relative">
                 <div class="row align-items-center">
@@ -114,7 +117,7 @@
                     <div class="col-xl-3 col-lg-3 px-0">
 
                         <div class="tp-header-login d-none d-lg-block justify-content-end me-2">
-                            <a [routerLink]="['/']" class="d-flex align-items-center justify-content-end">
+                            <a [routerLink]="['/profile']" class="d-flex align-items-center justify-content-end">
 
                                 <div class="tp-header-login-icon justify-content-end">
                                     <span class="m-0 border-0 ">
@@ -140,6 +143,7 @@
                 </div>
             </div>
         </div>
+        }
     </div>
 </header>
 
@@ -151,7 +155,8 @@
             <div class="pe-xl-1 col-xl-1 col-lg-2 col-md-2 col-6">
                 <div class="logo justify-content-start ">
                     <a [routerLink]="['/']">
-                        <img src="assets/img/Logo_SVG/DLR Tech-Imagotipo Principal-Espacios Claros-RGB.svg" alt="logo" style="max-width: 9rem; height: 6rem">
+                        <img src="assets/img/Logo_SVG/DLR Tech-Imagotipo Principal-Espacios Claros-RGB.svg" alt="logo"
+                            style="max-width: 9rem; height: 6rem">
                     </a>
                 </div>
             </div>
@@ -240,6 +245,7 @@
         </div>
     </div>
 
+    @if (showSecondNavbar) {
     <div class="tp-header-bottom tp-header-bottom-border d-none d-lg-block mx-4 my-0 p-0 ps-2">
         <div class="tp-mega-menu-wrapper p-relative">
             <div class="row align-items-center">
@@ -256,7 +262,7 @@
                 <div class="col-xl-3 col-lg-3 px-0">
 
                     <div class="tp-header-login d-none d-lg-block justify-content-end me-2">
-                        <a [routerLink]="['/']" class="d-flex align-items-center justify-content-end">
+                        <a [routerLink]="['/profile']" class="d-flex align-items-center justify-content-end">
 
                             <div class="tp-header-login-icon justify-content-end">
                                 <span class="m-0 border-0 ">
@@ -282,7 +288,7 @@
             </div>
         </div>
     </div>
-
+    }
 </div>
 
 <!-- cart sidebar start -->

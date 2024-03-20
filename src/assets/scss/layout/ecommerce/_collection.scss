@@ -6,8 +6,11 @@
 .responsive-thumb {
     @media #{$xs} {
         background-color: #EFEFEF;
-        min-height: 450px !important;
-        background-position-x: 43% !important;
+        height: 100px !important;
+        background-position-x: 20% !important;
+        background-size: contain !important;
+        opacity: 0.8;
+        // background-position-y: 10rem !important;
     }
 }
 
@@ -225,8 +228,17 @@
             }
 
             @media #{$xs} {
-                top: 25%;
-                right: 5%;
+                top: 30%;
+
+                left: auto;
+                right: auto;
+                width: 100%;
+                align-self: center;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 10px;
             }
 
         }

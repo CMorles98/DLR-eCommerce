@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -16,6 +16,8 @@ import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { TopMenuSecondaryComponent } from './components/top-menu-secondary/top-menu-secondary.component';
 import { VideoPopapComponent } from './components/modals/video-popap/video-popap.component';
 import { BackToTopComponent } from './components/back-to-top/back-to-top.component';
+import { NiceSelectComponent } from './components/nice-select/nice-select.component';
+import { GetProductNamesPipe } from './pipes/get-product-names.pipe';
 
 @NgModule({
   declarations: [
@@ -31,11 +33,15 @@ import { BackToTopComponent } from './components/back-to-top/back-to-top.compone
     ProductDetailsThumbComponent,
     ProductDetailsWrapperComponent,
     FooterOneComponent,
-    BackToTopComponent
+    BackToTopComponent,
+    NiceSelectComponent,
+    GetProductNamesPipe
   ],
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   exports: [
@@ -44,7 +50,11 @@ import { BackToTopComponent } from './components/back-to-top/back-to-top.compone
     ProductModalComponent,
     VideoPopapComponent,
     FooterOneComponent,
-    BackToTopComponent
+    BackToTopComponent,
+    NiceSelectComponent,
+    ReactiveFormsModule,
+    FormsModule,
+    GetProductNamesPipe
   ]
 })
 export class SharedModule { }

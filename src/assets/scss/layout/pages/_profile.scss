@@ -419,15 +419,16 @@
                     display: none;
                 }
                 & label{
+                    justify-content: center;
+                    text-align: center;
                     position: absolute;
                     bottom: 8px;
                     right: 8px;
                     color: var(--tp-common-white);
-                    width: 30px;
-                    height: 30px;
+                    width: 35px;
+                    height: 35px;
                     line-height: 24px;
                     border: 2px solid var(--tp-common-white);
-                    text-align: center;
                     background-color: var(--tp-theme-primary);
                     border-radius: 50%;
                     @extend %tp-transition;
@@ -438,8 +439,7 @@
                     }
 
                     & i{
-                        margin-left: 2px;
-
+                        padding-top: 0.5rem;
                     }
                     &:hover{
                         cursor: pointer;
@@ -594,6 +594,23 @@
         background-color: var(--tp-theme-primary);
         border-color: var(--tp-theme-primary);
         color: var(--tp-common-white);
+    }
+}
+
+.tp-save-btn{
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--tp-common-white);
+    padding: 6px 18px;
+    border: 1px solid rgba($color: $black, $alpha: .12);
+    text-align: center;
+    background-color: var(--tp-theme-primary);
+    
+    &:hover{
+        background-color: var(--tp-common-white);
+        border-color: var(--tp-theme-primary);
+        color: var(--tp-common-black);
     }
 }
 

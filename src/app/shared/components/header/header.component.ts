@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { UtilsService } from '../../services/utils.service';
@@ -9,6 +9,7 @@ import { UtilsService } from '../../services/utils.service';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  @Input() showSecondNavbar = false
   public searchText: string = '';
   public productType: string = '';
 

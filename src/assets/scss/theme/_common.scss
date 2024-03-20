@@ -164,6 +164,9 @@ li.border_animated a:hover:before
 .th-bg-dark-blue {
 	background-color: rgb(21 23 73 /1);
 }
+.th-color-dark-blue {
+	color: rgb(21 23 73 /1);
+}
 .th-border-secondary {
 	border-color: var(--tp-theme-secondary);
 }
@@ -216,7 +219,7 @@ li.border_animated a:hover:before
   }
   .roboto-light-title {
 	
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto", sans-serif; 
     font-weight: 300;
 	font-size: 3rem;
     font-style: normal;
@@ -556,6 +559,54 @@ li.border_animated a:hover:before
 		}
 		& svg{
 			@extend %tp-svg-y-3;
+			cursor: text;
+		}
+	}
+	&-2 {
+		@extend.th-input-icon-container;
+		
+		& button{
+			position: absolute;
+			width: 10px;
+			top: 57px;
+			left: 1.5rem;
+			opacity: 0.7;
+			@include transform(translateY(-50%));
+			font-size: 24px;
+
+			&:hover{
+				color: var(--tp-theme-secondary);
+			}
+			& svg{
+				cursor: text;
+				@extend %tp-svg-y-3;
+			}
+		}
+		& .button-2 {
+			transition: none;
+			position: absolute;
+			width: 10px;
+			top: 57px;
+			left: 53%;
+			opacity: 0.7;
+			@include transform(translateY(-50%));
+			font-size: 24px;
+
+			&:hover{
+				color: var(--tp-theme-secondary);
+			}
+			& svg{
+				cursor: text;
+				@extend %tp-svg-y-3;
+			}
+			@media #{$xs}{
+				left: 1.5rem;
+				top: 85%;
+			}
+			@media #{$sm, $md, $lg, $xl}{
+				left: 55%;
+				top: 72%;
+			}
 		}
 	}
 }
