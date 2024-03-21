@@ -48,7 +48,7 @@
       <div *ngIf="cartService.getCartProducts().length === 0" class="cartmini__empty text-center">
         <img src="/assets/img/product/cartmini/empty-cart.png" alt="empty-cart-img" />
         <p>Tu carrito está vacio</p>
-        <a routerLink="/" (click)="cartService.handleOpenCartSidebar()" class="roboto-light py-2 px-4 th-bg-primary text-light rounded-3 ">Comprar</a>
+        <a routerLink="/" (click)="cartService.handleOpenCartSidebar()" class="roboto-regular tp-save-btn rounded-3 text-xs-center-original w-75 py-2">Comprar</a>
       </div>
     </div>
     <div *ngIf="cartService.getCartProducts().length > 0" class="cartmini__checkout">
@@ -57,8 +57,8 @@
         <span>${{ cartService.totalPriceQuantity().total.toFixed(2) }}</span>
       </div>
       <div class="cartmini__checkout-btn">
-        <a routerLink="/pages/cart" (click)="cartService.handleOpenCartSidebar()" class="tp-btn mb-10 w-100">Ver carrito</a>
-        <a routerLink="/pages/checkout" (click)="cartService.handleOpenCartSidebar()" class="tp-btn tp-btn-border w-100">checkout</a>
+        <a routerLink="/pages/cart" (click)="cartService.handleOpenCartSidebar()" class="roboto-regular tp-logout-btn rounded-3 text-xs-center-original w-100 py-2 w-100 mb-2">Ver carrito</a>
+        <a routerLink="/pages/checkout" (click)="cartService.handleOpenCartSidebar()" class="roboto-regular tp-save-btn rounded-3 text-xs-center-original w-100 py-2">Checkout</a>
       </div>
     </div>
   </div>
