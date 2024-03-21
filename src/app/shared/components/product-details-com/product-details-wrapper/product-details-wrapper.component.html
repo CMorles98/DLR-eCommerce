@@ -14,8 +14,6 @@
         <span><i class="fa-solid fa-star"></i></span>
         <span><i class="fa-solid fa-star"></i></span>
         <span><i class="fa-solid fa-star"></i></span>
-        <span><i class="fa-solid fa-star"></i></span>
-        <span><i class="fa-solid fa-star"></i></span>
       </div>
       <div class="tp-product-details-reviews">
         <span>({{ product.reviews?.length }} Reviews)</span>
@@ -64,18 +62,18 @@
   </div>
 
   <!-- product countdown start -->
-  <div *ngIf="product?.offerDate?.endDate">
+  <!-- <div *ngIf="product?.offerDate?.endDate">
     <div class="tp-product-details-countdown d-flex align-items-center justify-content-between flex-wrap mt-25 mb-25">
     <h4 class="tp-product-details-countdown-title">
       <i class="fa-solid fa-fire-flame-curved"></i> Flash Sale end in:
-    </h4>
+    </h4> -->
     <!-- <div
       class="tp-product-details-countdown-time"
     >
       <app-countdown-timer [date]="product.offerDate?.endDate!"></app-countdown-timer>
     </div> -->
-  </div>
-  </div>
+  <!-- </div>
+  </div> -->
   <!-- product countdown end -->
 
   <!-- actions -->
@@ -99,10 +97,11 @@
           </div>
        </div>
        <div class="tp-product-details-add-to-cart mb-15 w-100">
-          <button (click)="cartService.addCartProduct(product)" class="tp-product-details-add-to-cart-btn w-100">Agregar al Carrito</button>
+          <button (click)="cartService.addCartProduct(product)" 
+          class="roboto-regular tp-logout-btn rounded-3 text-xs-center-original w-100 py-2 w-100 ">Agregar al Carrito</button>
        </div>
     </div>
-    <a [routerLink]="['/']" class="tp-product-details-buy-now-btn w-100 text-center">Comprar Ahora</a>
+    <a [routerLink]="['/']" class="roboto-regular tp-save-btn rounded-3 text-xs-center-original w-100 py-2">Comprar Ahora</a>
  </div>
 
  <div *ngIf="isShowBottom">

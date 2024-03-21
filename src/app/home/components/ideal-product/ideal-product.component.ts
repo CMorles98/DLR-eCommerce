@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
 @Component({
   selector: 'app-ideal-product',
@@ -8,6 +8,7 @@ import { Navigation, Pagination } from 'swiper/modules';
   styleUrl: './ideal-product.component.scss'
 })
 export class IdealProductComponent {
+
   public data = [
     {
       id: 1,
@@ -70,8 +71,12 @@ export class IdealProductComponent {
   ngAfterViewInit() {
     
     new Swiper('.tp-brand-slider-active', {
-      modules: [Pagination, Navigation],
+      modules: [Pagination, Navigation, Autoplay],
       loop: true,
+      autoplay: {
+        delay: 1500,
+        disableOnInteraction: true
+      },
       spaceBetween: 0,
       pagination: {
         el: '.tp-brand-slider-dot',

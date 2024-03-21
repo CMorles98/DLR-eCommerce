@@ -612,9 +612,8 @@
     background-color: var(--tp-theme-primary);
     
     &:hover{
-        background-color: var(--tp-common-white);
-        border-color: var(--tp-theme-primary);
-        color: var(--tp-common-black);
+        background-color: #0069FF;
+        color: var(--tp-common-white);
     }
 }
 
