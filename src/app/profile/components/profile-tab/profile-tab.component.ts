@@ -1,20 +1,27 @@
-import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit, inject } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NiceSelectOption } from '../../../shared/interfaces/option.interface';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'app-profile-tab',
   templateUrl: './profile-tab.component.html',
   styleUrl: './profile-tab.component.scss'
 })
-export class ProfileTabComponent {
-  pendingPurchases: number = 3
-  profileImg: string | ArrayBuffer | null = null
+export class ProfileTabComponent implements OnInit {
+  
+    private userService = inject(UserService)
+    pendingPurchases: number = 3
+    profileImg: string | ArrayBuffer | null = null
+  
+  ngOnInit(): void {
+    
+  }
 
   form: FormGroup = inject(FormBuilder).group({
-    name: '',
-    email: '',
+    name: ['', [Validators.required]],
     phone: '',
+    email: 'kirito@gmail.com',
     address: '',
     gender: ''
   }) 

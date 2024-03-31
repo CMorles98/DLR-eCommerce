@@ -19,7 +19,7 @@ import { OrdersTabComponent } from './components/orders-tab/orders-tab.component
     CommonModule,
     ProfileRoutingModule,
     SharedModule,
-    NgbNavModule, 
+    NgbNavModule 
   ]
 })
 export class ProfileModule { }

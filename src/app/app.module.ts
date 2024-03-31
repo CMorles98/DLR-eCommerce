@@ -7,6 +7,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from './shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
+    HttpClientModule,
     NgxSpinnerModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 3000,
