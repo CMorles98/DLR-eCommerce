@@ -1,7 +1,8 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, inject } from "@angular/core";
 import { IMobileType } from "../../../interfaces/menu.interface";
 import { UtilsService } from "../../../services/utils.service";
 import { ICategory } from "../../../interfaces/category.interface";
+import { AuthService } from "../../../services/auth.service";
 
 
 @Component({
@@ -12,6 +13,7 @@ import { ICategory } from "../../../interfaces/category.interface";
 export class MobileSidebarComponent {
 
   @Input () product_type!:string;
+  authService: AuthService = inject(AuthService)
 
   public mobile_menu: IMobileType[] = [
     

@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { NiceSelectOption } from '../../../shared/interfaces/option.interface';
 import { UserService } from '../../../shared/services/user.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../../../shared/services/auth.service';
 
 @Component({
   selector: 'app-profile-tab',
@@ -10,7 +11,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class ProfileTabComponent implements OnInit {
   
-    private userService = inject(UserService)
+    userService: UserService = inject(UserService)
+    authService: AuthService = inject(AuthService)
 
     pendingPurchases: number = 3
     profileImg: string | ArrayBuffer | null = null
@@ -29,6 +31,11 @@ export class ProfileTabComponent implements OnInit {
     }) 
     
     ngOnInit(): void {
+
+      this.userService.getUserDataById().subscribe(user => {
+        this.form.setValue(user)
+      })
+
     }
     
 

@@ -32,9 +32,12 @@
                 </div>
                 <div class="col-md-6">
                     <div class="profile__main-logout text-sm-end roboto-regular">
-                        <button class="roboto-regular tp-logout-btn rounded-3 text-xs-center-original">
+                        <a role="button" 
+                        (click)="authService.logout()" 
+                        [routerLink]="['/']"
+                        class="roboto-regular tp-logout-btn rounded-3 text-xs-center-original">
                             Cerrar sesión
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>

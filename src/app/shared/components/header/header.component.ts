@@ -2,6 +2,7 @@ import { Component, HostListener, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { UtilsService } from '../../services/utils.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -12,13 +13,13 @@ export class HeaderComponent {
   @Input() showSecondNavbar = false
   
   private router: Router = inject(Router)
-  public cartService: CartService = inject(CartService)
-  public utilsService: UtilsService = inject(UtilsService)
-  
-  public searchText: string = '';
-  public productType: string = '';
+  cartService: CartService = inject(CartService)
+  utilsService: UtilsService = inject(UtilsService)
+  authService: AuthService = inject(AuthService)
 
-  constructor() { }
+  searchText: string = '';
+  productType: string = '';
+
 
   changeHandler(selectedOption: { value: string; text: string }) {
     this.productType = selectedOption.value;

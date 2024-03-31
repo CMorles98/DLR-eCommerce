@@ -35,7 +35,7 @@ import { GetProductNamesPipe } from './pipes/get-product-names.pipe';
     FooterOneComponent,
     BackToTopComponent,
     NiceSelectComponent,
-    GetProductNamesPipe
+    GetProductNamesPipe,
   ],
   imports: [
     CommonModule,
