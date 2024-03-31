@@ -1,9 +1,9 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { AuthResponse } from '../../auth/interfaces/auth-response.interface';
+import * as jwt_decode from "jwt-decode";
+
 
 @Injectable({
   providedIn: 'root',
@@ -23,15 +23,24 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('jwt_token');
+    localStorage.removeItem('token');
   }
 
   getToken(): string {
-    return localStorage.getItem('jwt_token') || '';
+    return localStorage.getItem('token') || '';
   }
 
   isLoggedIn(): boolean {
     const token = this.getToken();
     return !!token;
+  }
+
+  getDecodedAccessToken(): any {
+    try {
+      const token = this.getToken()
+      return jwt_decode.jwtDecode(token);
+    } catch(Error) {
+      return null;
+    }
   }
 }

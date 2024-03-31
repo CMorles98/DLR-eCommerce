@@ -24,16 +24,20 @@ export class ProfileTabComponent implements OnInit {
     
     form: FormGroup = inject(FormBuilder).group({
       name: [undefined, [Validators.required]],
-      phone: [undefined, [Validators.required]],
-      email: ['kirito@gmail.com', [Validators.required]],
+      phoneNumber: [undefined, [Validators.required]],
+      email: [undefined, [Validators.required]],
       gender: [undefined, [Validators.required]],
       address: undefined,
     }) 
     
     ngOnInit(): void {
 
-      this.userService.getUserDataById().subscribe(user => {
-        this.form.setValue(user)
+      const { id } = this.authService.getDecodedAccessToken()
+
+      this.userService.getUserDataById(id)
+      .subscribe(user => {
+        const { name, phoneNumber, email, gender, address } = user;
+        this.form.patchValue({ name, phoneNumber, email, gender, address })
       })
 
     }

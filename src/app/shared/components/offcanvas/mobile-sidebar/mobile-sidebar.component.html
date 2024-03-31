@@ -73,9 +73,9 @@
           Ver Perfil
         </a>
 
-        <button (click)="authService.logout()" class="roboto-light w-100 th-color-primary text-center fs-6">
+        <a role="button" [routerLink]="['/']" (click)="authService.logout()" class="roboto-light w-100 th-color-primary text-center fs-6">
           Cerrar Sesión
-        </button>
+        </a>
 
       </div>
     </div>

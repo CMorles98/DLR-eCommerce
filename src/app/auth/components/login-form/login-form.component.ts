@@ -48,7 +48,7 @@ export class LoginFormComponent implements AfterViewInit {
     .pipe(finalize(() => this.spinner.hide()))
     .subscribe({
       next(value) {
-        localStorage.setItem('jwt_token', value.token)
+        localStorage.setItem('token', value.token)
       },
       complete: () => {
         this.router.navigateByUrl('/')

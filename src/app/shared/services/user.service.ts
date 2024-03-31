@@ -10,13 +10,11 @@ import { User } from '../../profile/interfaces/user.interface';
 export class UserService {
 
   private httpClient = inject(HttpClient)
-  private baseUrl = environment.baseUrl
+  private baseUrl = `${environment.baseUrl}/v1/users`
   
 
-  constructor() { }
-
-  getUserDataById(): Observable<User>{
-    return this.httpClient.get<User>(`${this.baseUrl}/api/v1/users/${'7693ced0-59b9-41ba-82e1-9194264b82b8'}`)
+  getUserDataById(id: string): Observable<User>{
+    return this.httpClient.get<User>(`${this.baseUrl}/${id}`)
   }
 
 }

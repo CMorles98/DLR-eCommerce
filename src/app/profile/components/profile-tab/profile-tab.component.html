@@ -13,7 +13,7 @@
                         </div>
                         <div class="profile__main-content text-xs-center-original">
                             <h4 class="profile__main-title roboto-regular-title text-xs-center-original">
-                                ¡Bienvenido, Admin!
+                                ¡Bienvenido, {{ form.get('name')?.value | titlecase }}!
                             </h4>
                             <p class="roboto-regular text-xs-center-original">
                                 Tienes
@@ -100,7 +100,7 @@
                             <div class="col-xxl-6 col-md-6">
                                 <div class="profile__input-box">
                                     <div class="profile__input">
-                                        <input class="roboto-light rounded-3" type="text" placeholder="Ej: 0424 222 2222" formControlName="phone">
+                                        <input class="roboto-light rounded-3" type="text" placeholder="Ej: 0424 222 2222" formControlName="phoneNumber">
                                         <span>
                                             <svg width="15" height="18" viewBox="0 0 15 18" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
