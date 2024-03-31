@@ -150,7 +150,10 @@
 
                             <div class="col-xl-12">
                                 <div class="btn-container text-end ">
-                                    <button type="submit" class="roboto-regular tp-save-btn rounded-3 text-xs-center-original ">Guardar Cambios</button>
+                                    <button type="submit"
+                                    [disabled]="!form.valid" 
+                                    class="roboto-regular tp-save-btn rounded-3 text-xs-center-original ">
+                                    Guardar Cambios</button>
                                 </div>
                             </div>
                         </div>

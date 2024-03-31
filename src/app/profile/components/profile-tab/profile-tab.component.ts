@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NiceSelectOption } from '../../../shared/interfaces/option.interface';
-import { UserService } from '../../service/user.service';
+import { UserService } from '../../../shared/services/user.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-tab',
@@ -11,32 +11,33 @@ import { UserService } from '../../service/user.service';
 export class ProfileTabComponent implements OnInit {
   
     private userService = inject(UserService)
+
     pendingPurchases: number = 3
     profileImg: string | ArrayBuffer | null = null
   
-  ngOnInit(): void {
+    public genderSelectOptions: NiceSelectOption[] = [
+      { value: 'hombre', text: 'Hombre' },
+      { value: 'mujer', text: 'Mujer' },
+    ];
     
-  }
-
-  form: FormGroup = inject(FormBuilder).group({
-    name: ['', [Validators.required]],
-    phone: '',
-    email: 'kirito@gmail.com',
-    address: '',
-    gender: ''
-  }) 
-  
-  public genderSelectOptions: NiceSelectOption[] = [
-    { value: 'hombre', text: 'Hombre' },
-    { value: 'mujer', text: 'Mujer' },
-  ];
+    form: FormGroup = inject(FormBuilder).group({
+      name: [undefined, [Validators.required]],
+      phone: [undefined, [Validators.required]],
+      email: ['kirito@gmail.com', [Validators.required]],
+      gender: [undefined, [Validators.required]],
+      address: undefined,
+    }) 
+    
+    ngOnInit(): void {
+    }
+    
 
   changeHandler(selectedOption: NiceSelectOption) {
-    console.log('Selected option:', selectedOption);
+    this.form.get('gender')?.setValue(selectedOption.value)
   }
 
   saveChanges() {
-    console.log('submit')
+    const value = this.form.value;
   }
 
   readImg(event: any): void {

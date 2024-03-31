@@ -610,10 +610,14 @@
     border: 1px solid rgba($color: $black, $alpha: .12);
     text-align: center;
     background-color: var(--tp-theme-primary);
-    
+    opacity: 1;
     &:hover{
         color: var(--tp-common-white);
     }
+}
+.tp-save-btn:disabled {
+    opacity: 0.7 !important;
+    cursor: inherit;
 }
 
 .#{$theme-prifix}-profile{
