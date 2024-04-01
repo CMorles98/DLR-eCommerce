@@ -110,9 +110,4 @@ export class UtilsService {
       product_modal.style.display = 'none';
     }
   }
-
-  getLocation(latitude: number, longitude: number){
-    const apiKey = environment.apiKey
-    return this.http.get(`https://places.googleapis.com/v1/places/GyuEmsRBfy61i59si0?fields=addressComponents&key=${apiKey}`)
-  }
 }

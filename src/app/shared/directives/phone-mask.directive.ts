@@ -8,7 +8,7 @@ export class PhoneMaskDirective implements OnInit, OnDestroy {
 
   private _phoneControl!: AbstractControl;
   private _preValue!: string;
-  private renderer: Renderer2 = inject(Renderer2)
+  private renderer: Renderer2;
 
   @Input()
   set phoneControl(control: AbstractControl) {
@@ -21,6 +21,10 @@ export class PhoneMaskDirective implements OnInit, OnDestroy {
 
   private sub: any;
 
+  constructor(renderer: Renderer2) {
+    this.renderer = renderer;
+  }
+
   ngOnInit() {
     this.phoneValidate();
   }
@@ -30,18 +34,16 @@ export class PhoneMaskDirective implements OnInit, OnDestroy {
   }
 
   phoneValidate() {
-
-    if(!this._preValue) return;
     this.sub = this._phoneControl.valueChanges.subscribe(data => {
 
       let preInputValue: string = this._preValue;
-      var lastChar: string = preInputValue.substr(preInputValue.length - 1);
-      var newVal = data.replace(/\D/g, '');
+      var lastChar: string = preInputValue?.substr(preInputValue.length - 1);
+      var newVal = data?.replace(/\D/g, '');
 
       let start = this.renderer.selectRootElement('#tel').selectionStart;
       let end = this.renderer.selectRootElement('#tel').selectionEnd;
 
-      if (data.length < preInputValue.length) {
+      if (data?.length < preInputValue?.length) {
         if (preInputValue.length < start) {
           if (lastChar == ')') {
             newVal = newVal.substr(0, newVal.length - 1);
@@ -61,18 +63,19 @@ export class PhoneMaskDirective implements OnInit, OnDestroy {
         this._phoneControl.setValue(newVal, { emitEvent: false });
         this.renderer.selectRootElement('#tel').setSelectionRange(start, end);
       } else {
-        let removedD = data.charAt(start);
-        if (newVal.length == 0) {
+        let removedD = data?.charAt(start);
+        if (newVal?.length == 0) {
           newVal = '';
         }
-        else if (newVal.length <= 3) {
+        else if (newVal?.length <= 3) {
           newVal = newVal.replace(/^(\d{0,3})/, '($1)');
-        } else if (newVal.length <= 6) {
+        } else if (newVal?.length <= 6) {
           newVal = newVal.replace(/^(\d{0,3})(\d{0,3})/, '($1) $2');
         } else {
+          if(newVal)
           newVal = newVal.replace(/^(\d{0,3})(\d{0,3})(.*)/, '($1) $2-$3');
         }
-        if (preInputValue.length >= start) {
+        if (preInputValue?.length >= start) {
           if (removedD == '(') {
             start = start + 1;
             end = end + 1;

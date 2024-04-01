@@ -15,7 +15,7 @@ import { User } from '../../interfaces/user.interface';
   styleUrl: './profile-tab.component.scss'
 })
 export class ProfileTabComponent implements OnInit, AfterViewInit {
-  pendingPurchases: number = 3
+  pendingPurchases: number = 1
   profileImg: ArrayBuffer | string | null = null
   lastFile: File | undefined
   displayedName: string = ''
@@ -25,12 +25,12 @@ export class ProfileTabComponent implements OnInit, AfterViewInit {
   authService: AuthService = inject(AuthService)
 
   form: FormGroup = inject(FormBuilder).group({
-    name: [undefined, [Validators.required]],
-    phoneNumber: [undefined, [Validators.required]],
-    email: [undefined, [Validators.required]],
-    gender: [undefined, [Validators.required]],
-    address: [undefined],
-    imgUrl: [undefined],
+    name: ['', [Validators.required]],
+    phoneNumber: ['', [Validators.required]],
+    email: ['', [Validators.required]],
+    gender: ['', [Validators.required]],
+    address: [''],
+    imgUrl: [''],
   })
 
   private userService: UserService = inject(UserService)
