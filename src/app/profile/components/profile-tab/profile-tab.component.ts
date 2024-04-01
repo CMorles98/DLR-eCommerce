@@ -1,64 +1,104 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
 import { NiceSelectOption } from '../../../shared/interfaces/option.interface';
 import { UserService } from '../../../shared/services/user.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../shared/services/auth.service';
+import { finalize } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
+import { genderData } from '../../../shared/data/gender.data';
+import { User } from '../../interfaces/user.interface';
 
 @Component({
   selector: 'app-profile-tab',
   templateUrl: './profile-tab.component.html',
   styleUrl: './profile-tab.component.scss'
 })
-export class ProfileTabComponent implements OnInit {
-  
-    userService: UserService = inject(UserService)
-    authService: AuthService = inject(AuthService)
+export class ProfileTabComponent implements OnInit, AfterViewInit {
+  pendingPurchases: number = 3
+  profileImg: ArrayBuffer | string | null = null
+  lastFile: File | undefined
+  displayedName: string = ''
+  userId: string = ''
+  defaultGender: number | undefined
+  genderSelectOptions: NiceSelectOption[] = genderData;
+  authService: AuthService = inject(AuthService)
 
-    pendingPurchases: number = 3
-    profileImg: string | ArrayBuffer | null = null
-  
-    public genderSelectOptions: NiceSelectOption[] = [
-      { value: 'hombre', text: 'Hombre' },
-      { value: 'mujer', text: 'Mujer' },
-    ];
-    
-    form: FormGroup = inject(FormBuilder).group({
-      name: [undefined, [Validators.required]],
-      phoneNumber: [undefined, [Validators.required]],
-      email: [undefined, [Validators.required]],
-      gender: [undefined, [Validators.required]],
-      address: undefined,
-    }) 
-    
-    ngOnInit(): void {
+  form: FormGroup = inject(FormBuilder).group({
+    name: [undefined, [Validators.required]],
+    phoneNumber: [undefined, [Validators.required]],
+    email: [undefined, [Validators.required]],
+    gender: [undefined, [Validators.required]],
+    address: [undefined],
+    imgUrl: [undefined],
+  })
 
-      const { id } = this.authService.getDecodedAccessToken()
+  private userService: UserService = inject(UserService)
+  private spinnerService: NgxSpinnerService = inject(NgxSpinnerService)
+  private toastrService: ToastrService = inject(ToastrService)
 
-      this.userService.getUserDataById(id)
+
+  constructor() {
+    this.spinnerService.show()
+  }
+  ngAfterViewInit(): void {
+    this.spinnerService.hide()
+  }
+
+  ngOnInit(): void {
+    const { id } = this.authService.getDecodedAccessToken()
+    this.userId = id
+    this.userService.getUserDataById(id)
+      .pipe(
+        finalize(() => this.spinnerService.hide())
+      )
       .subscribe(user => {
-        const { name, phoneNumber, email, gender, address } = user;
-        this.form.patchValue({ name, phoneNumber, email, gender, address })
+        this.loadUserData(user);
       })
-
-    }
-    
+  }
 
   changeHandler(selectedOption: NiceSelectOption) {
+    this.userService.genderNiceSelectValue.set(selectedOption)
     this.form.get('gender')?.setValue(selectedOption.value)
   }
 
   saveChanges() {
-    const value = this.form.value;
+    const override = {
+      positionClass: 'toast-top-right'
+    }
+
+    this.spinnerService.show()
+    const user: User = this.form.value;
+    this.userService.updateUser(this.userId, user, this.lastFile)
+      .pipe(
+        finalize(() => this.spinnerService.hide())
+      )
+      .subscribe({
+        next: (user) => {
+          this.loadUserData(user)
+          this.toastrService.success('', 'La información fue actualizada exitosamente!', override)
+        },
+        error: (err) => {
+          this.toastrService.error('', err.error.message, override)
+        }
+      })
   }
 
   readImg(event: any): void {
     if (event.target.files && event.target.files[0]) {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-
-        reader.onload = e => this.profileImg = reader.result;
-        reader.readAsDataURL(file);
+      const file: File = event.target.files[0];
+      this.lastFile = event.target.files[0]
+      const reader = new FileReader();
+      reader.onload = e => this.profileImg = reader.result;
+      reader.readAsDataURL(file);
     }
-}
+  }
 
+  private loadUserData(user: User) {
+    const { name, phoneNumber, email, gender, address, imgUrl } = user;
+    this.form.patchValue({ name, phoneNumber, email, gender, address, imgUrl });
+    this.displayedName = name;
+    this.userService.genderNiceSelectValue.set(this.genderSelectOptions.find(e => e.value === gender));
+    this.profileImg = imgUrl
+  }
 }

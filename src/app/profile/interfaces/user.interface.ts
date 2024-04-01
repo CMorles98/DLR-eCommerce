@@ -7,4 +7,6 @@ export interface User {
   gender: string
   address: string
   active: boolean
+  image?: ArrayBuffer | string | null
+  imgUrl: string | null
 }

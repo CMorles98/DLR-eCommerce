@@ -5,6 +5,8 @@ import { NavigationEnd, Router } from '@angular/router';
 import { IProduct } from '../interfaces/product.interface';
 import { ProductModalComponent } from '../components/modals/product-modal/product-modal.component';
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +15,12 @@ export class UtilsService {
   @ViewChild('productModal') modal!: ProductModalComponent;
   private popupProductIsVisibleSubject = new BehaviorSubject<Boolean>(false)
   public popupProductObserver = this.popupProductIsVisibleSubject.asObservable();
+
+  private productService: ProductService = inject(ProductService)
+  private cartService: CartService = inject(CartService)
+  private router: Router = inject(Router)
+  private http: HttpClient = inject(HttpClient)
+
 
 	openQuickView(product: IProduct) {
     this.product = product    
@@ -23,11 +31,7 @@ export class UtilsService {
     this.popupProductIsVisibleSubject.next(false)
   }
 
-  constructor(
-    private productService: ProductService,
-    private cartService: CartService,
-    private router: Router
-  ) {
+  constructor() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.isSearchOpen = false;
@@ -105,5 +109,10 @@ export class UtilsService {
     if(product_modal){
       product_modal.style.display = 'none';
     }
+  }
+
+  getLocation(latitude: number, longitude: number){
+    const apiKey = environment.apiKey
+    return this.http.get(`https://places.googleapis.com/v1/places/GyuEmsRBfy61i59si0?fields=addressComponents&key=${apiKey}`)
   }
 }

@@ -18,6 +18,8 @@ import { VideoPopapComponent } from './components/modals/video-popap/video-popap
 import { BackToTopComponent } from './components/back-to-top/back-to-top.component';
 import { NiceSelectComponent } from './components/nice-select/nice-select.component';
 import { GetProductNamesPipe } from './pipes/get-product-names.pipe';
+import { PhoneMaskDirective } from './directives/phone-mask.directive';
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -36,13 +38,15 @@ import { GetProductNamesPipe } from './pipes/get-product-names.pipe';
     BackToTopComponent,
     NiceSelectComponent,
     GetProductNamesPipe,
+    PhoneMaskDirective
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbTooltipModule
   ],
   exports: [
     HeaderComponent,
@@ -54,7 +58,9 @@ import { GetProductNamesPipe } from './pipes/get-product-names.pipe';
     NiceSelectComponent,
     ReactiveFormsModule,
     FormsModule,
-    GetProductNamesPipe
+    GetProductNamesPipe,
+    PhoneMaskDirective,
+    NgbTooltipModule
   ]
 })
 export class SharedModule { }
