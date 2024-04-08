@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -13,6 +14,14 @@ export class AppComponent implements OnInit{
   private router: Router = inject(Router)
   private spinner: NgxSpinnerService = inject(NgxSpinnerService)
 
+  constructor(translate: TranslateService) {
+    translate.addLangs(['en', 'es']);
+    translate.setDefaultLang('es');
+    translate.use('es');
+  }
+    
+
+
   ngOnInit(): void {
     this.router.events.subscribe((event: any) => {
       this.navigationInterceptor(event);
@@ -21,16 +30,16 @@ export class AppComponent implements OnInit{
 
   navigationInterceptor(event: Event): void {
     if (event instanceof NavigationStart) {
-      this.spinner.show(); // Show spinner when navigation starts
+      this.spinner.show();
     }
     if (event instanceof NavigationEnd) {
-      this.spinner.hide(); // Hide spinner when navigation ends successfully
+      this.spinner.hide();
     }
     if (event instanceof NavigationCancel) {
-      this.spinner.hide(); // Hide spinner when navigation is canceled
+      this.spinner.hide();
     }
     if (event instanceof NavigationError) {
-      this.spinner.hide(); // Hide spinner when navigation ends with an error
+      this.spinner.hide();
     }
   }
 }

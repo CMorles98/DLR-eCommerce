@@ -2,7 +2,8 @@ import { Component, Input, inject } from "@angular/core";
 import { IMobileType } from "../../../interfaces/menu.interface";
 import { UtilsService } from "../../../services/utils.service";
 import { ICategory } from "../../../interfaces/category.interface";
-import { AuthService } from "../../../services/auth.service";
+import { AuthService } from "../../../../auth/services/auth.service";
+import { TranslateService } from "@ngx-translate/core";
 
 
 @Component({
@@ -11,8 +12,9 @@ import { AuthService } from "../../../services/auth.service";
   styleUrls: ['./mobile-sidebar.component.scss']
 })
 export class MobileSidebarComponent {
-
   @Input () product_type!:string;
+
+  translate: TranslateService = inject(TranslateService)
   authService: AuthService = inject(AuthService)
 
   public mobile_menu: IMobileType[] = [
@@ -20,22 +22,22 @@ export class MobileSidebarComponent {
     {
       id:1,
       link:'/',
-      title:'Ofertas Especiales',
+      title: this.translate.instant('SpecialOfferts'),
     },
     {
       id:2,
       link:'/',
-      title:'Sobre DLR',
+      title: this.translate.instant('AboutDLR'),
     },
     {
       id:3,
       link:'/',
-      title:'FAQ',
+      title: this.translate.instant('FAQ'),
     },
     {
       id:4,
       link:'/',
-      title:'Contacto',
+      title: this.translate.instant('Contact'),
     },
   ];
   

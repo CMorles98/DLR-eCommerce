@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { IMenuItem } from '../../interfaces/menu.interface';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-top-menu',
@@ -8,27 +9,29 @@ import { IMenuItem } from '../../interfaces/menu.interface';
 })
 export class TopMenuComponent {
 
+  translate = inject(TranslateService)
+
   public menu_data: IMenuItem[] = [
     {
       id: 1,
       link: '#',
-      title: 'Ofertas Especiales',
+      title: this.translate.instant('SpecialOfferts'),
       icon: true
     },
     {
       id: 2,
       link: '#',
-      title: 'Sobre DLR'
+      title: this.translate.instant('AboutDLR')
     },
     {
       id: 3,
       link: '#',
-      title: 'FAQ'
+      title: this.translate.instant('FAQ')
     },
     {
       id: 4,
       link: '#',
-      title: 'Contacto'
+      title: this.translate.instant('Contact')
     },
   ]
 }

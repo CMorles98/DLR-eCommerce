@@ -2,7 +2,7 @@ import { Component, HostListener, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { UtilsService } from '../../services/utils.service';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-header',

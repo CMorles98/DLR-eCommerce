@@ -38,7 +38,7 @@
           </span>
        </div>
         <div class="tp-login-input-title">
-          <label class="roboto-light" for="tp_password">Contraseña</label>
+          <label class="roboto-regular" for="tp_password">Contraseña</label>
         </div>
       </div>
       <span
@@ -53,8 +53,8 @@
   </div>
   <div class="tp-login-suggetions d-sm-flex align-items-center justify-content-between mb-20">
     <div class="tp-login-remeber">
-        <input class="rounded-3 roboto-light" id="remeber" type="checkbox">
-        <label class="roboto-light" for="remeber">Recordarme</label>
+        <input [formControl]="keepSession" class="rounded-3 roboto-light" id="remeber" type="checkbox">
+        <label  class="roboto-light" for="remeber">Recordarme</label>
     </div>
     <div class="tp-login-forgot">
         <a class="roboto-light" routerLink="/pages/forgot">Olvidaste tu contraseña?</a>

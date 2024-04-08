@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
 import { NiceSelectOption } from '../../interfaces/option.interface';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../../profile/services/user.service';
 
 @Component({
   selector: 'app-nice-select',

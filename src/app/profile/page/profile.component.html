@@ -29,6 +29,15 @@
                                     <app-orders-tab></app-orders-tab>
                                  </ng-template>
                               </li>
+
+                              <li [ngbNavItem]="3">
+                                 <a ngbNavLink class="roboto-light" role="button"> 
+                                    <span><i class="fa-light fa-regular fa-lock"></i></span> Cambiar Contraseña   
+                                 </a>
+                                 <ng-template ngbNavContent>
+                                    <app-internal-restore-password-tab></app-internal-restore-password-tab>
+                                 </ng-template>
+                              </li>
                            </ul>
 
 

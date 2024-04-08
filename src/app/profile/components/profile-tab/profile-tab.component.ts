@@ -1,13 +1,13 @@
 import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
 import { NiceSelectOption } from '../../../shared/interfaces/option.interface';
-import { UserService } from '../../../shared/services/user.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from '../../../shared/services/auth.service';
+import { AuthService } from '../../../auth/services/auth.service';
 import { finalize } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { genderData } from '../../../shared/data/gender.data';
 import { User } from '../../interfaces/user.interface';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-profile-tab',

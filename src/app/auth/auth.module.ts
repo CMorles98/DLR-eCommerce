@@ -7,6 +7,9 @@ import { RegisterComponent } from './pages/register/register.component';
 import { SharedModule } from '../shared/shared.module';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SocialLoginComponent } from './components/social-login/social-login.component';
+import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { RestorePasswordComponent } from './pages/restore-password/restore-password.component';
+import { RestorePasswordFormComponent } from './components/restore-password-form/restore-password-form.component';
 
 
 @NgModule({
@@ -14,7 +17,10 @@ import { SocialLoginComponent } from './components/social-login/social-login.com
     LoginComponent,
     RegisterComponent,
     LoginFormComponent,
-    SocialLoginComponent
+    SocialLoginComponent,
+    RegisterFormComponent,
+    RestorePasswordComponent,
+    RestorePasswordFormComponent
   ],
   imports: [
     CommonModule,
