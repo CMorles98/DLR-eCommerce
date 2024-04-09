@@ -1,6 +1,6 @@
 <section class="mt-40 tp-collection-area">
     <div class="container p-0">
-        <h3 class="ms-sm-3 mb-20 th-subtitle">Productos destacados</h3>
+        <h3 class="ms-sm-3 mb-20 th-subtitle">{{ 'featuredProducts.title' | translate }}</h3>
         <div class="row mx-0 p-0 mb-5 w-100">
 
             <div class="col-12 col-lg-6 pt-25" style="min-height: 40rem;">
@@ -14,8 +14,8 @@
                     <div class="tp-collection-content-4">
                         <h1>
                             <a [routerLink]="['/']">
-                                <span class="roboto-light-title-4">Conoce las <br></span>
-                                <span class="roboto-bold-title-4">mejores ofertas</span>
+                                <span class="roboto-light-title-4">{{ 'featuredProducts.pictures.title' | translate }} <br></span>
+                                <span class="roboto-bold-title-4">{{ 'featuredProducts.pictures.subtitle' | translate }}</span>
                             </a>
                         </h1>
                     </div>
@@ -35,7 +35,7 @@
                     
                     <div class="badge-new p-1">
                         @if (product.discount > 0) {
-                        <span class="product-featured roboto-regular fw-light ">Destacado</span>
+                        <span class="product-featured roboto-regular fw-light ">{{ 'featuredProducts.pictures.featured' | translate }}</span>
                         }
                     </div>
 

@@ -6,6 +6,7 @@ import brands_data from '../../../shared/data/brand-data';
 import { IBrand } from '../../../shared/interfaces/brand.interface';
 import { Autoplay, Navigation } from 'swiper/modules';
 import Swiper from 'swiper';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-new-products',
@@ -13,13 +14,24 @@ import Swiper from 'swiper';
   styleUrl: './new-products.component.scss'
 })
 export class NewProductsComponent implements AfterViewInit, OnInit {
-  public brands: IBrand[] = brands_data;
-  public electronic_prd: IProduct[] = [];
+  
   private cdr: ChangeDetectorRef = inject(ChangeDetectorRef)
   public productService: ProductService = inject(ProductService)
   public utilsService: UtilsService = inject(UtilsService)
+  public translateService: TranslateService = inject(TranslateService)
+
+  public brands: IBrand[] = brands_data;
+  public electronic_prd: IProduct[] = [];
   public activeTab = 'Todo';
-  public tabs = ['Todo', 'Dispositivos Móviles', 'Audio', 'Laptops', 'Gaming', 'Conectividad'];
+
+  public tabs: { key: string, description: string}[] = [
+    { key: 'Todo', description: this.translateService.instant('newProducts.all')}, 
+    { key: 'Dispositivos Móviles', description: this.translateService.instant('newProducts.smartPhones')}, 
+    { key: 'Audio', description: this.translateService.instant('newProducts.audio')}, 
+    { key: 'Laptops', description: this.translateService.instant('newProducts.laptops')}, 
+    { key: 'Gaming', description: this.translateService.instant('newProducts.gaming')}, 
+    { key: 'Conectividad', description: this.translateService.instant('newProducts.connectivity')}
+  ]
   public itemsToShow: number =  8;
   public additionalItemsToShow: number = 4;
   public innerWidth: any;

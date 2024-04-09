@@ -10,6 +10,7 @@ import { NewProductsComponent } from './components/new-products/new-products.com
 import { FeaturedProductsComponent } from './components/featured-products/featured-products.component';
 import { ChoiceYourTeamComponent } from './components/choice-your-team/choice-your-team.component';
 import { PromotionAndSubscriptionsComponent } from './components/promotion-and-subscriptions/promotion-and-subscriptions.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -25,7 +26,10 @@ import { PromotionAndSubscriptionsComponent } from './components/promotion-and-s
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    TranslateModule.forChild({
+      extend: true
+    })
   ]
 })
 export class HomeModule { }

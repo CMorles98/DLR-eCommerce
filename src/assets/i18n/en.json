@@ -1,7 +1,106 @@
 {
-    "SpecialOfferts": "Special Offerts",
-    "AboutDLR": "About DLR",
-    "FAQ": "FAQ",
-    "Contact": "Contact"
+    "offcanvas": {
+        "allCategories": "All Categories",
+        "viewProfile": "View Profile",
+        "logout": "Logout",
+        "login": "Login"
+    },
+    "menu": {
+        "SpecialOfferts": "Special Offerts",
+        "AboutDLR": "About DLR",
+        "FAQ": "FAQ",
+        "Contact": "Contact",
+        "MobileDevices": "Mobile Devices",
+        "Audio": "Audio",
+        "Laptops": "Laptops",
+        "Gaming": "Gaming",
+        "Connectivity": "Connectivity"
+    },
+    "cart": {
+        "cart": "Cart",
+        "viewCart": "View Cart",
+        "checkout": "Checkout",
+        "add": "Add to cart",
+        "seeCart": "See the cart",
+        "seeDetail": "See details"
+    },
+    "home": {
+        "hero": {
+            "title": "Get exclusive offers on our web",
+            "subtitle": "Buy through our web page and get special discounts on the selected devices"
+        }
+    },
+    "idealProduct": {
+        "title": "Find your ideal product",
+        "smartPhones": "SmartPhones",
+        "smartWatches": "SmartWatches",
+        "headphones": "Headphones",
+        "laptops": "Laptops",
+        "wallets": "Wallets",
+        "gaming": "Gaming",
+        "tablets": "Tablets",
+        "connectivity": "Connectivity",
+        "devices": "Devices"
+    },
+    "collection": {
+        "title": "Find your ideal product",
+        "varietyIn": "Variety in",
+        "devices": "Devices",
+        "mobiles": "mobiles",
+        "fallInLoveWith": "Fall in love with",
+        "surround": "surrounding",
+        "sound": "Sound",
+        "findYours": "Find yours"
+    },
+    "newProducts": {
+      "title": "The newest in DLR",
+      "discount": "Off",
+      "new": "New",
+      "soldOut": "Sold Out",
+      "smartPhones": "SmartPhones",
+      "smartWatches": "SmartWatches",
+      "headphones": "Headphones",
+      "laptops": "Laptops",
+      "wallets": "Wallets",
+      "gaming": "Gaming",
+      "tablets": "Tablets",
+      "connectivity": "Connectivity",
+      "all": "All",
+      "audio": "Audio",
+      "showMore": "See more",
+      "banner": {
+        "title": "At DLR®Tech",
+        "subtitleOne": "find your",
+        "subtitleTwo": "ideal technology"
+      },
+      "brands": {
+        "title": "Deals on top brands",
+        "subtitleOne": "Enjoy up to a",
+        "subtitleTwo": "15% off",
+        "subtitleThree": "on brands"
+      }
+    },
+    "featuredProducts": {
+      "title": "Featured Products",
+      "pictures": {
+        "title": "Discover the",
+        "subtitle": "best deals",
+        "featured": "Featured"
+      }
+    },
+    "choiceYourTeam": {
+      "samsungDevices": "SAMSUNG devices",  
+      "appleDevices": "APPLE devices"
+    },
+    "promotions": {
+      "titleOne": "Be one of the first to find out",
+      "titleTwo": "about our promotions!",
+      "subscribe": "Subscribe",
+      "subtitleOne": "And receive up to a",
+      "discount": "30% off",
+      "subtitleTwo": "on our",
+      "subtitleThree": "selected products."
+    },
+    "search": "Search..."
 }
 

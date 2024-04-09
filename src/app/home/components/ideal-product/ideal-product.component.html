@@ -1,6 +1,6 @@
 <div class="container mt-40">
     <h3 class="ms-sm-3 th-subtitle">
-        Consigue tu producto ideal
+        {{ 'idealProduct.title' | translate }}
     </h3>
 
     <section class="tp-brand-area pt-25">
@@ -61,15 +61,16 @@
                    <h1>
                       <a [routerLink]="['/']">
                         <span class="roboto-light-title">
-                            Variedad en <br> 
+                            {{ 'collection.varietyIn' | translate }} <br> 
                         </span>
                       <span class="roboto-bold-title">
-                          dispositivos <br> móviles
+                          {{ 'collection.devices' | translate }} <br>
+                          {{ 'collection.mobiles' | translate }}
                       </span> 
                     </a>
                    </h1>
                       <a [routerLink]="['/']" class="btn btn-primary" role="button">
-                            Encuentra el tuyo
+                            {{ 'collection.findYours' | translate }}
                       </a>
                 </div>
              </div>
@@ -80,19 +81,20 @@
                 style="background-image: url(../../../../assets/img/support_assets/Banner_Airpods.webp);
                 max-height: 350px !important;">
                 </div>
-                <div class="tp-collection-content-1">
+                <div class="tp-collection-content-1 text-end ">
                    <h1>
                       <a [routerLink]="['/']">
                         <span class="roboto-light-title">
-                            Enamórate <br> 
+                            {{ 'collection.fallInLoveWith' | translate }} <br> 
                         </span>
                         <span class="roboto-bold-title">
-                            del Sonido <br> envolvente
+                            {{ 'collection.surround' | translate }} <br>
+                            {{ 'collection.sound' | translate }}
                         </span>
                     </a>
                    </h1>
-                      <a [routerLink]="['/']" class="btn btn-primary float-end "  role="button">
-                         Encuentra el tuyo
+                      <a [routerLink]="['/']" class="btn btn-primary"  role="button">
+                         {{ 'collection.findYours' | translate }}
                       </a>
                 </div>
              </div>

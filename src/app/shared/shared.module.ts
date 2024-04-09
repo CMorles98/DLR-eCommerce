@@ -20,6 +20,7 @@ import { NiceSelectComponent } from './components/nice-select/nice-select.compon
 import { GetProductNamesPipe } from './pipes/get-product-names.pipe';
 import { PhoneMaskDirective } from './directives/phone-mask.directive';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -38,15 +39,17 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
     BackToTopComponent,
     NiceSelectComponent,
     GetProductNamesPipe,
-    PhoneMaskDirective
-  ],
+    PhoneMaskDirective],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbTooltipModule
+    NgbTooltipModule,
+    TranslateModule.forChild({
+      extend: true
+    })
   ],
   exports: [
     HeaderComponent,

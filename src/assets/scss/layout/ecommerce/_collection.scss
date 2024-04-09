@@ -10,7 +10,6 @@
         background-position-x: 20% !important;
         background-size: contain !important;
         opacity: 0.8;
-        // background-position-y: 10rem !important;
     }
 }
 
@@ -154,17 +153,12 @@
             position: absolute;
             top: 3.5rem;
             bottom: 30px;
-            left: 22rem;
+            right: 10%;
             word-wrap: break-word;
-
-            @media #{$xl} {
-                top: 4rem;
-                left: 17rem;
-            }
 
             @media #{$lg} {
                 top: 4rem;
-                left: 12rem;
+                right: 5%;
             }
 
             @media #{$md} {
@@ -247,7 +241,7 @@
             text-align: center;
             position: absolute;
             top: 2rem;
-            right: 5rem;
+            left: 23%;
             word-wrap: break-word;
 
             @media #{$xl} {
@@ -261,7 +255,7 @@
             }
 
             @media #{$md} {
-                top: 5rem;
+                top: 3rem;
                 right: 9rem;
             }
 

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import Swiper from 'swiper';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
@@ -9,62 +10,64 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 })
 export class IdealProductComponent {
 
+  translate: TranslateService = inject(TranslateService);
+
   public data = [
     {
       id: 1,
       link: '#',
       img: '/assets/img/Icons_SVG/Smartphone_Icon.svg',
-      title: 'SmartPhones',
-      subTitle: '+200 dispositivos',
+      title: this.translate.instant('idealProduct.smartPhones'),
+      subTitle: '+200 ' + `${this.translate.instant('idealProduct.devices')}`,
     },
     {
       id: 2,
       link: '#',
       img: '/assets/img/Icons_SVG/Smartwatche_Icon.svg',
-      title: 'SmartWatches',
-      subTitle: '+200 dispositivos'
+      title: this.translate.instant('idealProduct.smartWatches'),
+      subTitle: '+200 ' + `${this.translate.instant('idealProduct.devices')}`
     },
     {
       id: 3,
       link: '#',
       img: '/assets/img/Icons_SVG/Audífonos_Icon.svg',
-      title: 'Audífonos',
-      subTitle: '+200 dispositivos'
+      title: this.translate.instant('idealProduct.headphones'),
+      subTitle: '+200 ' + `${this.translate.instant('idealProduct.devices')}`
     },
     {
       id: 4,
       link: '#',
       img: '/assets/img/Icons_SVG/Laptop_Icon.svg',
-      title: 'Laptops',
-      subTitle: '+200 dispositivos'
+      title: this.translate.instant('idealProduct.laptops'),
+      subTitle: '+200 ' + `${this.translate.instant('idealProduct.devices')}`
     },
     {
       id: 5,
       link: '#',
       img: '/assets/img/Icons_SVG/Cornetas_Icon.svg',
-      title: 'Cornetas',
-      subTitle: '+200 dispositivos'
+      title: this.translate.instant('idealProduct.wallets'),
+      subTitle: '+200 ' + `${this.translate.instant('idealProduct.devices')}`
     },
     {
       id: 6,
       link: '#',
       img: '/assets/img/Icons_SVG/Gaming_Icon.svg',
-      title: 'Gaming',
-      subTitle: '+200 dispositivos'
+      title: this.translate.instant('idealProduct.gaming'),
+      subTitle: '+200 ' + `${this.translate.instant('idealProduct.devices')}`
     },
     {
       id: 7,
       link: '#',
       img: '/assets/img/Icons_SVG/Tablet_Icon.svg',
-      title: 'Tablets',
-      subTitle: '+200 dispositivos'
+      title: this.translate.instant('idealProduct.tablets'),
+      subTitle: '+200 ' + `${this.translate.instant('idealProduct.devices')}`
     },
     {
       id: 8,
       link: '#',
       img: '/assets/img/Icons_SVG/Conectividad_Icon.svg',
-      title: 'Conectividad',
-      subTitle: '+200 dispositivos'
+      title: this.translate.instant('idealProduct.connectivity'),
+      subTitle: '+200 ' + `${this.translate.instant('idealProduct.devices')}`
     },
   ];
   

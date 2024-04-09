@@ -4,17 +4,17 @@
       <div class="col-12">
         <div class="tp-section-title-wrapper mb-40">
           <h3 class="ms-sm-3 th-subtitle">
-            Lo más nuevo en DLR
+            {{ 'newProducts.title' | translate }}
           </h3>
         </div>
       </div>
       <div class="col-12">
         <div class="tp-product-tab mb-10 tp-tab d-flex justify-content-md-start ps-0 ms-0 ">
           <ul class="nav nav-tabs justify-content-sm-start ps-0" style="place-content: center;">
-            <li *ngFor="let tab of tabs; let i = index" class="nav-item border_animated" [ngClass]="{ 'item_selected': activeTab === tab }">
+            <li *ngFor="let tab of tabs; let i = index" class="nav-item border_animated" [ngClass]="{ 'item_selected': activeTab === tab.key }">
               <a class="nav-link roboto-light mb-3 py-3" style="font-size: medium;" role="button"
-                [ngClass]="{ active: activeTab === tab }" (click)="handleActiveTab(tab)">
-                {{ tab }}
+                [ngClass]="{ active: activeTab === tab.key}" (click)="handleActiveTab(tab.key)">
+                {{ tab.description }}
               </a>
             </li>
           </ul>
@@ -37,7 +37,7 @@
     </div>
     <div class="btn-botton-container w-100 text-center ">
       @if (itemsToShow < filteredProducts.length) {
-        <button (click)="showMoreItems()" class="btn btn-primary p-2 px-5 roboto-regular">Ver más</button>
+        <button (click)="showMoreItems()" class="btn btn-primary p-2 px-5 roboto-regular">{{ 'newProducts.showMore' | translate }}</button>
       }
     </div>
   </div>
@@ -55,12 +55,12 @@
             <h1>
               <a [routerLink]="['/']">
                 <span class="roboto-light-title-2">
-                  En DLR®Tech, <br>
+                  {{ 'newProducts.banner.title' | translate }}, <br>
                 </span>
                 <span class="roboto-bold-title-2">
-                  encuentra tu 
+                  {{ 'newProducts.banner.subtitleOne' | translate }}
                   <br>
-                  tecnología ideal
+                  {{ 'newProducts.banner.subtitleTwo' | translate }} <br>
                 </span>
               </a>
             </h1>
@@ -75,14 +75,14 @@
   <div class="container px-0">
     <div class="card th-bg-dark-blue p-4 m-1">
       <h3 class="text-light">
-        Ofertas en las mejores marcas
+        {{ 'newProducts.brands.title' | translate }}
       </h3>
       <div class="card-sub-title roboto-thin text-light ">
-        Disfruta de hasta un 
+        {{ 'newProducts.brands.subtitleOne' | translate }}
         <strong class="fw-light">
-          15% de descuento 
+          {{ 'newProducts.brands.subtitleTwo' | translate }}
         </strong> 
-        en marcas
+        {{ 'newProducts.brands.subtitleThree' | translate }}
       </div>
       
     <section class="tp-brand-area pt-25">

@@ -27,7 +27,7 @@
         <button (click)="toggleCategoryActive()"
           class="roboto-light tp-offcanvas-category-toggle rounded-3 ">
           <i class="fa-solid fa-bars text-start "></i>
-          Todas las Categorias
+          <span translate>offcanvas.allCategories</span>
         </button>
 
         <div class="tp-category-mobile-menu">
@@ -70,11 +70,11 @@
       <div class="offcanvas__footer d-flex align-items-center justify-content-between">
 
         <a role="button" class="roboto-light w-100 th-color-primary text-center fs-6" [routerLink]="['/profile']">
-          Ver Perfil
+          <span>{{'offcanvas.viewProfile' | translate }}</span>
         </a>
 
         <a role="button" [routerLink]="['/']" (click)="authService.logout()" class="roboto-light w-100 th-color-primary text-center fs-6">
-          Cerrar Sesión
+          <span>{{'offcanvas.logout' | translate }}</span>
         </a>
 
       </div>

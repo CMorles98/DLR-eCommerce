@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { IMenuItem } from '../../interfaces/menu.interface';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-top-menu-secondary',
@@ -8,32 +9,34 @@ import { IMenuItem } from '../../interfaces/menu.interface';
 })
 export class TopMenuSecondaryComponent {
 
+  translate = inject(TranslateService)
+
   public menu_data: IMenuItem[] = [
 
     {
       id:1,
       link:'/',
-      title:'Dispositivos Móviles',
+      title: this.translate.instant('menu.MobileDevices'),
     },
     {
       id:2,
       link:'/',
-      title:'Audio',
+      title: this.translate.instant('menu.Audio'),
     },
     {
       id:3,
       link:'/',
-      title:'Laptops',
+      title: this.translate.instant('menu.Laptops'),
     },
     {
       id:4,
       link:'/',
-      title:'Gaming',
+      title: this.translate.instant('menu.Gaming'),
     },
     {
       id:5,
       link:'/',
-      title:'Conectividad',
+      title: this.translate.instant('menu.Connectivity'),
     },
 
 

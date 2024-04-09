@@ -1,7 +1,8 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, inject } from '@angular/core';
 import { Pagination, Autoplay } from 'swiper/modules';
 import 'animate.css';
 import Swiper from 'swiper';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -10,12 +11,13 @@ import Swiper from 'swiper';
   styleUrl: './hero-banner.component.scss'
 })
 export class HeroBannerComponent implements AfterViewInit {
+  translate: TranslateService = inject(TranslateService);
 
   public HomeSliderData = [
     {
       id: 1,
-      title: "Obtén ofertas únicas en nuestra web",
-      subtitle: "Compra a tráves de nuestra página web y obtén descuentos especiales en los dispositivos selecionados",
+      title: this.translate.instant("home.hero.title"),
+      subtitle: this.translate.instant("home.hero.subtitle"),
       img: "assets/img/support_assets/Banner_OfertasWEB.webp",
     },
   ];

@@ -29,7 +29,7 @@
                 <div class="col-xl-4 col-lg-3 d-none d-lg-block">
                     <div class="tp-header-search-2">
                         <form (ngSubmit)="handleSearchSubmit()">
-                            <input type="text" placeholder="Buscar..." [(ngModel)]="searchText" name="searchText"
+                            <input type="text" [placeholder]="'search' | translate" [(ngModel)]="searchText" name="searchText"
                                 class="roboto-light">
                             <button type="submit">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -79,7 +79,7 @@
                             <!-- text -->
                             <span (click)="cartService.handleOpenCartSidebar()"
                                 class="ms-3 menu-header-text d-none d-lg-block ">
-                                Carrito
+                                {{ 'cart.cart' | translate }}
                             </span>
                             <!-- mobile-menu -->
                             <div class="tp-header-action-item d-lg-none">
@@ -136,7 +136,7 @@
                                 </div>
 
                                 <span class="ms-0 me-2 menu-header-text d-none d-lg-block ">
-                                    Ver Perfil
+                                    {{ 'offcanvas.viewProfile' | translate }}
                                 </span>
 
                             </a>
@@ -159,7 +159,7 @@
                                 </div>
 
                                 <span class="ms-0 me-2 menu-header-text d-none d-lg-block ">
-                                    Iniciar Sesión
+                                    {{ 'offcanvas.login' | translate }}
                                 </span>
 
                             </a>
@@ -204,7 +204,7 @@
             <div class="col-xl-4 col-lg-3 d-none d-lg-block">
                 <div class="tp-header-search-2">
                     <form (ngSubmit)="handleSearchSubmit()">
-                        <input type="text" placeholder="Buscar..." [(ngModel)]="searchText" name="searchText"
+                        <input type="text" [placeholder]="'search' | translate" [(ngModel)]="searchText" name="searchText"
                             class="roboto-light">
                         <button type="submit">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -254,7 +254,7 @@
                         <!-- text -->
                         <span (click)="cartService.handleOpenCartSidebar()"
                             class="ms-3 menu-header-text d-none d-lg-block ">
-                            Carrito
+                            {{ 'cart.cart' | translate }}
                         </span>
                         <!-- mobile-menu -->
                         <div class="tp-header-action-item d-lg-none">
@@ -309,7 +309,7 @@
                             </div>
 
                             <span class="ms-0 me-2 menu-header-text d-none d-lg-block ">
-                                Ver Perfil
+                                {{ 'offcanvas.viewProfile' | translate }}
                             </span>
 
                         </a>
@@ -332,7 +332,7 @@
                             </div>
 
                             <span class="ms-0 me-2 menu-header-text d-none d-lg-block ">
-                                Iniciar Sesión
+                                {{ 'offcanvas.login' | translate }}
                             </span>
 
                         </a>

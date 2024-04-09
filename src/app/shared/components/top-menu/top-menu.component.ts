@@ -15,23 +15,23 @@ export class TopMenuComponent {
     {
       id: 1,
       link: '#',
-      title: this.translate.instant('SpecialOfferts'),
+      title: this.translate.instant('menu.SpecialOfferts'),
       icon: true
     },
     {
       id: 2,
       link: '#',
-      title: this.translate.instant('AboutDLR')
+      title: this.translate.instant('menu.AboutDLR')
     },
     {
       id: 3,
       link: '#',
-      title: this.translate.instant('FAQ')
+      title: this.translate.instant('menu.FAQ')
     },
     {
       id: 4,
       link: '#',
-      title: this.translate.instant('Contact')
+      title: this.translate.instant('menu.Contact')
     },
   ]
 }
