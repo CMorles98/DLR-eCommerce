@@ -29,8 +29,8 @@
                 <div class="col-xl-4 col-lg-3 d-none d-lg-block">
                     <div class="tp-header-search-2">
                         <form (ngSubmit)="handleSearchSubmit()">
-                            <input type="text" [placeholder]="'search' | translate" [(ngModel)]="searchText" name="searchText"
-                                class="roboto-light">
+                            <input type="text" [placeholder]="'search' | translate" [(ngModel)]="searchText"
+                                name="searchText" class="roboto-light">
                             <button type="submit">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -50,9 +50,104 @@
                 <div class="col-xl-2 col-lg-2 col-md-10 col-6">
                     <div class="tp-header-main-right d-flex align-items-center justify-content-end">
 
+
                         <div class="tp-header-action d-flex align-items-center ml-50 cursor-pointer">
 
-                            <!-- icon -->
+                            @if(translate.langs[0] == 'es') {
+                            <!-- ve icon -->
+                            <div class="tp-header-action-item">
+                                <button (click)="changeLanguage('en')" class="tp-header-action-btn cartmini-open-btn"
+                                    type="button"><svg width="21" height="22" version="1.1" id="Layer_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                                        xml:space="preserve">
+                                        <rect x="7.286" y="173.1" style="fill:#103B9B;" width="497.43"
+                                            height="165.81" />
+                                        <rect x="7.286" y="338.9" style="fill:#ED1F34;" width="497.43"
+                                            height="165.81" />
+                                        <rect x="7.286" y="7.286" style="fill:#FFE000;" width="497.43"
+                                            height="165.81" />
+                                        <path
+                                            d="M504.714,0H7.286C3.262,0,0,3.262,0,7.286v497.427C0,508.738,3.262,512,7.286,512h497.427c4.024,0,7.286-3.262,7.286-7.286
+                                      V7.286C512,3.262,508.738,0,504.714,0z M497.427,14.573v151.236H14.573V14.573H497.427z M14.573,497.427V346.191h423.817
+                                      c4.024,0,7.287-3.262,7.287-7.286c0-4.025-3.262-7.287-7.287-7.287H14.573V180.382h482.854v151.235h-25.875
+                                      c-4.024,0-7.286,3.262-7.286,7.287s3.262,7.286,7.286,7.286h25.875v151.236H14.573V497.427z" />
+                                        <g>
+                                            <circle style="fill:#FFFFFF;" cx="157.47" cy="284.75" r="12.436" />
+                                            <circle style="fill:#FFFFFF;" cx="205.24" cy="236.47" r="12.436" />
+                                            <circle style="fill:#FFFFFF;" cx="238.66" cy="227.25" r="12.436" />
+                                            <circle style="fill:#FFFFFF;" cx="176.63" cy="256" r="12.436" />
+                                            <circle style="fill:#FFFFFF;" cx="354.53" cy="284.75" r="12.436" />
+                                            <circle style="fill:#FFFFFF;" cx="306.76" cy="236.47" r="12.436" />
+                                            <circle style="fill:#FFFFFF;" cx="273.33" cy="227.25" r="12.436" />
+                                            <circle style="fill:#FFFFFF;" cx="335.37" cy="256" r="12.436" />
+                                        </g>
+                                    </svg>
+
+                                </button>
+                            </div>
+                            }
+                            @else {
+                            <!-- usa icon -->
+                            <div class="tp-header-action-item me-lg-2">
+                                <button (click)="changeLanguage('es')" class="tp-header-action-btn cartmini-open-btn"
+                                    type="button">
+                                    <svg width="21" height="22" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 130 120"
+                                        enable-background="new 0 0 130 120" xml:space="preserve">
+                                        <g id="Infos">
+                                            <rect id="BG" x="-200" y="-1350" fill="#D8D8D8" width="2180"
+                                                height="1700" />
+                                        </g>
+                                        <g id="Others">
+                                            <g>
+                                                <rect y="0" fill="#DC4437" width="130" height="13.3" />
+                                                <rect y="26.7" fill="#DC4437" width="130" height="13.3" />
+                                                <rect y="80" fill="#DC4437" width="130" height="13.3" />
+                                                <rect y="106.7" fill="#DC4437" width="130" height="13.3" />
+                                                <rect y="53.3" fill="#DC4437" width="130" height="13.3" />
+                                                <rect y="13.3" fill="#FFFFFF" width="130" height="13.3" />
+                                                <rect y="40" fill="#FFFFFF" width="130" height="13.3" />
+                                                <rect y="93.3" fill="#FFFFFF" width="130" height="13.3" />
+                                                <rect y="66.7" fill="#FFFFFF" width="130" height="13.3" />
+                                                <rect y="0" fill="#2A66B7" width="70" height="66.7" />
+                                                <polygon fill="#FFFFFF"
+                                                    points="13.5,4 15.8,8.9 21,9.7 17.2,13.6 18.1,19 13.5,16.4 8.9,19 9.8,13.6 6,9.7 11.2,8.9 		" />
+                                                <polygon fill="#FFFFFF"
+                                                    points="34,4 36.3,8.9 41.5,9.7 37.8,13.6 38.6,19 34,16.4 29.4,19 30.2,13.6 26.5,9.7 31.7,8.9 		" />
+                                                <polygon fill="#FFFFFF"
+                                                    points="54.5,4 56.8,8.9 62,9.7 58.2,13.6 59.1,19 54.5,16.4 49.9,19 50.8,13.6 47,9.7 52.2,8.9 		" />
+                                                <polygon fill="#FFFFFF" points="24,24 26.3,28.9 31.5,29.7 27.8,33.6 28.6,39 24,36.4 19.4,39 20.2,33.6 16.5,29.7 21.7,28.9 		
+			" />
+                                                <polygon fill="#FFFFFF" points="44.5,24 46.8,28.9 52,29.7 48.2,33.6 49.1,39 44.5,36.4 39.9,39 40.8,33.6 37,29.7 42.2,28.9 		
+			" />
+                                                <polygon fill="#FFFFFF" points="13.5,45.2 15.8,50.1 21,50.9 17.2,54.7 18.1,60.2 13.5,57.6 8.9,60.2 9.8,54.7 6,50.9 11.2,50.1 
+					" />
+                                                <polygon fill="#FFFFFF" points="34,45.2 36.3,50.1 41.5,50.9 37.8,54.7 38.6,60.2 34,57.6 29.4,60.2 30.2,54.7 26.5,50.9 
+			31.7,50.1 		" />
+                                                <polygon fill="#FFFFFF" points="54.5,45.2 56.8,50.1 62,50.9 58.2,54.7 59.1,60.2 54.5,57.6 49.9,60.2 50.8,54.7 47,50.9 
+			52.2,50.1 		" />
+                                            </g>
+                                        </g>
+                                        <g id="Europe">
+                                            <g id="Row_5">
+                                            </g>
+                                            <g id="Row_4">
+                                            </g>
+                                            <g id="Row_3">
+                                            </g>
+                                            <g id="Row_2">
+                                            </g>
+                                            <g id="Row_1">
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </button>
+                            </div>
+                            }
+
+
+                            <!-- cart icon -->
                             <div class="tp-header-action-item">
                                 <button (click)="cartService.handleOpenCartSidebar()" type="button"
                                     class="tp-header-action-btn cartmini-open-btn">
@@ -76,12 +171,14 @@
                                     </span>
                                 </button>
                             </div>
+
                             <!-- text -->
                             <span (click)="cartService.handleOpenCartSidebar()"
                                 class="ms-3 menu-header-text d-none d-lg-block ">
                                 {{ 'cart.cart' | translate }}
                             </span>
                             <!-- mobile-menu -->
+
                             <div class="tp-header-action-item d-lg-none">
                                 <button (click)="utilsService.handleOpenMobileMenu()" type="button"
                                     class="tp-header-action-btn tp-offcanvas-open-btn">
@@ -119,7 +216,8 @@
                         <div class="tp-header-login d-none d-lg-block justify-content-end me-2">
 
                             @if (authService.isLoggedIn()) {
-                            <a [routerLink]="['/profile',authService.userId()]" class="d-flex align-items-center justify-content-end">
+                            <a [routerLink]="['/profile',authService.userId()]"
+                                class="d-flex align-items-center justify-content-end">
 
                                 <div class="tp-header-login-icon justify-content-end">
                                     <span class="m-0 border-0 ">
@@ -204,8 +302,8 @@
             <div class="col-xl-4 col-lg-3 d-none d-lg-block">
                 <div class="tp-header-search-2">
                     <form (ngSubmit)="handleSearchSubmit()">
-                        <input type="text" [placeholder]="'search' | translate" [(ngModel)]="searchText" name="searchText"
-                            class="roboto-light">
+                        <input type="text" [placeholder]="'search' | translate" [(ngModel)]="searchText"
+                            name="searchText" class="roboto-light">
                         <button type="submit">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -227,6 +325,94 @@
 
                     <div class="tp-header-action d-flex align-items-center ml-50 cursor-pointer">
 
+                        @if(translate.langs[0] == 'es') {
+                        <!-- ve icon -->
+                        <div class="tp-header-action-item">
+                            <button (click)="changeLanguage('en')" class="tp-header-action-btn cartmini-open-btn"
+                                type="button"><svg width="21" height="22" version="1.1" id="Layer_1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                                    xml:space="preserve">
+                                    <rect x="7.286" y="173.1" style="fill:#103B9B;" width="497.43" height="165.81" />
+                                    <rect x="7.286" y="338.9" style="fill:#ED1F34;" width="497.43" height="165.81" />
+                                    <rect x="7.286" y="7.286" style="fill:#FFE000;" width="497.43" height="165.81" />
+                                    <path
+                                        d="M504.714,0H7.286C3.262,0,0,3.262,0,7.286v497.427C0,508.738,3.262,512,7.286,512h497.427c4.024,0,7.286-3.262,7.286-7.286
+                                      V7.286C512,3.262,508.738,0,504.714,0z M497.427,14.573v151.236H14.573V14.573H497.427z M14.573,497.427V346.191h423.817
+                                      c4.024,0,7.287-3.262,7.287-7.286c0-4.025-3.262-7.287-7.287-7.287H14.573V180.382h482.854v151.235h-25.875
+                                      c-4.024,0-7.286,3.262-7.286,7.287s3.262,7.286,7.286,7.286h25.875v151.236H14.573V497.427z" />
+                                    <g>
+                                        <circle style="fill:#FFFFFF;" cx="157.47" cy="284.75" r="12.436" />
+                                        <circle style="fill:#FFFFFF;" cx="205.24" cy="236.47" r="12.436" />
+                                        <circle style="fill:#FFFFFF;" cx="238.66" cy="227.25" r="12.436" />
+                                        <circle style="fill:#FFFFFF;" cx="176.63" cy="256" r="12.436" />
+                                        <circle style="fill:#FFFFFF;" cx="354.53" cy="284.75" r="12.436" />
+                                        <circle style="fill:#FFFFFF;" cx="306.76" cy="236.47" r="12.436" />
+                                        <circle style="fill:#FFFFFF;" cx="273.33" cy="227.25" r="12.436" />
+                                        <circle style="fill:#FFFFFF;" cx="335.37" cy="256" r="12.436" />
+                                    </g>
+                                </svg>
+
+                            </button>
+                        </div>
+                        }
+                        @else {
+                        <!-- usa icon -->
+                        <div class="tp-header-action-item me-lg-2">
+                            <button (click)="changeLanguage('es')" class="tp-header-action-btn cartmini-open-btn"
+                                type="button">
+                                <svg width="21" height="22" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 130 120"
+                                    enable-background="new 0 0 130 120" xml:space="preserve">
+                                    <g id="Infos">
+                                        <rect id="BG" x="-200" y="-1350" fill="#D8D8D8" width="2180" height="1700" />
+                                    </g>
+                                    <g id="Others">
+                                        <g>
+                                            <rect y="0" fill="#DC4437" width="130" height="13.3" />
+                                            <rect y="26.7" fill="#DC4437" width="130" height="13.3" />
+                                            <rect y="80" fill="#DC4437" width="130" height="13.3" />
+                                            <rect y="106.7" fill="#DC4437" width="130" height="13.3" />
+                                            <rect y="53.3" fill="#DC4437" width="130" height="13.3" />
+                                            <rect y="13.3" fill="#FFFFFF" width="130" height="13.3" />
+                                            <rect y="40" fill="#FFFFFF" width="130" height="13.3" />
+                                            <rect y="93.3" fill="#FFFFFF" width="130" height="13.3" />
+                                            <rect y="66.7" fill="#FFFFFF" width="130" height="13.3" />
+                                            <rect y="0" fill="#2A66B7" width="70" height="66.7" />
+                                            <polygon fill="#FFFFFF"
+                                                points="13.5,4 15.8,8.9 21,9.7 17.2,13.6 18.1,19 13.5,16.4 8.9,19 9.8,13.6 6,9.7 11.2,8.9 		" />
+                                            <polygon fill="#FFFFFF"
+                                                points="34,4 36.3,8.9 41.5,9.7 37.8,13.6 38.6,19 34,16.4 29.4,19 30.2,13.6 26.5,9.7 31.7,8.9 		" />
+                                            <polygon fill="#FFFFFF"
+                                                points="54.5,4 56.8,8.9 62,9.7 58.2,13.6 59.1,19 54.5,16.4 49.9,19 50.8,13.6 47,9.7 52.2,8.9 		" />
+                                            <polygon fill="#FFFFFF" points="24,24 26.3,28.9 31.5,29.7 27.8,33.6 28.6,39 24,36.4 19.4,39 20.2,33.6 16.5,29.7 21.7,28.9 		
+			" />
+                                            <polygon fill="#FFFFFF" points="44.5,24 46.8,28.9 52,29.7 48.2,33.6 49.1,39 44.5,36.4 39.9,39 40.8,33.6 37,29.7 42.2,28.9 		
+			" />
+                                            <polygon fill="#FFFFFF" points="13.5,45.2 15.8,50.1 21,50.9 17.2,54.7 18.1,60.2 13.5,57.6 8.9,60.2 9.8,54.7 6,50.9 11.2,50.1 
+					" />
+                                            <polygon fill="#FFFFFF" points="34,45.2 36.3,50.1 41.5,50.9 37.8,54.7 38.6,60.2 34,57.6 29.4,60.2 30.2,54.7 26.5,50.9 
+			31.7,50.1 		" />
+                                            <polygon fill="#FFFFFF" points="54.5,45.2 56.8,50.1 62,50.9 58.2,54.7 59.1,60.2 54.5,57.6 49.9,60.2 50.8,54.7 47,50.9 
+			52.2,50.1 		" />
+                                        </g>
+                                    </g>
+                                    <g id="Europe">
+                                        <g id="Row_5">
+                                        </g>
+                                        <g id="Row_4">
+                                        </g>
+                                        <g id="Row_3">
+                                        </g>
+                                        <g id="Row_2">
+                                        </g>
+                                        <g id="Row_1">
+                                        </g>
+                                    </g>
+                                </svg>
+                            </button>
+                        </div>
+                        }
                         <!-- icon -->
                         <div class="tp-header-action-item">
                             <button (click)="cartService.handleOpenCartSidebar()" type="button"
@@ -292,7 +478,8 @@
                     <div class="tp-header-login d-none d-lg-block justify-content-end me-2">
 
                         @if (authService.isLoggedIn()) {
-                        <a [routerLink]="['/profile', authService.userId()]" class="d-flex align-items-center justify-content-end">
+                        <a [routerLink]="['/profile', authService.userId()]"
+                            class="d-flex align-items-center justify-content-end">
 
                             <div class="tp-header-login-icon justify-content-end">
                                 <span class="m-0 border-0 ">

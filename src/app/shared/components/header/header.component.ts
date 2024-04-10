@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { UtilsService } from '../../services/utils.service';
 import { AuthService } from '../../../auth/services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +17,7 @@ export class HeaderComponent {
   cartService: CartService = inject(CartService)
   utilsService: UtilsService = inject(UtilsService)
   authService: AuthService = inject(AuthService)
+  translate: TranslateService = inject(TranslateService)
 
   searchText: string = '';
   productType: string = '';
@@ -33,6 +35,11 @@ export class HeaderComponent {
     } else {
       this.headerSticky = false;
     }
+  }
+
+  changeLanguage(key: string){
+    this.translate.use(key)
+    this.translate.langs = [key]
   }
 
   handleSearchSubmit() {

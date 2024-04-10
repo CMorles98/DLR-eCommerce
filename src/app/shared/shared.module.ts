@@ -20,7 +20,7 @@ import { NiceSelectComponent } from './components/nice-select/nice-select.compon
 import { GetProductNamesPipe } from './pipes/get-product-names.pipe';
 import { PhoneMaskDirective } from './directives/phone-mask.directive';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -47,9 +47,7 @@ import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
     ReactiveFormsModule,
     FormsModule,
     NgbTooltipModule,
-    TranslateModule.forChild({
-      extend: true
-    })
+    TranslateModule
   ],
   exports: [
     HeaderComponent,

@@ -19,8 +19,8 @@
                                         style="width: 40px; object-fit: contain; height: 40px;" [src]="item.img" />
 
                                         <div class="card-body h-100 align-self-center ">
-                                            <h6 class="roboto-regular m-0 p-0 " style="line-height: 1;">{{item.title}}</h6>
-                                            <small class="card-text" style="line-height: 1;">{{item.subTitle}}</small>
+                                            <h6 class="roboto-regular m-0 p-0 " style="line-height: 1;">{{item.title | translate }}</h6>
+                                            <small class="card-text" style="line-height: 1;">{{item.subTitle | translate }}</small>
                                         </div>
 
                                         <div class="tp-ideal-icon-2">
@@ -88,8 +88,8 @@
                             {{ 'collection.fallInLoveWith' | translate }} <br> 
                         </span>
                         <span class="roboto-bold-title">
-                            {{ 'collection.surround' | translate }} <br>
-                            {{ 'collection.sound' | translate }}
+                            {{ 'collection.sound' | translate }} <br>
+                            {{ 'collection.surround' | translate }} 
                         </span>
                     </a>
                    </h1>

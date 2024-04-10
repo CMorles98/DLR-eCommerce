@@ -25,12 +25,12 @@ export class NewProductsComponent implements AfterViewInit, OnInit {
   public activeTab = 'Todo';
 
   public tabs: { key: string, description: string}[] = [
-    { key: 'Todo', description: this.translateService.instant('newProducts.all')}, 
-    { key: 'Dispositivos Móviles', description: this.translateService.instant('newProducts.smartPhones')}, 
-    { key: 'Audio', description: this.translateService.instant('newProducts.audio')}, 
-    { key: 'Laptops', description: this.translateService.instant('newProducts.laptops')}, 
-    { key: 'Gaming', description: this.translateService.instant('newProducts.gaming')}, 
-    { key: 'Conectividad', description: this.translateService.instant('newProducts.connectivity')}
+    { key: 'Todo', description: 'newProducts.all'},
+    { key: 'Dispositivos Móviles', description: 'newProducts.smartPhones'},
+    { key: 'Audio', description: 'newProducts.audio'},
+    { key: 'Laptops', description: 'newProducts.laptops'},
+    { key: 'Gaming', description: 'newProducts.gaming'},
+    { key: 'Conectividad', description: 'newProducts.connectivity'},
   ]
   public itemsToShow: number =  8;
   public additionalItemsToShow: number = 4;

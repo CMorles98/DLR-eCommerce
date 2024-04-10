@@ -22,22 +22,22 @@ export class MobileSidebarComponent {
     {
       id:1,
       link:'/',
-      title: this.translate.instant('menu.SpecialOfferts'),
+      title: 'menu.SpecialOfferts'
     },
     {
       id:2,
       link:'/',
-      title: this.translate.instant('menu.AboutDLR'),
+      title: 'menu.AboutDLR'
     },
     {
       id:3,
       link:'/',
-      title: this.translate.instant('menu.FAQ'),
+      title: 'menu.FAQ'
     },
     {
       id:4,
       link:'/',
-      title: this.translate.instant('menu.Contact'),
+      title: 'menu.Contact'
     },
   ];
   

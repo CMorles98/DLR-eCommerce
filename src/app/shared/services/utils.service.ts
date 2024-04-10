@@ -1,12 +1,10 @@
-import { Injectable, Signal, TemplateRef, ViewChild, computed, inject, signal } from '@angular/core';
+import { Injectable, ViewChild, inject, signal } from '@angular/core';
 import { ProductService } from './product.service';
 import { CartService } from './cart.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { IProduct } from '../interfaces/product.interface';
 import { ProductModalComponent } from '../components/modals/product-modal/product-modal.component';
 import { BehaviorSubject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +17,6 @@ export class UtilsService {
   private productService: ProductService = inject(ProductService)
   private cartService: CartService = inject(CartService)
   private router: Router = inject(Router)
-  private http: HttpClient = inject(HttpClient)
 
 
 	openQuickView(product: IProduct) {

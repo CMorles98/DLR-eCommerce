@@ -48,8 +48,8 @@
         "devices": "Devices",
         "mobiles": "mobiles",
         "fallInLoveWith": "Fall in love with",
-        "surround": "surrounding",
-        "sound": "Sound",
+        "surround": "Sound",
+        "sound": "Surrounding",
         "findYours": "Find yours"
     },
     "newProducts": {
@@ -101,6 +101,32 @@
       "subtitleTwo": "on our",
       "subtitleThree": "selected products."
     },
+    "subscriptions": {
+      "name": "Name",
+      "lastName": "Last Name",
+      "phoneNumber": "Phone Number",
+      "email": "Email",
+      "subscribe" : "Subscribe"
+  },
+  "footer": {
+    "socialMedia": "Social Media",
+    "contacts": "Contacts",
+    "contactUsBy": "Contact us by",
+    "callUs": "Call us:",
+    "us": "About Us",
+    "clientAssistant": "Customer Service",
+    "faqAndHelp": "FAQ and Help",
+    "shipmentAndDelivery": "Shipping and Delivery",
+    "changesAndReturns": "Exchanges and Returns",
+    "information": "Information",
+    "rightsAndPrivacy": "Privacy Policy",
+    "rightsAndConditions": "Terms and Conditions",
+    "refundPolicy": "Refund Policy",
+    "rightsReserved": "All Rights Reserved",
+    "supportCenter": "Support Center",
+    "aboutUs": "About Us",
+    "ourLocation": "Our Location"
+},
     "search": "Search..."
 }
 

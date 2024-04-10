@@ -31,7 +31,7 @@
         <div class="card subscription-card p-5">
             <form>
                 <div class="form-group mb-2 row th-input-icon-container">
-                    <label for="nameInput" class="roboto-regular mb-1">Nombre</label>
+                    <label for="nameInput" class="roboto-regular mb-1"> {{ 'subscriptions.name' | translate }} </label>
                     <button type="button" disabled>
                         <svg width="22px" height="22px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
                             fill="currentColor" class="bi bi-person">
@@ -43,7 +43,7 @@
                         class="mt-1 ms-3 rounded-1 roboto-light">
                 </div>
                 <div class="form-group mb-2 row th-input-icon-container">
-                    <label for="nameInput" class="roboto-regular mb-1">Apellido</label>
+                    <label for="nameInput" class="roboto-regular mb-1">{{ 'subscriptions.lastName' | translate }}</label>
                     <button type="button" disabled>
                         <svg width="22px" height="22px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
                             fill="currentColor" class="bi bi-person">
@@ -55,7 +55,7 @@
                         class="mt-1 ms-3 rounded-1 roboto-light">
                 </div>
                 <div class="form-group mb-2 row th-input-icon-container">
-                    <label for="nameInput" class="roboto-regular mb-1">Número telefónico</label>
+                    <label for="nameInput" class="roboto-regular mb-1">{{ 'subscriptions.phoneNumber' | translate }}</label>
                     <button type="button" disabled>
                         <svg width="22px" height="22px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"
@@ -65,11 +65,11 @@
 	c-0.5-0.5-1.2-0.5-1.7,0l-2.5,2.5c0,0-2.8-1.2-5-3.3s-3.3-5-3.3-5l2.5-2.5C14.1,9.7,14.1,8.9,13.6,8.5z" />
                         </svg>
                     </button>
-                    <input id="nameInput" type="text" placeholder="Ejm.: 0410 444 4444" name="nameInput"
+                    <input id="nameInput" type="text" placeholder="Ejm.: 0414 444 4444" name="nameInput"
                         class="mt-1 ms-3 rounded-1 roboto-light">
                 </div>
                 <div class="form-group mb-2 row th-input-icon-container">
-                    <label for="nameInput" class="roboto-regular mb-1">E-mail</label>
+                    <label for="nameInput" class="roboto-regular mb-1">{{ 'subscriptions.email' | translate }}</label>
                     <button type="button" disabled>
                         <svg width="24px" height="24px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
                             fill="#000000">
@@ -82,7 +82,7 @@
                         class="mt-1 ms-3 rounded-1 roboto-light">
                 </div>
                 <div class="button-container text-center ">
-                    <button class="btn btn-lg btn-primary roboto-regular px-5 py-2 mt-20">Suscríbete
+                    <button class="btn btn-lg btn-primary roboto-regular px-5 py-2 mt-20">{{ 'subscriptions.subscribe' | translate }}
                         <span class="text-light ms-2">
                             <svg version="1.1" id="Uploaded to svgrepo.com" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="28px" height="28px"

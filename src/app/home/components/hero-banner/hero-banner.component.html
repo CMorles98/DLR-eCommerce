@@ -5,10 +5,10 @@
         <div class="hero-img cursor-pointer " [style.background-image]="'url(' + slide.img +')'">
           <div class="text-container">
             <h1 class="mb-4 theme-title animate__animated animate__slideInRight"> 
-              {{slide.title}}
+              {{slide.title | translate}}
             </h1>
             <h4 class="theme-subtitle animate__animated animate__slideInRight">
-              {{slide.subtitle}}
+              {{slide.subtitle | translate }}
             </h4>
           </div>
         </div>

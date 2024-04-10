@@ -65,7 +65,7 @@
         "gaming": "Gaming",
         "tablets": "Tablets",
         "connectivity": "Connectividad",
-        "all": "All",
+        "all": "Todo",
         "audio": "Audio",
         "showMore": "ver más",
         "banner": {
@@ -100,6 +100,32 @@
       "discount": "30% de descuento",
       "subtitleTwo": "en nuestros",
       "subtitleThree": "productos selecionados."
+    },
+    "subscriptions": {
+        "name": "Nombre",
+        "lastName": "Apellido",
+        "phoneNumber": "Número telefónico",
+        "email": "E-mail",
+        "subscribe" : "Suscríbete"
+    },
+    "footer": {
+        "socialMedia": "Redes Sociales",
+        "contacts": "Contactos",
+        "contactUsBy": "Contactanos por",
+        "callUs": "Llámanos:",
+        "us": "Nosotros",
+        "clientAssistant": "Atención al Cliente",
+        "faqAndHelp": "FAQ y Ayuda",
+        "shipmentAndDelivery": "Envíos y Entrega",
+        "changesAndReturns": "Cambios y Devoluciones",
+        "information": "Información",
+        "rightsAndPrivacy": "Políticas de Privacidad",
+        "rightsAndConditions": "Términos y condiciones",
+        "refundPolicy": "Política de Reembolso",
+        "rigthsReserved": "Derechos Reservados",
+        "supportCenter": "Centro de Apoyo",
+        "aboutUs": "Sobre Nosotros",
+        "ourLocation": "Nuestra Ubicación"
     },
     "search": "Buscar..."
 }

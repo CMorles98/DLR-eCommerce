@@ -58,7 +58,7 @@
 
           <ul *ngFor="let menu of mobile_menu">
             <li class="border_animated">
-              <a role="button" class="roboto-light" [routerLink]="['/']">{{menu.title}}</a>
+              <a role="button" class="roboto-light" [routerLink]="['/']">{{menu.title | translate }}</a>
             </li>
           </ul>
         </nav>

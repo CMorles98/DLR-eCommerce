@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { UtilsService } from './shared/services/utils.service';
 
 @Component({
   selector: 'app-root',
@@ -13,17 +14,17 @@ export class AppComponent implements OnInit{
 
   private router: Router = inject(Router)
   private spinner: NgxSpinnerService = inject(NgxSpinnerService)
-
-  constructor(translate: TranslateService) {
-    translate.addLangs(['en', 'es']);
-    translate.setDefaultLang('en');
-    translate.use('en');
-  }
+  private translate: TranslateService = inject(TranslateService)
 
   ngOnInit(): void {
     this.router.events.subscribe((event: any) => {
       this.navigationInterceptor(event);
     });
+    
+    this.translate.addLangs(['es']);
+    this.translate.setDefaultLang('es');
+    this.translate.use('es');
+    
   }
 
   navigationInterceptor(event: Event): void {

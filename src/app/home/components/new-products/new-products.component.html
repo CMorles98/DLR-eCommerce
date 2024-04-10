@@ -14,7 +14,7 @@
             <li *ngFor="let tab of tabs; let i = index" class="nav-item border_animated" [ngClass]="{ 'item_selected': activeTab === tab.key }">
               <a class="nav-link roboto-light mb-3 py-3" style="font-size: medium;" role="button"
                 [ngClass]="{ active: activeTab === tab.key}" (click)="handleActiveTab(tab.key)">
-                {{ tab.description }}
+                {{ tab.description | translate }}
               </a>
             </li>
           </ul>

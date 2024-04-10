@@ -16,27 +16,27 @@ export class TopMenuSecondaryComponent {
     {
       id:1,
       link:'/',
-      title: this.translate.instant('menu.MobileDevices'),
+      title: 'menu.MobileDevices'
     },
     {
       id:2,
       link:'/',
-      title: this.translate.instant('menu.Audio'),
+      title: 'menu.Audio'
     },
     {
       id:3,
       link:'/',
-      title: this.translate.instant('menu.Laptops'),
+      title: 'menu.Laptops'
     },
     {
       id:4,
       link:'/',
-      title: this.translate.instant('menu.Gaming'),
+      title: 'menu.Gaming'
     },
     {
       id:5,
       link:'/',
-      title: this.translate.instant('menu.Connectivity'),
+      title: 'menu.Connectivity'
     },
 
 
