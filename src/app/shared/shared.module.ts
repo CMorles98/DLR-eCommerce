@@ -21,9 +21,20 @@ import { GetProductNamesPipe } from './pipes/get-product-names.pipe';
 import { PhoneMaskDirective } from './directives/phone-mask.directive';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
+import { BrandFilterComponent } from './components/filtering/brand-filter/brand-filter.component';
+import { CategoryFilterComponent } from './components/filtering/category-filter/category-filter.component';
+import { PriceFilterComponent } from './components/filtering/price-filter/price-filter.component';
+import { ResetFilterRouteComponent } from './components/filtering/reset-filter-route/reset-filter-route.component';
+import { StatusFilterComponent } from './components/filtering/status-filter/status-filter.component';
+import { NgxSliderModule } from 'ngx-slider-v2';
+import { TopRatedProductsComponent } from './components/top-rated-products/top-rated-products.component';
+import { ProductItemTwoComponent } from './components/product-item-two/product-item-two.component';
+import { ProductListItemComponent } from './components/product-list-item/product-list-item.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
+    TopRatedProductsComponent,
     HeaderComponent,
     TopMenuComponent,
     TopMenuSecondaryComponent,
@@ -39,7 +50,16 @@ import { TranslateModule } from '@ngx-translate/core';
     BackToTopComponent,
     NiceSelectComponent,
     GetProductNamesPipe,
-    PhoneMaskDirective],
+    PhoneMaskDirective,
+    BrandFilterComponent,
+    CategoryFilterComponent,
+    PriceFilterComponent,
+    ResetFilterRouteComponent,
+    StatusFilterComponent,
+    ProductItemTwoComponent,
+    ProductListItemComponent,
+    PaginationComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -47,7 +67,8 @@ import { TranslateModule } from '@ngx-translate/core';
     ReactiveFormsModule,
     FormsModule,
     NgbTooltipModule,
-    TranslateModule
+    TranslateModule,
+    NgxSliderModule
   ],
   exports: [
     HeaderComponent,
@@ -61,7 +82,16 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     GetProductNamesPipe,
     PhoneMaskDirective,
-    NgbTooltipModule
+    NgbTooltipModule,
+    BrandFilterComponent,
+    CategoryFilterComponent,
+    PriceFilterComponent,
+    ResetFilterRouteComponent,
+    StatusFilterComponent,
+    TopRatedProductsComponent,
+    ProductItemTwoComponent,
+    ProductListItemComponent,
+    PaginationComponent
   ]
 })
 export class SharedModule { }
