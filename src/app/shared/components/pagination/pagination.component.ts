@@ -18,5 +18,10 @@ export class PaginationComponent {
 
   pageSet(page: number) {
     this.setPage.emit(page); // Set Page Number
+    this.scrollToTop()
+  }
+  
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

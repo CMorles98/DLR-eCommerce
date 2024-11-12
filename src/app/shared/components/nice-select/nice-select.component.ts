@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
 import { NiceSelectOption } from '../../interfaces/option.interface';
-import { UserService } from '../../../profile/services/user.service';
+import { UtilsService } from '../../services/utils.service';
 
 @Component({
   selector: 'app-nice-select',
@@ -8,18 +8,18 @@ import { UserService } from '../../../profile/services/user.service';
   styleUrls: ['./nice-select.component.scss'],
 })
 export class NiceSelectComponent {
+
   @Input() options!: NiceSelectOption[];
   @Input() defaultCurrent?: number = 0;
   @Input() placeholder: string = '';
   @Input() className: string = '';
-  @Input() name: string = '';
 
-  public userService = inject(UserService) 
+  @Output() onChange: EventEmitter<NiceSelectOption> = new EventEmitter();
+  
+  public UtilsService = inject(UtilsService) 
 
   open = false;
   current: NiceSelectOption | undefined;
-
-  @Output() onChange: EventEmitter<NiceSelectOption> = new EventEmitter();
 
   toggleOpen() {
     this.open = !this.open;

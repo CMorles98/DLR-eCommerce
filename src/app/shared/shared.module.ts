@@ -31,6 +31,7 @@ import { TopRatedProductsComponent } from './components/top-rated-products/top-r
 import { ProductItemTwoComponent } from './components/product-item-two/product-item-two.component';
 import { ProductListItemComponent } from './components/product-list-item/product-list-item.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { NotFoundComponent } from '../not-found/not-found.component';
 
 @NgModule({
   declarations: [

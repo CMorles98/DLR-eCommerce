@@ -1,7 +1,7 @@
 <div class="rounded-3 border-0 " [ngClass]="['tp-product-item', 'p-relative', 'transition-3', offer_style ? 'tp-product-offer-item' : 'mb-25']">
   <div class="tp-product-thumb p-relative fix m-img">
     <a [routerLink]="['/']">
-        <img [src]="product.img" class="rounded" [style.background-color]="product.bgColor" alt="product-electronic">
+        <img [src]="product.img" class="rounded img-fluid p-2" [style.background-color]="product.bgColor" alt="product-electronic" style="height: 20em; object-position: center; object-fit: contain;">
     </a>
 
     <!-- product badge -->

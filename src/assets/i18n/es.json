@@ -1,4 +1,14 @@
 {
+    "category": {
+      "MobileDevices": "Dispositivos Móviles",
+      "Audio": "Audio",
+      "Laptops": "Laptops",
+      "Gaming": "Gaming",
+      "Connectivity": "Conectividad",
+      "Smartphones": "Smartphones",
+      "SmartWatches": "Smart Watches",
+      "Tablets": "Tablets"
+    },
     "offcanvas": {
         "allCategories": "Todas las Categorias",
         "viewProfile": "Ver Perfil",
@@ -127,5 +137,39 @@
         "aboutUs": "Sobre Nosotros",
         "ourLocation": "Nuestra Ubicación"
     },
-    "search": "Buscar..."
+    "search": {
+        "title": "Buscar...",
+        "sort": {
+            "default": "Orden predeterminado",
+            "newest": "Descendiente",
+            "priceLow": "Precio: Menor a Mayor",
+            "priceHigh": "Precio: Mayor a Menor",
+            "onSale": "En Oferta",
+            "category": "Categoría",
+            "newArrivals": "Nuevos Productos"
+        },
+        "filters": {
+            "show": "Mostrar Filtros",
+            "hide": "Ocultar Filtros",
+            "price": "Filtro de Precio",
+            "status": "Estado del Producto",
+            "categories": "Categorías",
+            "brands": "Marcas Populares",
+            "reset": "Restablecer Filtros"
+        },
+        "results": {
+            "showing": "Mostrando {{start}}–{{end}} de {{total}} resultados"
+        },
+        "empty": {
+            "title": "¡Lo sentimos! ¡No pudimos encontrar el producto que buscas!",
+            "message": "Por favor, verifica si hay algún error en la escritura o intenta buscar con otras palabras.",
+            "imageAlt": "Imagen de carrito vacío",
+            "continueShopping": "Continuar Comprando"
+        }
+    },
+    "notFound": {
+        "title": "¡Ups! Página no encontrada",
+        "message": "Vaya, esto es vergonzoso. Parece que la página que buscabas no se encontró.",
+        "backToHome": "Volver al Inicio"
+    }
 }

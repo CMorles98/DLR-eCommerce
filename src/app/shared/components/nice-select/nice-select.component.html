@@ -5,7 +5,7 @@
   role="button"
   class="rounded-3 "
 >
-  <span class="current roboto-light">{{ userService.genderNiceSelectValue()?.text ?? placeholder }}</span>
+  <span class="current roboto-light">{{ UtilsService.selectedSort() | translate }}</span>
   <ul class="list" role="menubar" (click)="stopPropagation($event)">
     <li
       *ngFor="let item of options; let index = index"
@@ -14,7 +14,7 @@
       (click)="currentHandler(item, index)"
       role="menuitem"
     >
-      {{ item.text }}
+      {{ item.text | translate }}
     </li>
   </ul>
 </div>

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SearchRoutingModule } from './search-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { SearchComponent } from './page/search.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { SearchComponent } from './page/search.component';
   imports: [
     CommonModule,
     SearchRoutingModule,
-    SharedModule
+    SharedModule,
+    TranslateModule
   ]
 })
 export class SearchModule { }

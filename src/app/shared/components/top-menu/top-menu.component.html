@@ -1,6 +1,9 @@
-<ul class="d-inline-flex w-100 justify-content-between ">
+<ul class="d-inline-flex w-100 justify-content-between">
   <li class="border_animated" *ngFor="let item of menu_data; let i = index">
-      <a class="d-inline-flex text-center" [routerLink]="['/']">{{ item.title | translate }}
+      <a class="d-inline-flex text-center" 
+         [routerLink]="[item.link]" 
+         [queryParams]="item.id === 1 ? {sortBy: 'low', page: '1'} : null">
+         {{ item.title | translate }}
         @if (item.icon) {
         <span class="d-none ps-xl-1 d-xl-block ltr:ml-1.5 rtl:mr-1.5 ltr:xl:ml-2 rtl:xl:mr-2"><svg viewBox="0 0 11 18"
             fill="none" xmlns="http://www.w3.org/2000/svg" class="h-auto" style="width: 10px !important;">

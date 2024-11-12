@@ -22,13 +22,13 @@ public handleActive(): void {
 
   public handleParentCategory(value: string): void {
     const newCategory = value.toLowerCase().replace("&", "").split(" ").join("-");
-    this.router.navigate(['/'], { queryParams: { category: newCategory } });
+    this.router.navigate(['/search'], { queryParams: { category: newCategory } });
     this.handleActive()
   }
 
   public handleSubCategory(value: string): void {
     const newCategory = value.toLowerCase().replace("&", "").split(" ").join("-");
-    this.router.navigate(['/'], { queryParams: { subcategory: newCategory } });
+    this.router.navigate(['/search'], { queryParams: { subcategory: newCategory } });
     this.handleActive()
   }
 }

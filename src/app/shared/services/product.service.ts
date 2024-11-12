@@ -52,11 +52,14 @@ export class ProductService {
     return max_price
   }
 // shop filterSelect
-  public filterSelect = [
-    { value: 'asc', text: 'Default Sorting' },
-    { value: 'low', text: 'Low to Hight' },
-    { value: 'high', text: 'High to Low' },
-    { value: 'on-sale', text: 'On Sale' },
+  public filterSelect: {value: string, text: string}[] = [
+    { value: 'asc', text: 'Ascending' },
+    { value: 'desc', text: 'Descending' },
+    { value: 'low', text: 'Price (Low to Hight)' },
+    { value: 'high', text: 'Price (High to Low)' },
+    { value: 'on-sale', text: 'Discount' },
+    { value: 'category', text: 'Category' },
+    { value: 'new', text: 'New to Old' },
   ];
 
     // Get Product Filter

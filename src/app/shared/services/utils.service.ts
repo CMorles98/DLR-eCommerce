@@ -46,6 +46,7 @@ export class UtilsService {
   public isProductModalOpen: Boolean = false;
   public openMobileMenus: Boolean = false;
   public iframeElement: HTMLIFrameElement | null = null;
+  public selectedSort = signal('')
 
   public product!: IProduct;
 

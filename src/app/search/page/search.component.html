@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header [searchText]="searchText"></app-header>
 <main>
     <!-- shop area start -->
     <section [ngClass]="'tp-shop-area pb-120 mt-40' + (full_width ? 'tp-shop-full-width-padding' : '')">
@@ -6,56 +6,55 @@
         <!-- Add mobile filter toggle button -->
         <div class="d-lg-none mb-4">
           <button class="btn btn-primary w-100" (click)="toggleFilter()">
-            {{ isFilterVisible ? 'Hide Filters' : 'Show Filters' }}
+            {{ (isFilterVisible ? filterTitles.hideFilters : filterTitles.showFilters) | translate }}
           </button>
         </div>
 
         <div class="row">
           <!-- Update sidebar visibility -->
           <div *ngIf="(!shop_right_side && !shop_no_side) && (isFilterVisible || !isMobile)" 
-               class="col-xl-3 col-lg-4"
+               class="col-xl-3 col-lg-4 pe-4"
                [ngClass]="{'d-lg-block': !isFilterVisible}">
             <div class="tp-shop-sidebar mr-10">
               <!--price filter -->
               <div class="tp-shop-widget mb-35">
-                <h3 class="tp-shop-widget-title no-border">Price Filter</h3>
+                <h3 class="tp-shop-widget-title no-border">{{ filterTitles.price | translate }}</h3>
                 <app-price-filter [min]="minPrice" [max]="maxPrice" (priceFilter)="updateFilter($event)"></app-price-filter>
               </div>
               <!-- status -->
-              <div class="tp-shop-widget mb-50">
-                <h3 class="tp-shop-widget-title">Product Status</h3>
+              <!-- <div class="tp-shop-widget mb-50">
+                <h3 class="tp-shop-widget-title">{{ filterTitles.status | translate }}</h3>
                 <app-status-filter></app-status-filter>
-              </div>
+              </div> -->
               <!-- categories -->
               <div class="tp-shop-widget mb-50">
-                <h3 class="tp-shop-widget-title">Categories</h3>
+                <h3 class="tp-shop-widget-title">{{ filterTitles.categories | translate }}</h3>
                 <app-category-filter></app-category-filter>
               </div>
               <!-- product rating -->
-              <div class="tp-shop-widget mb-50">
+              <!-- <div class="tp-shop-widget mb-50">
                 <h3 class="tp-shop-widget-title">Top Rated Products</h3>
                 <app-top-rated-products></app-top-rated-products>
-              </div>
+              </div> -->
               <!-- brand -->
-              <div class="tp-shop-widget mb-50">
-                <h3 class="tp-shop-widget-title">Popular Brands</h3>
+              <div class="tp-shop-widget mb-30">
+                <h3 class="tp-shop-widget-title">{{ filterTitles.brands | translate }}</h3>
                 <app-brand-filter></app-brand-filter>
               </div>
-              <!-- reset -->
-              <app-reset-filter-route (handleResetFilter)="handleResetFilter()"></app-reset-filter-route>
             </div>
           </div>
           <!--sidebar if not true shop_right_side and not true shop_no_side end-->
+
           <!-- tp-shop-main-wrapper -->
           <div [ngClass]="(shop_no_side ? 'col-xl-12' : 'col-xl-9 col-lg-8')">
             <div class="tp-shop-main-wrapper">
-              <div class="tp-shop-top mb-45">
+              <div class="tp-shop-top mb-20">
                 <div class="row">
                   <div class="col-xl-6">
-                    <div class="tp-shop-top-left d-flex align-items-center ">
-                      <div class="tp-shop-top-tab tp-tab">
+                    <div class="tp-shop-top-left d-flex align-items-center">
+                      <!-- <div class="tp-shop-top-tab tp-tab">
                         <ul class="nav nav-tabs" *ngIf="!isMobile">
-                          <li class="nav-item" role="presentation">
+                          <li class="nav-item" hidden role="presentation">
                             <button [ngClass]="{'nav-link': true, 'active': activeTab === 'grid' || isMobile}"
                               (click)="handleActiveTab('grid')">
                               <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
@@ -75,7 +74,7 @@
                               </svg>
                             </button>
                           </li>
-                          <li class="nav-item" role="presentation">
+                          <li class="nav-item" hidden role="presentation">
                             <button [ngClass]="{'nav-link': true, 'active': activeTab === 'list'}"
                               (click)="handleActiveTab('list')">
                               <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
@@ -90,17 +89,28 @@
                             </button>
                           </li>
                         </ul>
-                      </div>
+                      </div> -->
                       <div class="tp-shop-top-result">
-                        <p>Showing {{ paginate.startIndex + 1 }}–{{ paginate.endIndex + 1 }} of {{ paginate.totalItems }} results</p>
+                        <p>{{ resultsText.showing | translate:{
+                          start: paginate.startIndex + 1,
+                          end: paginate.endIndex + 1,
+                          total: paginate.totalItems
+                        } }}</p>
                       </div>
                     </div>
                   </div>
                   <div class="col-xl-6">
                     <div class="tp-shop-top-right d-sm-flex align-items-center justify-content-xl-end">
-                      <div class="tp-shop-top-select">
-                        <app-nice-select [options]="niceSelectOptions" name="Default Sorting" [defaultCurrent]="0"
-                          (onChange)="changeFilterSelect($event)" placeholder="Default Sorting"></app-nice-select>
+                      <div class="tp-shop-top-select d-flex gap-3">
+                        <!-- reset -->
+                        <app-nice-select 
+                         [options]="niceSelectOptions" 
+                         [defaultCurrent]="0"
+                         (onChange)="changeFilterSelect($event)">
+                        </app-nice-select>
+
+                        
+                        <app-reset-filter-route (handleResetFilter)="handleResetFilter()"></app-reset-filter-route>
                       </div>
                     </div>
                   </div>
@@ -110,16 +120,16 @@
     
                 <!-- if no item in product  -->
                 <div *ngIf="filteredProducts.length === 0" class="cartmini__empty text-center">
-                  <img src="/assets/img/product/cartmini/empty-cart.png" alt="empty-cart-img" />
-                  <h4>Sorry! Couldn't find the product you were looking For!!!</h4>
-                  <p>Please check if you have misspelt something or try searching with other words.</p>
-                  <a routerLink="/shop" class="tp-btn">Continue Shopping</a>
+                  <img src="../../../assets/img/Logo_SVG/DLR Tech-Imagotipo Principal-Espacios Claros-RGB.svg" class="w-25" alt="{{ emptyStateText.imageAlt | translate }}" />
+                  <h4>{{ emptyStateText.title | translate }}</h4>
+                  <p>{{ emptyStateText.message | translate }}</p>
+                  <a routerLink="/search" class="btn ptn-primary bg-primery">{{ emptyStateText.continueShopping | translate }}</a>
                 </div>
     
                 <div *ngIf="activeTab === 'grid' || isMobile">
                   <div class="row infinite-container">
                     <div *ngFor="let item of filteredProducts" class="col-xl-4 col-md-6 col-sm-6 infinite-item">
-                      <app-product-item-two [product]="item" [spacing]="true"></app-product-item-two>
+                      <app-product-item-one [product]="item"></app-product-item-one>
                     </div>
                   </div>
                 </div>
@@ -169,12 +179,10 @@
                 <app-top-rated-products></app-top-rated-products>
               </div>
               <!-- brand -->
-              <div class="tp-shop-widget mb-50">
+              <div class="tp-shop-widget">
                 <h3 class="tp-shop-widget-title">Popular Brands</h3>
                 <app-brand-filter></app-brand-filter>
               </div>
-              <!-- reset -->
-              <app-reset-filter-route (handleResetFilter)="handleResetFilter()"></app-reset-filter-route>
             </div>
           </div>
           <!--sidebar if shop_right_side true and not shop_no_side true end-->

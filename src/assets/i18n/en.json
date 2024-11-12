@@ -1,4 +1,14 @@
 {
+    "category": {
+      "MobileDevices": "Mobile Devices",
+      "Audio": "Audio",
+      "Laptops": "Laptops",
+      "Gaming": "Gaming",
+      "Connectivity": "Connectivity",
+      "Smartphones": "Smartphones",
+      "SmartWatches": "Smart Watches",
+      "Tablets": "Tablets"
+    },
     "offcanvas": {
         "allCategories": "All Categories",
         "viewProfile": "View Profile",
@@ -127,6 +137,35 @@
     "aboutUs": "About Us",
     "ourLocation": "Our Location"
 },
-    "search": "Search..."
+    "search": {
+      "title": "Search...",
+      "sort": {
+        "default": "Default sorting",
+        "newest": "Sort by newest",
+        "priceLow": "Price: Low to High",
+        "priceHigh": "Price: High to Low",
+        "onSale": "On Sale",
+        "category": "By Category",
+        "newArrivals": "New Arrivals"
+      },
+      "filters": {
+        "show": "Show Filters",
+        "hide": "Hide Filters",
+        "price": "Price Filter",
+        "status": "Product Status",
+        "categories": "Categories",
+        "brands": "Popular Brands",
+        "reset": "Reset Filters"
+      },
+      "results": {
+        "showing": "Showing {{start}}–{{end}} of {{total}} results"
+      },
+      "empty": {
+        "title": "Sorry! Couldn't find the product you were looking For!!!",
+        "message": "Please check if you have misspelt something or try searching with other words.",
+        "imageAlt": "Empty cart image",
+        "continueShopping": "Continue Shopping"
+      }
+    }
 }
 

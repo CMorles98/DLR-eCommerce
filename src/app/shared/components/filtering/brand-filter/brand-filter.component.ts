@@ -29,6 +29,10 @@ export class BrandFilterComponent implements OnInit {
   checkIfMobile() {
     this.isMobile = window.innerWidth < 768; // Adjust the breakpoint as needed
   }
+  
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   handleBrandRoute(value: string) {
     const newBrand = value.toLowerCase().replace('&', '').split(' ').join('-');
@@ -43,8 +47,7 @@ export class BrandFilterComponent implements OnInit {
         skipLocationChange: false,
       })
       .finally(() => {
-        this.viewScroller.setOffset([120, 120]);
-        this.viewScroller.scrollToAnchor('products');
+        this.scrollToTop()
       });
   }
 

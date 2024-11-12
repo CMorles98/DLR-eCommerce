@@ -21,7 +21,7 @@ export  const categoryData: ICategory[] = [
       },
       {
         id: "6419723bd7dc5155c44350d5",
-        parent: "Audífonos",
+        parent: "Audio",
         products: [
           "641e887d05f9ee1717e134ad",
           "641e887d05f9ee1717e134b2"
@@ -36,15 +36,15 @@ export  const categoryData: ICategory[] = [
           "641e887d05f9ee1717e13496"
         ],
       },
-      {
-        id: "6419723bd7dc6155c04350d4",
-        parent: "Cornetas",
-        products: [
-          "641e887d05f9ee1717e1349a",
-          "641e887d05f9ee1717e1349f",
-          "641d4106dbfab7b02ab28b22"
-        ],
-      },
+      // {
+      //   id: "6419723bd7dc6155c04350d4",
+      //   parent: "Cornetas",
+      //   products: [
+      //     "641e887d05f9ee1717e1349a",
+      //     "641e887d05f9ee1717e1349f",
+      //     "641d4106dbfab7b02ab28b22"
+      //   ],
+      // },
       {
         id: "6419723bd7dc6155c14350d4",
         parent: "Gaming",
@@ -65,7 +65,7 @@ export  const categoryData: ICategory[] = [
       },
       {
         id: "2419723bd7dc6155c14330d4",
-        parent: "Conectividad",
+        parent: "Connectivity",
         products: [
           "641e887d05f9ee1717e1349a",
           "641e887d05f9ee1717e1349f",

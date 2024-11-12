@@ -1,7 +1,7 @@
 <ul>
     <li class="border_animated" *ngFor="let item of menu_data; let i = index" 
     [ngClass]="{'has-dropdown': item.drop_down, 'has-dropdown has-mega-menu': item.mega_menu}">
-      <a [routerLink]="['/']">{{ item.title | translate }}</a>
+      <a [routerLink]="['/search']" [queryParams]="{category: item.id}">{{ item.title | translate }}</a>
         
       <ul *ngIf="item.product_menus" class="tp-submenu tp-mega-menu mega-menu-style-2">
         <li *ngFor="let prd_m of item.product_menus; let i = index" class="has-dropdown">

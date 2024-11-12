@@ -28,10 +28,10 @@
                 <!-- search input -->
                 <div class="col-xl-4 col-lg-3 d-none d-lg-block">
                     <div class="tp-header-search-2">
-                        <form (ngSubmit)="handleSearchSubmit()">
-                            <input type="text" [placeholder]="'search' | translate" [(ngModel)]="searchText"
-                                name="searchText" class="roboto-light">
-                            <button type="submit">
+                        <form>
+                            <input type="text" [placeholder]="'search.title' | translate" [(ngModel)]="searchText"
+                                name="searchText" class="roboto-light" (keyup.enter)="handleSearchSubmit()">
+                            <button type="button" (click)="handleSearchSubmit()">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -302,7 +302,7 @@
             <div class="col-xl-4 col-lg-3 d-none d-lg-block">
                 <div class="tp-header-search-2">
                     <form (ngSubmit)="handleSearchSubmit()">
-                        <input type="text" [placeholder]="'search' | translate" [(ngModel)]="searchText"
+                        <input type="text" [placeholder]="'search.title' | translate" [(ngModel)]="searchText"
                             name="searchText" class="roboto-light">
                         <button type="submit">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"

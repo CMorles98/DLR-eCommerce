@@ -15,8 +15,8 @@
                 .join('-')
           }"
         >
-          {{ category.parent }}
-          <span>{{ category.products.length }}</span>
+          {{ 'category.' + category.parent | translate }}
+          <span>{{ getProductByCategory(category.parent) }}</span>
         </a>
       </li>
     </ul>

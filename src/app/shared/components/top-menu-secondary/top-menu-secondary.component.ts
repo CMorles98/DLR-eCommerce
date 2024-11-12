@@ -12,33 +12,30 @@ export class TopMenuSecondaryComponent {
   translate = inject(TranslateService)
 
   public menu_data: IMenuItem[] = [
-
     {
-      id:1,
-      link:'/',
+      id: 'smartphones',
+      link: '/search',
       title: 'menu.MobileDevices'
     },
     {
-      id:2,
-      link:'/',
+      id: 'audio',
+      link: '/search',
       title: 'menu.Audio'
     },
     {
-      id:3,
-      link:'/',
+      id: 'laptops',
+      link: '/search',
       title: 'menu.Laptops'
     },
     {
-      id:4,
-      link:'/',
+      id: 'gaming',
+      link: '/search',
       title: 'menu.Gaming'
     },
     {
-      id:5,
-      link:'/',
+      id: 'connectivity',
+      link: '/search',
       title: 'menu.Connectivity'
-    },
-
-
+    }
   ]
 }

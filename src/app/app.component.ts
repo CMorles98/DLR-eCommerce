@@ -29,16 +29,12 @@ export class AppComponent implements OnInit{
 
   navigationInterceptor(event: Event): void {
     if (event instanceof NavigationStart) {
-      this.spinner.show();
+      setTimeout(() => this.spinner.show(), 0);
     }
-    if (event instanceof NavigationEnd) {
-      this.spinner.hide();
-    }
-    if (event instanceof NavigationCancel) {
-      this.spinner.hide();
-    }
-    if (event instanceof NavigationError) {
-      this.spinner.hide();
+    if (event instanceof NavigationEnd || 
+        event instanceof NavigationCancel || 
+        event instanceof NavigationError) {
+      setTimeout(() => this.spinner.hide(), 100);
     }
   }
 }

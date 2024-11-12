@@ -44,7 +44,7 @@ type IReview = {
       value: string;
     }[];
     featured?: boolean;
-    sellCount: number;
+    sellCount?: number;
     offerDate?:{
       startDate:string;
       endDate:string;

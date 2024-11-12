@@ -18,28 +18,27 @@ export class MobileSidebarComponent {
   authService: AuthService = inject(AuthService)
 
   public mobile_menu: IMobileType[] = [
-    
     {
-      id:1,
-      link:'/',
+      id: 1,
+      link: '/search?sortBy=low&page=1',
       title: 'menu.SpecialOfferts'
     },
     {
-      id:2,
-      link:'/',
+      id: 2,
+      link: '/about-dlr',
       title: 'menu.AboutDLR'
     },
     {
-      id:3,
-      link:'/',
+      id: 3,
+      link: '/faq',
       title: 'menu.FAQ'
     },
     {
-      id:4,
-      link:'/',
+      id: 4,
+      link: '/contact',
       title: 'menu.Contact'
     },
-  ];
+  ]
   
  public categoryItems: ICategory[] = [
 
@@ -78,15 +77,15 @@ export class MobileSidebarComponent {
       "641e887d05f9ee1717e13496"
     ],
   },
-  {
-    id: "6419723bd7dc6155c04350d4",
-    parent: "Cornetas",
-    products: [
-      "641e887d05f9ee1717e1349a",
-      "641e887d05f9ee1717e1349f",
-      "641d4106dbfab7b02ab28b22"
-    ],
-  },
+  // {
+  //   id: "6419723bd7dc6155c04350d4",
+  //   parent: "Cornetas",
+  //   products: [
+  //     "641e887d05f9ee1717e1349a",
+  //     "641e887d05f9ee1717e1349f",
+  //     "641d4106dbfab7b02ab28b22"
+  //   ],
+  // },
   {
     id: "6419723bd7dc6155c14350d4",
     parent: "Gaming",
@@ -107,7 +106,7 @@ export class MobileSidebarComponent {
   },
   {
     id: "2419723bd7dc6155c14330d4",
-    parent: "Conectividad",
+    parent: "connectivity",
     products: [
       "641e887d05f9ee1717e1349a",
       "641e887d05f9ee1717e1349f",

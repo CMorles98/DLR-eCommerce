@@ -14,23 +14,23 @@ export class TopMenuComponent {
   public menu_data: IMenuItem[] = [
     {
       id: 1,
-      link: '#',
+      link: '/search',
       title: 'menu.SpecialOfferts',
       icon: true
     },
     {
       id: 2,
-      link: '#',
+      link: '/about-dlr',
       title: 'menu.AboutDLR'
     },
     {
       id: 3,
-      link: '#',
+      link: '/faq',
       title: 'menu.FAQ'
     },
     {
       id: 4,
-      link: '#',
+      link: '/contact',
       title: 'menu.Contact'
     },
   ]
