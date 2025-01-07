@@ -1,16 +1,15 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Inject, Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { IProduct } from "../interfaces/product.interface";
 import { environment } from '../../../environments/environment';
 import { ProductParameters } from '../interfaces/product-parameters.interface';
-import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
   
-  http: HttpClient = Inject(HttpClient)
+  http: HttpClient = inject(HttpClient)
 
   public filter_offcanvas: boolean = false
   
@@ -34,10 +33,8 @@ export class ProductService {
     if(featured) params.set("featured", featured)
     if(name) params.set("name", name)
     if(category) params.set("category", category)
-
-  const products: IProduct[] = []
-
-    return of(products)
+    
+    return this.http.get<IProduct[]>(this.baseUrl, { params })
   }
 
   handleImageActive(img: string) {
