@@ -36,14 +36,12 @@
 
               <li *ngFor="let item of categoryItems" class="text-center">
                 <a class="cursor-pointer">
-                  <span *ngIf="item.img">
-                    <img [src]="item.img" alt="cate img" style="width: 50px; height: 50px; object-fit: contain" />
-                  </span>
-                  <span class="roboto-light">{{ item.parent }}</span>
-                  <button *ngIf="item.children" (click)="handleOpenSubCategory(item.parent)"
+
+                  <span class="roboto-light">{{ item.name }}</span>
+                  <!-- <button *ngIf="item.children" (click)="handleOpenSubCategory(item.parent)"
                     class="dropdown-toggle-btn">
                     <i class="fa-regular fa-angle-right"></i>
-                  </button>
+                  </button> -->
                 </a>
 
               </li>

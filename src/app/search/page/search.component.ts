@@ -5,6 +5,7 @@ import { IProduct } from '../../shared/interfaces/product.interface';
 import { ProductService } from '../../shared/services/product.service';
 import { UtilsService } from '../../shared/services/utils.service';
 import { TranslateService } from '@ngx-translate/core';
+import { ProductParameters } from '../../shared/interfaces/product-parameters.interface';
 
 @Component({
   selector: 'app-search',
@@ -32,7 +33,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   public productType: string = '';
   public selectVal: string = '';
   public minPrice: number = 0;
-  public maxPrice: number = this.productService.maxPrice;
+  public maxPrice: number = 0;
   public niceSelectOptions = [
     { value: 'asc', text:  'search.sort.default' },
     { value: 'desc', text: 'search.sort.newest' },
@@ -88,6 +89,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.loadProducts();
     this.configSizeEvent();
     this.loadQueryOptions();
   }
@@ -101,7 +103,7 @@ export class SearchComponent implements OnInit, OnDestroy {
       this.sortBy = params['sortBy'] || 'asc';
       this.pageNo = params['page'] ? Number(params['page']) : 1;
       this.minPrice = params['minPrice'] ? Number(params['minPrice']) : 0;
-      this.maxPrice = params['maxPrice'] ? Number(params['maxPrice']) : this.productService.maxPrice;
+      this.maxPrice = params['maxPrice'] ? Number(params['maxPrice']) : this.productService.getMaxPrice(this.products);
       this.category = params['category'] || null;
       this.status = params['status'] || null;
       this.brand = params['brand'] || null;
@@ -119,7 +121,9 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
 
   loadProducts() {
-    this.productService.products.subscribe((productData) => {
+    const params: ProductParameters = {}
+    this.productService.getProducts(params)
+    .subscribe((productData) => {
       this.products = this.filterProducts(productData);
       this.sortProducts();
       this.paginateProducts();
@@ -132,14 +136,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     // Filter by search text
     if (this.searchText) {
       filteredProducts = filteredProducts.filter((prd) =>
-        prd.title.toLowerCase().includes(this.searchText.toLowerCase())
-      );
-    }
-
-    // Filter by product type
-    if (this.productType) {
-      filteredProducts = filteredProducts.filter(
-        (prd) => prd.productType.toLowerCase() === this.productType.toLowerCase()
+        prd.name.toLowerCase().includes(this.searchText.toLowerCase())
       );
     }
 
@@ -160,14 +157,14 @@ export class SearchComponent implements OnInit, OnDestroy {
     // Filter by category
     if (this.category) {
       filteredProducts = filteredProducts.filter(
-        (prd) => prd.category.name.toLowerCase() === this.category?.toLowerCase()
+        (prd) => prd.category.some(e => e.name.toLowerCase() === this.category?.toLowerCase())
       );
     }
 
     // Filter by brand
     if (this.brand) {
       filteredProducts = filteredProducts.filter(
-        (prd) => prd.brand.name.toLowerCase() === this.brand?.toLowerCase()
+        (prd) => prd.brand.toLowerCase() === this.brand?.toLowerCase()
       );
     }
 
@@ -200,7 +197,11 @@ export class SearchComponent implements OnInit, OnDestroy {
         this.products.sort((a, b) => b.discount - a.discount);
         break;
       case 'category':
-        this.products.sort((a, b) => a.category.name.localeCompare(b.category.name));
+        this.products.sort((a, b) => {
+          const categoryA = a.category.map(category => category.name).join(', ');
+          const categoryB = b.category.map(category => category.name).join(', ');
+          return categoryA.localeCompare(categoryB);
+        });
         break;
       case 'new':
         this.products.sort((a, b) => (a.isNew === b.isNew ? 0 : a.isNew ? -1 : 1));
@@ -244,7 +245,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   handleResetFilter() {
     this.minPrice = 0;
-    this.maxPrice = this.productService.maxPrice;
+    this.productService.getMaxPrice(this.products)
     this.router.navigate(['search']);
   }
 

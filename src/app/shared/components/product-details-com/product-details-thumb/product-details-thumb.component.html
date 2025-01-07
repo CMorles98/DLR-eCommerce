@@ -6,13 +6,13 @@
       role="tablist"
     >
       <button
-        *ngFor="let item of product?.imageURLs; let i = index"
-        [class.active]="item.img === productService.activeImg"
-        (click)="productService.handleImageActive(item.img)"
+        *ngFor="let item of product?.productVariants; let i = index"
+        [class.active]="item.imgUrl === productService.activeImg"
+        (click)="productService.handleImageActive(item.imgUrl)"
         type="button"
         class="nav-link"
       >
-        <img [src]="item.img" alt="nav-img" style="background-color: #F4F5F7;" />
+        <img [src]="item.imgUrl" alt="nav-img" style="background-color: #F4F5F7;" />
       </button>
     </div>
   </nav>
@@ -22,11 +22,11 @@
       style="background-color: #f5f6f8"
     >
       <img [src]="productService.activeImg" alt="prd-image" />
-      <div *ngIf="product.videoId" class="tp-product-details-thumb-video">
+      <!-- <div *ngIf="product.videoId" class="tp-product-details-thumb-video">
         <a (click)="utilsService.playVideo('B0WuqoXkJkY')" class="tp-product-details-thumb-video-btn cursor-pointer popup-video">
           <i class="fas fa-play"></i>
         </a>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

@@ -23,7 +23,7 @@
           </div>
           <div class="cartmini__content">
             <h5 class="cartmini__title">
-              <a [routerLink]="['/shop/shop-details', item.id]">{{ item.title }}</a>
+              <a [routerLink]="['/shop/shop-details', item.id]">{{ item.name }}</a>
             </h5>
             <div class="cartmini__price-wrapper">
               <span *ngIf="item.discount > 0 && item.orderQuantity" class="cartmini__price">

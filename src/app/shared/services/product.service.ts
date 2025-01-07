@@ -1,57 +1,19 @@
-import { Injectable } from "@angular/core";
-import { Observable, of, map } from "rxjs";
-import product_data from "../data/product-data";
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Inject, Injectable } from "@angular/core";
 import { IProduct } from "../interfaces/product.interface";
-
-const all_products = product_data
+import { environment } from '../../../environments/environment';
+import { ProductParameters } from '../interfaces/product-parameters.interface';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  public filter_offcanvas: boolean = false;
+  
+  http: HttpClient = Inject(HttpClient)
 
-  // Get Products
-  public get products(): Observable<IProduct[]> {
-    return of(product_data);
-  }
-
-  constructor() { }
-
-  activeImg: string | undefined;
-
-  handleImageActive(img: string) {
-    this.activeImg = img;
-  }
-
-  // Get Products By id
-  public getProductById(id: string): Observable<IProduct | undefined> {
-    return this.products.pipe(map(items => {
-      const product = items.find(p => p.id === id);
-      if(product){
-        this.handleImageActive(product.img)
-      }
-      return product;
-    }));
-  }
-   // Get related Products
-   public getRelatedProducts(productId: string,category:string): Observable<IProduct[]> {
-    return this.products.pipe(map(items => {
-      return items.filter(
-        (p) =>
-          (p.category.name.toLowerCase().includes('todo') || p.category.name.toLowerCase() === category.toLowerCase()) &&
-          p.id !== productId
-      )
-    }));
-  }
-  // Get max price
-  public get maxPrice(): number {
-    const max_price = all_products.reduce((max, product) => {
-      return product.price > max ? product.price : max;
-    }, 0);
-    return max_price
-  }
-// shop filterSelect
+  public filter_offcanvas: boolean = false
+  
   public filterSelect: {value: string, text: string}[] = [
     { value: 'asc', text: 'Ascending' },
     { value: 'desc', text: 'Descending' },
@@ -62,73 +24,37 @@ export class ProductService {
     { value: 'new', text: 'New to Old' },
   ];
 
-    // Get Product Filter
-    public filterProducts(filter: any= []): Observable<IProduct[]> {
-      return this.products.pipe(map(product =>
-        product.filter((item: IProduct) => {
-          if (!filter.length) return true
+  baseUrl = environment.baseUrl + '/v1/products'
+  activeImg: string | undefined
+  
 
-          const Tags = filter.some((prev: any) => {
-            if (item.tags) {
-              if (item.tags.includes(prev)) {
-                return prev;
-              }
-            }
-          });
-          return Tags
-        })
-      ));
-    }
+  getProducts({ featured, name, category }: ProductParameters){
+    const params: HttpParams = new HttpParams()
 
+    if(featured) params.set("featured", featured)
+    if(name) params.set("name", name)
+    if(category) params.set("category", category)
 
-      // Sorting Filter
-  public sortProducts(products: IProduct[], payload: string): any {
+  const products: IProduct[] = []
 
-    if(payload === 'asc') {
-      return products.sort((a, b) => {
-        if (a.id < b.id) {
-          return -1;
-        } else if (a.id > b.id) {
-          return 1;
-        }
-        return 0;
-      })
-    } else if (payload === 'on-sale') {
-      return products.filter((p) => p.discount > 0)
-    } else if (payload === 'low') {
-      return products.sort((a, b) => {
-        if (a.price < b.price) {
-          return -1;
-        } else if (a.price > b.price) {
-          return 1;
-        }
-        return 0;
-      })
-    } else if (payload === 'high') {
-      return products.sort((a, b) => {
-        if (a.price > b.price) {
-          return -1;
-        } else if (a.price < b.price) {
-          return 1;
-        }
-        return 0;
-      })
-    }
+    return of(products)
   }
 
-  /*
-    ---------------------------------------------
-    ------------- Product Pagination  -----------
-    ---------------------------------------------
-  */
-  public getPager(totalItems: number, currentPage: number = 1, pageSize: number = 9) {
-    // calculate total pages
-    let totalPages = Math.ceil(totalItems / pageSize);
+  handleImageActive(img: string) {
+    this.activeImg = img;
+  }
 
-    // Paginate Range
+  getMaxPrice(products: IProduct[]): number {
+    const max_price = products.reduce((max, product) => {
+      return product.price > max ? product.price : max;
+    }, 0);
+    return max_price
+  }
+  
+  public getPager(totalItems: number, currentPage: number = 1, pageSize: number = 9) {
+    let totalPages = Math.ceil(totalItems / pageSize);
     let paginateRange = 3;
 
-    // ensure current page isn't out of range
     if (currentPage < 1) {
       currentPage = 1;
     } else if (currentPage > totalPages) {
@@ -147,14 +73,11 @@ export class ProductService {
       endPage =  currentPage + 1;
     }
 
-    // calculate start and end item indexes
     let startIndex = (currentPage - 1) * pageSize;
     let endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
 
-    // create an array of pages to ng-repeat in the pager control
     let pages = Array.from(Array((endPage + 1) - startPage).keys()).map(i => startPage + i);
 
-    // return object with all pager properties required by the view
     return {
       totalItems: totalItems,
       currentPage: currentPage,
@@ -167,4 +90,89 @@ export class ProductService {
       pages: pages
     };
   }
+
+
+//   // Get Products By id
+//   public getProductById(id: string): Observable<IProduct | undefined> {
+//     return this.getProducts().pipe(map(items => {
+//       const product = items.find(p => p.id === id);
+//       if(product){
+//         this.handleImageActive(product.img)
+//       }
+//       return product;
+//     }));
+//   }
+//    // Get related Products
+//    public getRelatedProducts(productId: string,category:string): Observable<IProduct[]> {
+//     return this.products.pipe(map(items => {
+//       return items.filter(
+//         (p) =>
+//           (p.category.name.toLowerCase().includes('todo') || p.category.name.toLowerCase() === category.toLowerCase()) &&
+//           p.id !== productId
+//       )
+//     }));
+//   }
+//   // Get max price
+
+
+
+//     // Get Product Filter
+//   public filterProducts(filter: any= []): Observable<IProduct[]> {
+//       return this.products.pipe(map(product =>
+//         product.filter((item: IProduct) => {
+//           if (!filter.length) return true
+
+//           const Tags = filter.some((prev: any) => {
+//             if (item.tags) {
+//               if (item.tags.includes(prev)) {
+//                 return prev;
+//               }
+//             }
+//           });
+//           return Tags
+//         })
+//       ));
+//     }
+
+
+//       // Sorting Filter
+//   public sortProducts(products: IProduct[], payload: string): any {
+
+//     if(payload === 'asc') {
+//       return products.sort((a, b) => {
+//         if (a.id < b.id) {
+//           return -1;
+//         } else if (a.id > b.id) {
+//           return 1;
+//         }
+//         return 0;
+//       })
+//     } else if (payload === 'on-sale') {
+//       return products.filter((p) => p.discount > 0)
+//     } else if (payload === 'low') {
+//       return products.sort((a, b) => {
+//         if (a.price < b.price) {
+//           return -1;
+//         } else if (a.price > b.price) {
+//           return 1;
+//         }
+//         return 0;
+//       })
+//     } else if (payload === 'high') {
+//       return products.sort((a, b) => {
+//         if (a.price > b.price) {
+//           return -1;
+//         } else if (a.price < b.price) {
+//           return 1;
+//         }
+//         return 0;
+//       })
+//     }
+//   }
+
+//   /*
+//     ---------------------------------------------
+//     ------------- Product Pagination  -----------
+//     ---------------------------------------------
+//   */
 }

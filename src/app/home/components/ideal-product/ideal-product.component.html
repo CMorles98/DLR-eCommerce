@@ -20,11 +20,13 @@
 
                                         <div class="card-body h-100 align-self-center ">
                                             <h6 class="roboto-regular m-0 p-0 " style="line-height: 1;">{{item.title | translate }}</h6>
-                                            <small class="card-text" style="line-height: 1;">{{item.subTitle | translate }}</small>
+                                            <small class="card-text" style="line-height: 1;">{{item.description| translate }}</small>
                                         </div>
 
                                         <div class="tp-ideal-icon-2">
-                                            <a [href]="item.link" target="_blank" class="popup-image"><i class="fa-solid fa-link"></i></a>
+                                            <a [routerLink]="[item.link]" [queryParams]="item.queryParams" class="popup-image">
+                                                <i class="fa-solid fa-link"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

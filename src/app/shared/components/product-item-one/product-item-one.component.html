@@ -72,7 +72,7 @@
 
     <h2 class="tp-product-title roboto-regular">
         <a [routerLink]="['/']" class="fs-6">
-          {{product.title}}
+          {{product.name}}
         </a>
         <br>
         <span class="roboto-regular text-muted" style="line-height: 1; font-size: small;">
@@ -86,11 +86,11 @@
     <div class="tp-product-price-wrapper">
       <ng-container *ngIf="product.discount > 0; else noDiscount">
         <span class="tp-product-price new-price tp-product-price new-price th-bg-light-silver py-1 px-1">
-          @if (product.differentPrices) {
+          <!-- @if (product.differentPrices) { -->
             <small class="roboto-thin small text-dark">
               Desde
             </small>
-          }
+          <!-- } -->
           ${{ (product.price - (product.price * product.discount / 100)).toFixed(2) }}
         </span>
         <span class="tp-product-price old-price tp-product-price new-price ms-1">${{ product.price }}</span>

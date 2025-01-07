@@ -15,15 +15,8 @@
     <ul>
       <ng-container *ngFor="let item of categoryItems; let i = index">
         <li class="roboto-light">
-          <a class="cursor-pointer roboto-light" (click)="handleParentCategory(item.parent)">
-            <span *ngIf="item.img">
-              <img
-                [src]="item.img"
-                alt="cate img"
-                style="width: 50px; height: 50px; object-fit: contain"
-              />
-            </span>
-            {{ item.parent }}
+          <a class="cursor-pointer roboto-light" (click)="handleParentCategory(item.name)">
+            {{ 'category.'+(item.name) | translate }}
           </a>
         </li>
       </ng-container>

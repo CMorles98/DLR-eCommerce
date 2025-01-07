@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { IProduct } from '../interfaces/product.interface';
+import { IProduct, IProductCart} from '../interfaces/product.interface';
 
 const state = {
   cart_products: JSON.parse(localStorage['cart_products'] || '[]')
@@ -14,7 +14,7 @@ export class CartService {
   public isCartOpen: boolean = false;
   constructor(private toastrService: ToastrService) { }
 
-  public getCartProducts(): IProduct[] {
+  public getCartProducts(): IProductCart[] {
     return state.cart_products;
   }
 
@@ -24,9 +24,9 @@ export class CartService {
 
   // add_cart_product
   addCartProduct(payload: IProduct) {
-    const isExist = state.cart_products.some((i: IProduct) => i.id === payload.id);
-    if (payload.status === 'out-of-stock' || payload.quantity === 0) {
-      this.toastrService.error(`Out of stock ${payload.title}`);
+    const isExist = state.cart_products.some((i: IProductCart) => i.id === payload.id);
+    if (payload.status === 'out-of-stock' || payload.qty === 0) {
+      this.toastrService.error(`Out of stock ${payload.name}`);
     }
     else if (!isExist) {
       const newItem = {
@@ -34,17 +34,17 @@ export class CartService {
         orderQuantity: 1,
       };
       state.cart_products.push(newItem);
-      this.toastrService.success(`${payload.title} added to cart`);
+      this.toastrService.success(`${payload.name} added to cart`);
     } else {
-      state.cart_products.map((item: IProduct) => {
+      state.cart_products.map((item: IProductCart) => {
         if (item.id === payload.id) {
           if (typeof item.orderQuantity !== "undefined") {
-            if (item.quantity >= item.orderQuantity + this.orderQuantity) {
+            if (item.qty >= item.orderQuantity + this.orderQuantity) {
               item.orderQuantity =
                 this.orderQuantity !== 1
                   ? this.orderQuantity + item.orderQuantity
                   : item.orderQuantity + 1;
-              this.toastrService.success(`${this.orderQuantity} ${item.title} added to cart`);
+              this.toastrService.success(`${this.orderQuantity} ${item.name} added to cart`);
             } else {
               this.toastrService.success(`No more quantity available for this product!`);
               this.orderQuantity = 1;
@@ -60,7 +60,7 @@ export class CartService {
 // total price quantity
   public totalPriceQuantity() {
     return state.cart_products.reduce(
-      (cartTotal: { total: number; quantity: number }, cartItem: IProduct) => {
+      (cartTotal: { total: number; quantity: number }, cartItem: IProductCart) => {
         const { price, orderQuantity, discount } = cartItem;
         if (typeof orderQuantity !== "undefined") {
           if (discount && discount > 0) {
@@ -98,13 +98,13 @@ export class CartService {
   }
 
   // quantityDecrement
-  quantityDecrement(payload: IProduct) {
-    state.cart_products.map((item: IProduct) => {
+  quantityDecrement(payload: IProductCart) {
+    state.cart_products.map((item: IProductCart) => {
       if (item.id === payload.id) {
         if (typeof item.orderQuantity !== "undefined") {
           if (item.orderQuantity > 1) {
             item.orderQuantity = item.orderQuantity - 1;
-            this.toastrService.info(`Decrement Quantity For ${item.title}`);
+            this.toastrService.info(`Decrement Quantity For ${item.name}`);
           }
         }
       }
@@ -114,11 +114,11 @@ export class CartService {
   };
 
   // remover_cart_products
-  removeCartProduct(payload: IProduct) {
+  removeCartProduct(payload: IProductCart) {
     state.cart_products = state.cart_products.filter(
-      (p: IProduct) => p.id !== payload.id
+      (p: IProductCart) => p.id !== payload.id
     );
-    this.toastrService.error(`${payload.title} remove to cart`);
+    this.toastrService.error(`${payload.name} remove to cart`);
     localStorage.setItem("cart_products", JSON.stringify(state.cart_products));
   };
 

@@ -1,43 +1,63 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import { ICategory } from '../../../interfaces/category.interface';
 import { ProductService } from '../../../services/product.service';
-import { categoryData } from '../../../data/category-data';
 import { IProduct } from '../../../interfaces/product.interface';
+import { Subscription } from 'rxjs';
+import { CategoryService } from '../../../services/category.service';
+import { ProductParameters } from '../../../interfaces/product-parameters.interface';
 
 @Component({
   selector: 'app-category-filter',
   templateUrl: './category-filter.component.html',
   styleUrls: ['./category-filter.component.scss'],
 })
-export class CategoryFilterComponent {
-  public categoryData: ICategory[] = categoryData;
-  public products: IProduct[] = [];
+export class CategoryFilterComponent implements OnInit, OnDestroy{
+  
+  route: ActivatedRoute = inject(ActivatedRoute)
+  router: Router = inject(Router)
+  viewScroller: ViewportScroller = inject(ViewportScroller)
+  productService: ProductService = inject(ProductService)
+  categoryService: CategoryService = inject(CategoryService)
+  translate: TranslateService = inject(TranslateService)
+
+  componentSubscription: Subscription = new Subscription()
+  categoryData: ICategory[] = [];
+  products: IProduct[] = [];
   activeQuery: string = '';
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private viewScroller: ViewportScroller,
-    public productService: ProductService,
-    private translate: TranslateService
-  ) {}
+
+  ngOnDestroy(): void {
+    if (this.componentSubscription) {
+      this.componentSubscription.unsubscribe();
+    }
+  }
 
   ngOnInit(): void {
+
     this.route.queryParams.subscribe((queryParams) => {
       this.activeQuery = queryParams['category'];
     });
 
-    this.productService.products.subscribe(products => {
-      this.products = products
-      console.log(this.products)
+    const parameters : ProductParameters = {}
+
+    this.componentSubscription.add(
+      this.productService.getProducts(parameters).subscribe(products => {
+        this.products = products
+      })
+    )    
+
+    this.categoryService.get()
+    .subscribe(categories => {
+      console.log(categories)
+      this.categoryData = categories
     })
   }
 
   handleCategoryRoute(value: string): void {
-    const newCategory = value.toLowerCase().replace('&', '').split(' ').join('-');
+    const newCategory = value.toLowerCase().replace('&', '').split(' ').join('-')
 
     // Define the query parameters as an object
     const queryParams: Params = {
@@ -59,8 +79,7 @@ export class CategoryFilterComponent {
 
   getProductByCategory(category: string) {
     return this.products.filter(e => 
-      e.category.name.toLowerCase() === category.toLowerCase() || 
-      this.translate.instant(`category.${category.toLowerCase()}`) === e.category.name.toLowerCase()
+      e.category.some(cat => cat.name.toLowerCase() === category.toLowerCase())
     ).length || '0'
   }
 }

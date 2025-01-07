@@ -1,20 +1,30 @@
 import { Router  } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ICategory } from '../../interfaces/category.interface';
-import { categoryData } from '../../data/category-data';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-header-category',
   templateUrl: './header-category.component.html',
   styleUrls: ['./header-category.component.scss']
 })
-export class HeaderCategoryComponent {
+export class HeaderCategoryComponent implements OnInit {
+  
+ router: Router = inject(Router)
+ categoryService: CategoryService = inject(CategoryService)
 
- public categoryItems: ICategory[] = categoryData;
-
+ public categoryItems: ICategory[] = [];
  public isActive:boolean = false;
-
- constructor(private router: Router) {}
+  
+  ngOnInit(): void {
+    this.categoryService.get()
+    .subscribe({
+      next: (categories) => {
+        this.categoryItems = categories
+      },
+    })
+  }
+  
 
 public handleActive(): void {
   this.isActive = !this.isActive;

@@ -1,5 +1,5 @@
 import { Component,Input } from '@angular/core';
-import { IProduct } from '../../interfaces/product.interface';
+import { IProduct, IProductCart } from '../../interfaces/product.interface';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -21,5 +21,9 @@ export class ProductListItemComponent {
   // Function to check if an item is in the cart
   isItemInCart(item: IProduct): boolean {
     return this.cartService.getCartProducts().some((prd: IProduct) => prd.id === item.id);
+  }
+
+  getCategoryNames(){
+
   }
 }

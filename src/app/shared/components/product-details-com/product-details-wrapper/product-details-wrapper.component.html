@@ -1,8 +1,8 @@
 <div class="tp-product-details-wrapper has-sticky">
   <div class="tp-product-details-category">
-    <span>{{ product.parent }}</span>
+    <span>{{ product.category }}</span>
   </div>
-  <h3 class="tp-product-details-title">{{ product.title }}</h3>
+  <h3 class="tp-product-details-title">{{ product.name }}</h3>
 
   <!-- inventory details -->
   <div class="tp-product-details-inventory d-flex align-items-center mb-10">
@@ -16,7 +16,7 @@
         <span><i class="fa-solid fa-star"></i></span>
       </div>
       <div class="tp-product-details-reviews">
-        <span>({{ product.reviews?.length }} Reviews)</span>
+        <span>({{ product.reviews.length }} Reviews)</span>
       </div>
     </div>
   </div>
@@ -44,18 +44,18 @@
       <h4 class="tp-product-details-variation-title">Color:</h4>
       <div class="tp-product-details-variation-list">
         <button
-          *ngFor="let item of product.imageURLs; let i = index"
-          [class.active]="item.img === productService.activeImg"
-          (click)="productService.handleImageActive(item.img)"
+          *ngFor="let item of product.productVariants; let i = index"
+          [class.active]="item.imgUrl"
+          (click)="productService.handleImageActive(item.imgUrl)"
           type="button"
           class="color tp-color-variation-btn"
           style="margin-right: 5px"
         >
-          <span :data-bg-color="item.color?.clrCode" [style.backgroundColor]="item.color?.clrCode"></span>
+          <span :data-bg-color="item.color?.clrCode" [style.backgroundColor]="item.code"></span>
           <!-- <span *ngIf="item.color && item.color.name" class="tp-color-variation-tooltip">
             {{ item.color.name }}
           </span> -->
-          <span class="tp-color-variation-tootltip">{{ item.color?.name }}</span>
+          <span class="tp-color-variation-tootltip">{{ item.name }}</span>
         </button>
       </div>
     </div>
@@ -113,7 +113,7 @@
        </div>
        <div class="tp-product-details-query-item d-flex align-items-center">
            <span>Category:  </span>
-           <p>{{product.parent}}</p>
+           <p>{{product.category}}</p>
        </div>
        <div class="tp-product-details-query-item d-flex align-items-center">
            <span>Tag: </span>

@@ -8,7 +8,7 @@ const product_data: IProduct[] = [
     isNew: true,
     bgColor: "#E3E3E3",
     img: "https://s03.s3c.es/imag/_v0/770x420/b/3/c/Redmi-Note-9-Pro-3.png",
-    title: "Xiaomi Redmi Note 12",
+    name: "Xiaomi Redmi Note 12",
     slug: "xiaomi-redmi-note-12",
     unit: "1pc",
     imageURLs: [
@@ -17,7 +17,7 @@ const product_data: IProduct[] = [
         img: "https://s03.s3c.es/imag/_v0/770x420/b/3/c/Redmi-Note-9-Pro-3.png"
       }
     ],
-    parent: "Smartphones",
+    category: "Smartphones",
     children: "Xiaomi Phones",
     price: 299,
     discount: 10,
@@ -59,7 +59,7 @@ const product_data: IProduct[] = [
     isNew: true,
     bgColor: "#E3E3E3",
     img: "https://gallerypng.com/wp-content/uploads/2024/08/iphone-png-series-image.png",
-    title: "iPhone 14 Pro",
+    name: "iPhone 14 Pro",
     slug: "iphone-14-pro",
     unit: "1pc",
     imageURLs: [
@@ -69,7 +69,7 @@ const product_data: IProduct[] = [
       },
 
     ],
-    parent: "Smartphones",
+    category: "Smartphones",
     children: "Apple Phones",
     price: 999,
     discount: 0,
@@ -112,7 +112,7 @@ const product_data: IProduct[] = [
     isNew: true,
     bgColor: "#E3E3E3",
     img: "https://crdms.images.consumerreports.org/prod/products/cr/models/407606-smartwatches-apple-watch-series-8-gps-45mm-10032324.png",
-    title: "Apple Watch Series 8",
+    name: "Apple Watch Series 8",
     slug: "apple-watch-series-8",
     unit: "1pc",
     imageURLs: [
@@ -121,7 +121,7 @@ const product_data: IProduct[] = [
         img: "https://crdms.images.consumerreports.org/prod/products/cr/models/407606-smartwatches-apple-watch-series-8-gps-45mm-10032324.png"
       },
     ],
-    parent: "SmartWatches",
+    category: "SmartWatches",
     children: "Apple Watch",
     price: 399,
     discount: 5,
@@ -164,7 +164,7 @@ const product_data: IProduct[] = [
     isNew: false,
     bgColor: "#E3E3E3",
     img: "https://www.jbl.com.pa/on/demandware.static/-/Sites-siteCatalog_JB_PA/default/dw83d4825a/JBL_PARTYBOX_STAGE_320_HERO_2_47988_x3(1).png",
-    title: "JBL Flip 6 Portable Speaker",
+    name: "JBL Flip 6 Portable Speaker",
     slug: "jbl-flip-6-speaker",
     unit: "1pc",
     imageURLs: [
@@ -177,7 +177,7 @@ const product_data: IProduct[] = [
         img: "https://www.jbl.com.pa/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw8870fbe0/1_JBL_PARTYBOX_110_HERO_x2.png?sw=537&sfrm=png"
       }
     ],
-    parent: "Audio",
+    category: "Audio",
     children: "Portable Speakers",
     price: 129,
     discount: 0,
@@ -220,7 +220,7 @@ const product_data: IProduct[] = [
     isNew: true,
     bgColor: "#E3E3E3",
     img: "https://p2-ofp.static.pub/fes/cms/2022/06/08/k21t0mdv56nqm9s7ocf5vgteucg21v444839.png",
-    title: "Lenovo Yoga 7i",
+    name: "Lenovo Yoga 7i",
     slug: "lenovo-yoga-7i",
     unit: "1pc",
     imageURLs: [
@@ -229,7 +229,7 @@ const product_data: IProduct[] = [
         img: "https://p2-ofp.static.pub/fes/cms/2022/06/08/k21t0mdv56nqm9s7ocf5vgteucg21v444839.png"
       }
     ],
-    parent: "Laptops",
+    category: "Laptops",
     children: "2-in-1 Laptops",
     price: 899,
     discount: 12,
@@ -272,7 +272,7 @@ const product_data: IProduct[] = [
     isNew: false,
     bgColor: "#E3E3E3",
     img: "https://skyteksecurity.hn/cdn/shop/files/TLWR850N-p_480x480.png?v=1696739936",
-    title: "TP-Link Archer AX3000",
+    name: "TP-Link Archer AX3000",
     slug: "tp-link-archer-ax3000",
     unit: "1pc",
     imageURLs: [
@@ -281,7 +281,7 @@ const product_data: IProduct[] = [
         img: "https://skyteksecurity.hn/cdn/shop/files/TLWR850N-p_480x480.png?v=1696739936"
       }
     ],
-    parent: "Connectivity",
+    category: "Connectivity",
     children: "Routers",
     price: 129,
     discount: 0,
@@ -324,7 +324,7 @@ const product_data: IProduct[] = [
     isNew: true,
     bgColor: "#E3E3E3",
     img: "https://purepng.com/public/uploads/large/samsung-galaxy-s10-prism-front-6bx.png",
-    title: "Samsung Galaxy Tab S8",
+    name: "Samsung Galaxy Tab S8",
     slug: "samsung-galaxy-tab-s8",
     unit: "1pc",
     imageURLs: [
@@ -337,7 +337,7 @@ const product_data: IProduct[] = [
         img: "https://pngimagesfree.com/wp-content/uploads/Samsung-Galaxy-S24-Purple-PNG@pngimagesfree.png"
       }
     ],
-    parent: "Tablets",
+    category: "Tablets",
     children: "Android Tablets",
     price: 699,
     discount: 8,
@@ -380,7 +380,7 @@ const product_data: IProduct[] = [
     isNew: true,
     bgColor: "#E3E3E3",
     img: "https://p1-ofp.static.pub/fes/cms/2023/05/03/nhhxvkm09yy8lsuyzprsukppz7q5fn701155.png",
-    title: "Lenovo Legion 5 Pro",
+    name: "Lenovo Legion 5 Pro",
     slug: "lenovo-legion-5-pro",
     unit: "1pc",
     imageURLs: [
@@ -389,7 +389,7 @@ const product_data: IProduct[] = [
         img: "https://p1-ofp.static.pub/fes/cms/2023/05/03/nhhxvkm09yy8lsuyzprsukppz7q5fn701155.png"
       }
     ],
-    parent: "Gaming",
+    category: "Gaming",
     children: "Gaming Laptops",
     price: 1399,
     discount: 10,

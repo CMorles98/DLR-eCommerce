@@ -28,10 +28,9 @@ import { ResetFilterRouteComponent } from './components/filtering/reset-filter-r
 import { StatusFilterComponent } from './components/filtering/status-filter/status-filter.component';
 import { NgxSliderModule } from 'ngx-slider-v2';
 import { TopRatedProductsComponent } from './components/top-rated-products/top-rated-products.component';
-import { ProductItemTwoComponent } from './components/product-item-two/product-item-two.component';
 import { ProductListItemComponent } from './components/product-list-item/product-list-item.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
-import { NotFoundComponent } from '../not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -57,7 +56,6 @@ import { NotFoundComponent } from '../not-found/not-found.component';
     PriceFilterComponent,
     ResetFilterRouteComponent,
     StatusFilterComponent,
-    ProductItemTwoComponent,
     ProductListItemComponent,
     PaginationComponent
   ],
@@ -69,7 +67,8 @@ import { NotFoundComponent } from '../not-found/not-found.component';
     FormsModule,
     NgbTooltipModule,
     TranslateModule,
-    NgxSliderModule
+    NgxSliderModule,
+    HttpClientModule
   ],
   exports: [
     HeaderComponent,
@@ -90,7 +89,6 @@ import { NotFoundComponent } from '../not-found/not-found.component';
     ResetFilterRouteComponent,
     StatusFilterComponent,
     TopRatedProductsComponent,
-    ProductItemTwoComponent,
     ProductListItemComponent,
     PaginationComponent
   ]

@@ -10,24 +10,21 @@ import { ProductService } from '../../../services/product.service';
   styleUrls: ['./price-filter.component.scss'],
 })
 export class PriceFilterComponent {
-  // Using Output EventEmitter
   @Output() priceFilter: EventEmitter<any> = new EventEmitter<any>();
-
-  // define min, max and range
-  @Input() min!: number;
-  @Input() max!: number;
+  @Input() min: number = 0;
+  @Input() max: number = 0;
 
   public collapse: boolean = true;
   public isBrowser: boolean = false;
 
   public price: { minPrice: number; maxPrice: number } = {
     minPrice: 0,
-    maxPrice: this.productService.maxPrice,
+    maxPrice: this.max,
   };
 
   options: Options = {
     floor: 0,
-    ceil: this.productService.maxPrice,
+    ceil: this.max,
     hidePointerLabels: true,
   };
 

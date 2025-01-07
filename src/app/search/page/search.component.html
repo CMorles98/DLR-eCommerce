@@ -90,13 +90,17 @@
                           </li>
                         </ul>
                       </div> -->
-                      <div class="tp-shop-top-result">
-                        <p>{{ resultsText.showing | translate:{
-                          start: paginate.startIndex + 1,
-                          end: paginate.endIndex + 1,
-                          total: paginate.totalItems
-                        } }}</p>
-                      </div>
+                      <ng-container *ngIf="(paginate.startIndex + 1) > 0">
+
+                        
+                        <div class="tp-shop-top-result">
+                          <p>{{ resultsText.showing | translate:{
+                            start: paginate.startIndex + 1,
+                            end: paginate.endIndex + 1,
+                            total: paginate.totalItems
+                          } }}</p>
+                        </div>
+                      </ng-container>
                     </div>
                   </div>
                   <div class="col-xl-6">

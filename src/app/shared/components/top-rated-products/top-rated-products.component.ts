@@ -1,18 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { IProduct } from '../../interfaces/product.interface';
 import { ProductService } from '../../services/product.service';
+import { ProductParameters } from '../../interfaces/product-parameters.interface';
 
 @Component({
   selector: 'app-top-rated-products',
   templateUrl: './top-rated-products.component.html',
   styleUrls: ['./top-rated-products.component.scss']
 })
-export class TopRatedProductsComponent {
+export class TopRatedProductsComponent implements OnInit {
 
   public topRatedProducts: { product: IProduct; rating: number }[] = []
+  productService: ProductService = inject(ProductService)
 
-  constructor(public productService: ProductService) {
-    this.productService.products.subscribe((products) => {
+
+  ngOnInit(): void {
+    const params: ProductParameters = {}
+
+    this.productService.getProducts(params)
+    .subscribe((products) => {
      this.topRatedProducts = products.map((product) => {
       if (product.reviews && product.reviews.length > 0) {
         const totalRating = product.reviews.reduce(

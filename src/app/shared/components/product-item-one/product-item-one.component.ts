@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IProduct } from '../../interfaces/product.interface';
+import { IProduct, IProductCart } from '../../interfaces/product.interface';
 import { CartService } from '../../services/cart.service';
 import { UtilsService } from '../../services/utils.service';
 
@@ -35,7 +35,7 @@ export class ProductItemOneComponent {
   // }
   
   productOutOfStock(product: IProduct): boolean {
-    return product.status === 'out-of-stock' || product.quantity === 0;
+    return product.status === 'out-of-stock' || product.qty === 0;
   }
   productIsNew(product: IProduct): boolean {
     return true

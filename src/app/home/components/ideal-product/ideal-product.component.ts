@@ -1,76 +1,89 @@
-import { Component, inject } from '@angular/core';
+import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import Swiper from 'swiper';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { CategoryService } from '../../../shared/services/category.service';
 
 @Component({
   selector: 'app-ideal-product',
   templateUrl: './ideal-product.component.html',
   styleUrl: './ideal-product.component.scss'
 })
-export class IdealProductComponent {
+export class IdealProductComponent implements OnInit, AfterViewInit {
 
   translate: TranslateService = inject(TranslateService);
 
   public data = [
     {
       id: 1,
-      link: '#',
+      link: '/search',
+      queryParams: { category: 'SmartPhones' },
       img: '/assets/img/Icons_SVG/Smartphone_Icon.svg',
       title: 'idealProduct.smartPhones',
-      subTitle: 'idealProduct.devices'
+      description: 'idealProduct.devices'
     },
     {
       id: 2,
-      link: '#',
+      link: '/search',
+      queryParams: { category: 'SmartWatches' },
       img: '/assets/img/Icons_SVG/Smartwatche_Icon.svg',
       title: 'idealProduct.smartWatches',
-      subTitle: 'idealProduct.devices'
+      description: 'idealProduct.devices'
     },
     {
       id: 3,
-      link: '#',
+      link: '/search',
+      queryParams: { category: 'Headphones' },
       img: '/assets/img/Icons_SVG/Audífonos_Icon.svg',
       title: 'idealProduct.headphones',
-      subTitle: 'idealProduct.devices'
+      description: 'idealProduct.devices'
     },
     {
       id: 4,
-      link: '#',
+      link: '/search',
+      queryParams: { category: 'Laptops' },
       img: '/assets/img/Icons_SVG/Laptop_Icon.svg',
       title: 'idealProduct.laptops',
-      subTitle: 'idealProduct.devices'
+      description: 'idealProduct.devices'
     },
     {
       id: 5,
-      link: '#',
+      link: '/search',
+      queryParams: { category: 'Audio' },
       img: '/assets/img/Icons_SVG/Cornetas_Icon.svg',
-      title: 'idealProduct.wallets',
-      subTitle: 'idealProduct.devices'
+      title: 'idealProduct.audio',
+      description: 'idealProduct.devices'
     },
     {
       id: 6,
-      link: '#',
+      link: '/search',
+      queryParams: { category: 'Gaming' },
       img: '/assets/img/Icons_SVG/Gaming_Icon.svg',
       title: 'idealProduct.gaming',
-      subTitle: 'idealProduct.devices'
+      description: 'idealProduct.devices'
     },
     {
       id: 7,
-      link: '#',
+      link: '/search',
+      queryParams: { category: 'Tablets' },
       img: '/assets/img/Icons_SVG/Tablet_Icon.svg',
       title: 'idealProduct.tablets',
-      subTitle: 'idealProduct.devices'
+      description: 'idealProduct.devices'
     },
     {
       id: 8,
-      link: '#',
+      link: '/search',
+      queryParams: { category: 'Connectivity' },
       img: '/assets/img/Icons_SVG/Conectividad_Icon.svg',
       title: 'idealProduct.connectivity',
-      subTitle: 'idealProduct.devices'
+      description: 'idealProduct.devices'
     },
   ];
   
+  ngOnInit(): void {
+
+  }
+
   ngAfterViewInit() {
     
     new Swiper('.tp-brand-slider-active', {

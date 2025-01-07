@@ -3,20 +3,20 @@
     <ul>
       <li *ngFor="let category of categoryData">
         <a
-          (click)="handleCategoryRoute(category.parent)"
+          (click)="handleCategoryRoute(category.name)"
           [ngClass]="{
             'cursor-pointer': true,
             active:
               activeQuery ===
-              category.parent
+              category.name
                 .toLowerCase()
                 .replace('&', '')
                 .split(' ')
                 .join('-')
           }"
         >
-          {{ 'category.' + category.parent | translate }}
-          <span>{{ getProductByCategory(category.parent) }}</span>
+          {{ 'category.' + category.name | translate }}
+          <span>{{ getProductByCategory(category.name) }}</span>
         </a>
       </li>
     </ul>

@@ -7,6 +7,7 @@ import { IBrand } from '../../../shared/interfaces/brand.interface';
 import { Autoplay, Navigation } from 'swiper/modules';
 import Swiper from 'swiper';
 import { TranslateService } from '@ngx-translate/core';
+import { ProductParameters } from '../../../shared/interfaces/product-parameters.interface';
 
 @Component({
   selector: 'app-new-products',
@@ -21,7 +22,7 @@ export class NewProductsComponent implements AfterViewInit, OnInit {
   public translateService: TranslateService = inject(TranslateService)
 
   public brands: IBrand[] = brands_data;
-  public electronic_prd: IProduct[] = [];
+  public products: IProduct[] = [];
   public activeTab = 'Todo';
 
   public tabs: { key: string, description: string}[] = [
@@ -36,16 +37,22 @@ export class NewProductsComponent implements AfterViewInit, OnInit {
   public additionalItemsToShow: number = 4;
   public innerWidth: any;
 
-  constructor() {
-    this.productService.products.subscribe((products) => {
-      this.electronic_prd = products.filter((p) => p.productType === 'electronics');
-      this.filteredProducts = this.getFilteredProducts();
-    });
-  }
+
   ngOnInit(): void {
+
     if(window.innerWidth <= 768){
       this.itemsToShow = 4;
     };
+
+    const params: ProductParameters = {}
+    
+    this.productService.getProducts(params)
+    .subscribe({
+      next: (products)=> {
+        this.products = products
+        this.filteredProducts = this.getFilteredProducts();
+      },
+    })
   }
 
   handleActiveTab(tab: string): void {
@@ -58,13 +65,12 @@ export class NewProductsComponent implements AfterViewInit, OnInit {
 
   getFilteredProducts(): IProduct[] {
     if (this.activeTab === 'Todo') {
-      return this.electronic_prd.slice(0, 10);
+      return this.products.slice(0, 10);
     } else if (this.activeTab === 'Dispositivos Móviles') {
-      return this.electronic_prd.filter((product) => product.featured);
+      return this.products.filter((product) => product.featured);
     } else if (this.activeTab === 'Audio') {
-      return this.electronic_prd
-        .slice()
-        .sort((a, b) => (b.sellCount ?? 0) - (a.sellCount ?? 0))
+      return this.products
+        // .sort((a, b) => (b.sellCount ?? 0) - (a.sellCount ?? 0))
         .slice(0, 8);
     } else {
       return [];

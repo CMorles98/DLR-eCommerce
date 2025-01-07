@@ -1,13 +1,15 @@
 {
     "category": {
-      "MobileDevices": "Dispositivos Móviles",
+      "Mobile Devices": "Dispositivos Móviles",
       "Audio": "Audio",
       "Laptops": "Laptops",
       "Gaming": "Gaming",
       "Connectivity": "Conectividad",
-      "Smartphones": "Smartphones",
+      "SmartPhones": "Smartphones",
       "SmartWatches": "Smart Watches",
-      "Tablets": "Tablets"
+      "Tablets": "Tablets",
+      "Speakers": "Cornetas",
+      "Headphones": "Audífonos"
     },
     "offcanvas": {
         "allCategories": "Todas las Categorias",

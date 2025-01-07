@@ -91,7 +91,7 @@ export class UtilsService {
     this.product = item;
 
     this.isProductModalOpen = true;
-    this.productService.handleImageActive(item.img);
+    this.productService.handleImageActive(item.img || '');
     this.cartService.initialOrderQuantity();
     this.openQuickView(item)
   }
